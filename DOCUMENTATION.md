@@ -18,7 +18,7 @@
    - [Configuration Reference](#28-configuration-reference)
    - [Observer Log Format](#29-observer-log-format)
    - [Running and Validating](#210-running-and-validating)
-3. [Phase 2 — Plan (Critic + Diagnostician)](#3-phase-2--plan)
+3. [Phase 2 - Implementation (Critic + Diagnostician)](#phase-2-implementation)
 4. [Phase 3 — Plan (Refiner + Validator)](#4-phase-3--plan)
 5. [Phase 4 — Plan (Experience Store)](#5-phase-4--plan)
 6. [Phase 5 — Plan (Benchmark + Paper)](#6-phase-5--plan)
@@ -422,22 +422,137 @@ pytest tests/ -v
 
 ---
 
-## 3. Phase 2 — Plan
+## Phase 2 Implementation
 
-**Target: Weeks 4–6**
+**Status: Complete**
+**Completion date: 2026-06-02**
 
-Add Critic and Diagnostician agents. Train failure classifier on synthetic data generated from the Phase 1 failure injection patterns.
+### Architecture change
 
-**Critic:** Scores executor output on 4 dimensions (correctness, completeness, efficiency, safety), each 1–5. Uses Ollama locally. XGBoost binary classifier on top for pass/fail gate.
+Phase 2 inserts two new nodes between Observer and END. The graph is now fully linear per subtask — routing is handled by Diagnostician, not Observer.
 
-**Diagnostician:** Takes Observer logs + Critic scores. Classifies failure into taxonomy. Uses:
-- DSPy `BootstrapFewShot` for offline prompt optimization on synthetic training set
-- Groq `llama-3.3-70b-versatile` for inference
-- Cosine similarity retrieval from accumulated logs for instance-based pre-classification
+```text
+orchestrator → executor → observer → critic → diagnostician → (loop | END)
+```
 
-**New graph edges:** `observer → critic → diagnostician → (refiner | complete)`
+Observer no longer decides routing. It outputs `current_phase = "critique"` and passes straight to Critic. Diagnostician reads subtask index and decides whether to loop back or end.
 
-**Synthetic data generation:** `scripts/generate_synthetic_failures.py` — programmatic generation of 100 synthetic failure logs per class (500 total), no API calls.
+### New files
+
+| File | Purpose |
+|---|---|
+| `aria/agents/critic.py` | Scoring agent — 4-dimension quality assessment |
+| `aria/agents/diagnostician.py` | Classification agent — 5-class failure taxonomy |
+| `aria/dspy_programs/diagnostician.py` | DSPy Signature + Module definitions |
+| `aria/classifiers/failure_classifier.py` | XGBoost wrapper (trains in Phase 5) |
+| `scripts/generate_synthetic_data.py` | Programmatic training data generator |
+| `scripts/compile_diagnostician.py` | Offline DSPy BootstrapFewShot compilation |
+
+### Critic agent contract
+
+**Input fields read:** `task_description`, `executor_output`, `executor_trace`, `api_calls_*`
+
+**Output fields written:**
+
+```python
+{
+    "critic_scores": CriticScores,   # correctness/completeness/efficiency/safety/overall/pass_fail
+    "current_phase": "diagnose",
+    "api_calls_groq": int,
+    "api_calls_ollama": int,
+}
+```
+
+**Scoring weights:** correctness×0.4 + completeness×0.3 + efficiency×0.2 + safety×0.1
+
+**Pass/fail threshold:** overall ≥ 3.5
+
+**Model:** `CRITIC_PROVIDER` env var (default: `ollama`). Completely decoupled from Observer — receives only task description + executor output, not observer flags. This prevents circular influence on scoring.
+
+### Diagnostician agent contract
+
+**Input fields read:** `task_description`, `observer_flags`, `critic_scores`, `executor_trace`
+
+**Output fields written:**
+
+```python
+{
+    "failure_class": str | None,          # primary root cause or None
+    "failure_manifestation": str | None,  # secondary pattern or None
+    "diagnosis_confidence": float,
+    "diagnosis_reasoning": str,
+    "current_phase": "complete" | "decompose",
+    "current_subtask_index": int,
+    "active_subtask": dict,
+    "api_calls_groq": int,
+}
+```
+
+**Two-stage classification:**
+
+1. XGBoost on numeric features (fast, local) — if trained and predicts a failure, uses as prior
+2. DSPy ChainOfThought via Groq — primary classifier using full context
+3. If XGBoost predicts failure but DSPy says `none`, the XGBoost signal overrides with confidence floor 0.6
+
+**DSPy program lifecycle:**
+
+- `DiagnoseFailure` Signature defines 4 inputs + 4 outputs
+- `DiagnosticProgram` wraps it with `dspy.ChainOfThought`
+- At startup, `diagnostician.py` tries to load `data/compiled/diagnostician.json`
+- If not found: zero-shot (works fine, just less consistent)
+- Compiled by running `scripts/compile_diagnostician.py` (offline, ~20 Groq API calls)
+
+**DSPy is compile-time only.** `BootstrapFewShot` runs offline and writes optimized few-shot demonstrations into the saved JSON. At inference time, DSPy replays those demos — no optimization loop, no training cost per run.
+
+### XGBoost classifier features
+
+12 numeric features extracted from state by `FailureFeatureExtractor`:
+
+```text
+max_drift_score, mean_drift_score,
+n_prompt_drift_flags, n_tool_repetition_flags,
+n_tool_error_loop_flags, n_turn_budget_flags,
+turn_ratio (used/max),
+critic_correctness, critic_completeness, critic_efficiency,
+critic_safety, critic_overall
+```
+
+Not trained until Phase 5 (needs 500 real run records). Until then `predict()` returns `None` and Diagnostician uses DSPy only.
+
+### Synthetic data workflow
+
+```bash
+# Step 1: generate training data (no API calls, pure Python)
+python scripts/generate_synthetic_data.py --per-class 100
+# → data/synthetic/{prompt_drift,tool_misuse,...}.jsonl
+
+# Step 2: compile DSPy program (calls Groq ~20 times, costs ~$0.01)
+python scripts/compile_diagnostician.py --max-demos 4
+# → data/compiled/diagnostician.json
+```
+
+Each synthetic example contains: `task_description`, `observer_flags` (JSON), `critic_scores` (JSON), `trace_summary`, `failure_class` (gold label), `failure_manifestation` (gold label).
+
+The generator is deterministic with `--seed 42` for reproducibility.
+
+### Running Phase 2
+
+```bash
+cd backend
+python main.py "Calculate compound interest on $5000 at 7% for 5 years"
+```
+
+Full pipeline output now includes:
+
+- Orchestrator: task class + subtask
+- Executor: tool calls + trace
+- Observer: anomaly flags + JSON log
+- Critic: 4 dimension scores + pass/fail
+- Diagnostician: failure class + confidence + reasoning
+
+### Phase 2 success criterion
+
+Run 5 tasks covering different failure classes injected via `inject_failure.py`. Diagnostician should classify each correctly with confidence > 0.6. If compiled DSPy program is in place, expect > 70% accuracy on the 20-example validation set printed by `compile_diagnostician.py`.
 
 ---
 

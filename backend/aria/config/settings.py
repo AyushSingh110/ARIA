@@ -28,6 +28,9 @@ class Settings(BaseSettings):
     executor_provider: Literal["groq", "ollama"] = Field(
         default="ollama", alias="EXECUTOR_PROVIDER"
     )
+    critic_provider: Literal["groq", "ollama"] = Field(
+        default="ollama", alias="CRITIC_PROVIDER"
+    )
 
     # ── Embeddings ───────────────────────────────────────────────
     embedding_model: str = Field(

@@ -199,27 +199,11 @@ def observer_node(state: ARIAState) -> dict:
     )
     print_observer_flags([dict(f) for f in all_flags])
 
-    # Decide next phase
-    subtasks = state["subtasks"]
-    idx = state["current_subtask_index"]
-    has_more_subtasks = idx + 1 < len(subtasks)
-
-    if has_more_subtasks:
-        next_phase = "decompose"   # back to orchestrator for next subtask
-        next_index = idx + 1
-        next_subtask = subtasks[next_index]
-    else:
-        next_phase = "complete"
-        next_index = idx
-        next_subtask = state["active_subtask"]
-
     return {
         "observer_flags": all_flags,
         "anomaly_detected": anomaly_detected,
         "anomaly_severity": anomaly_severity,
         "drift_scores": drift_scores,
         "observer_log_path": log_path,
-        "current_phase": next_phase,
-        "current_subtask_index": next_index,
-        "active_subtask": next_subtask,
+        "current_phase": "critique",
     }
