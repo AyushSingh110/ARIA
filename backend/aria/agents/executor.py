@@ -67,13 +67,21 @@ def executor_node(state: ARIAState) -> dict:
         console.print("[red]Executor: no active subtask — skipping.[/red]")
         return {"current_phase": "observe", "executor_output": "No active subtask."}
 
+    # Use refined prompt if Refiner produced one for the system_prompt target
+    refinement = state.get("refinement")
+    if refinement and refinement.get("target") == "system_prompt" and state.get("refinement_applied"):
+        system_prompt = refinement["refined_component"]
+        console.print("[dim]Executor: using refined system prompt[/dim]")
+    else:
+        system_prompt = _SYSTEM_PROMPT
+
     print_phase("execute", f"subtask='{subtask['description'][:60]}…'")
 
     llm = _get_llm()
     llm_with_tools = llm.bind_tools(EXECUTOR_TOOLS)
 
     messages: list = [
-        SystemMessage(content=_SYSTEM_PROMPT),
+        SystemMessage(content=system_prompt),
         HumanMessage(content=f"Subtask: {subtask['description']}"),
     ]
 

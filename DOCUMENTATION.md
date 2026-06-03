@@ -19,7 +19,7 @@
    - [Observer Log Format](#29-observer-log-format)
    - [Running and Validating](#210-running-and-validating)
 3. [Phase 2 - Implementation (Critic + Diagnostician)](#phase-2-implementation)
-4. [Phase 3 — Plan (Refiner + Validator)](#4-phase-3--plan)
+4. [Phase 3 - Implementation (Refiner + Validator)](#phase-3-implementation)
 5. [Phase 4 — Plan (Experience Store)](#5-phase-4--plan)
 6. [Phase 5 — Plan (Benchmark + Paper)](#6-phase-5--plan)
 7. [Failure Taxonomy Reference](#7-failure-taxonomy-reference)
@@ -556,17 +556,172 @@ Run 5 tasks covering different failure classes injected via `inject_failure.py`.
 
 ---
 
-## 4. Phase 3 — Plan
+## Phase 3 Implementation
 
-**Target: Weeks 7–9**
+**Status: Complete**
+**Completion date: 2026-06-02**
 
-Add Refiner and Validator. Close the loop.
+### Phase 3 architecture change
 
-**Refiner:** Given failure class + failed component, rewrites it. Three targets: system prompt, tool schema, memory strategy. Uses retrieval-augmented generation — fetches top-K similar successful refinements from experience store, constructs few-shot prompt, calls Groq.
+Phase 3 closes the loop. Failures now trigger autonomous rewriting and validation.
 
-**Validator:** Re-runs original task with refined component. Computes delta score. If `delta > threshold`: commits to experience store. If not: tries alternative refinement (up to `max_retries`), then escalates.
+```text
+orchestrator → executor → observer → critic → diagnostician
+                                                    │
+                              clean run ────────────┤
+                                                    │ failure detected
+                                              ┌─────▼──────┐
+                                              │   REFINER  │ ← RAG from experience store
+                                              └─────┬──────┘
+                                                    │
+                                              ┌─────▼──────┐
+                                              │  VALIDATOR │ re-runs executor + critic
+                                              └─────┬──────┘
+                                                    │
+                                  delta ≥ 0.3 ──────┤──── delta < 0.3 (retry → Refiner)
+                                                    │
+                                              commit to store → END
+```
 
-**Constitutional guard:** Semantic distance check — refined component must be within cosine distance 0.6 of original (prevents degenerate rewrites).
+### Phase 3 new files
+
+| File | Purpose |
+|---|---|
+| `aria/agents/refiner.py` | RAG-based component rewriter using Groq |
+| `aria/agents/validator.py` | Re-runs executor + critic, computes delta, commits |
+| `aria/store/experience_store.py` | Local JSON store (swapped for MongoDB in Phase 4) |
+
+### Refiner agent contract
+
+**Input fields read:** `failure_class`, `task_description`, `diagnosis_reasoning`, `task_class`, `retry_count`
+
+**Output fields written:**
+
+```python
+{
+    "refinement": RefinementRecord,   # target, original, refined, diff, semantic_distance
+    "refinement_applied": False,      # Validator sets this to True before re-running executor
+    "current_phase": "validate",
+    "api_calls_groq": int,
+}
+```
+
+**Failure → target mapping:**
+
+| Failure class | Rewrite target |
+|---|---|
+| prompt_drift | system_prompt |
+| tool_misuse | tool_schema (executor prompt tool section) |
+| context_overflow | system_prompt |
+| goal_misalignment | system_prompt |
+| hallucination_loop | system_prompt |
+
+**RAG retrieval:** Queries `LocalExperienceStore.retrieve_similar(failure_class, task_class, k=3)`. Returns the top-3 committed refinements sorted by `delta_score` descending. These are injected as few-shot examples into the Groq prompt.
+
+**Constitutional guard:** After generation, cosine distance between original and refined is computed. If distance > 0.65: refinement is clamped to the original with a minimal appended correction. This prevents the Refiner from drifting too far and breaking the component.
+
+### Validator agent contract
+
+**Input fields read:** `refinement`, `critic_scores`, `active_subtask`, `retry_count`, `max_retries`
+
+**Output fields written (committed path):**
+
+```python
+{
+    "post_refinement_scores": CriticScores,
+    "delta_score": float,
+    "committed_to_store": True,
+    "experience_record_id": str,
+    "current_phase": "complete",
+}
+```
+
+**Output fields written (retry path):**
+
+```python
+{
+    "post_refinement_scores": CriticScores,
+    "delta_score": float,
+    "committed_to_store": False,
+    "retry_count": int,
+    "current_phase": "refine",
+}
+```
+
+**Re-run mechanism:**
+
+1. `_apply_refinement(state)` patches the state: resets `executor_trace`, `executor_output`, sets `refinement_applied = True`
+2. Calls `executor_node(patched_state)` directly (not through graph) — executor reads the refined prompt
+3. Calls `critic_node(merged_state)` to score the new output
+4. Computes `delta = refined_overall - original_overall`
+
+**Commit threshold:** delta ≥ 0.3
+
+**Both committed and failed attempts are saved** to the experience store. Failed attempts (committed=False) still help the Refiner avoid repeating unsuccessful strategies.
+
+### Experience store (Phase 3 — local JSON)
+
+`aria/store/experience_store.py` — `LocalExperienceStore` backed by `data/experience_store.json`.
+
+The public interface matches the MongoDB implementation planned for Phase 4:
+
+```python
+store.save(record: dict) → str              # record_id
+store.retrieve_similar(failure_class, task_class, k) → list[dict]
+store.all_committed() → list[dict]
+store.count() → int
+```
+
+Each record contains:
+
+```json
+{
+  "record_id": "uuid",
+  "created_at": "iso-datetime",
+  "task_class": "code_generation",
+  "failure_class": "prompt_drift",
+  "refinement_target": "system_prompt",
+  "original_component": "...",
+  "refined_component": "...",
+  "diff": "...",
+  "delta_score": 0.45,
+  "committed": true,
+  "original_critic_scores": {...},
+  "refined_critic_scores": {...}
+}
+```
+
+### Phase 3 routing (graph builder)
+
+```python
+# After diagnostician:
+if failure_class and not pass_fail → "refiner"
+if clean run and more subtasks    → "orchestrator"
+if clean run and last subtask     → END
+
+# After validator:
+if committed or escalated         → END
+else                              → "refiner"  # retry
+```
+
+### Running Phase 3
+
+```bash
+cd backend
+python main.py "Your task here"
+```
+
+When a failure is detected, you will see all 7 agent panels in sequence. The experience store grows at `data/experience_store.json` with each committed refinement.
+
+### Phase 3 success criterion
+
+Run a task that triggers a failure (use `scripts/inject_failure.py` patterns as inspiration). Verify:
+
+1. Diagnostician classifies the failure correctly
+2. Refiner generates a rewritten component with semantic distance < 0.65
+3. Validator re-runs executor with the refined prompt
+4. If delta ≥ 0.3: record appears in `data/experience_store.json` with `committed: true`
+5. On a second identical failure: Refiner retrieves the previous refinement as a few-shot example
 
 ---
 

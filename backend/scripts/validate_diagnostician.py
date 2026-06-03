@@ -11,7 +11,7 @@ Usage:
   # Run examples 0 to 4 (5 examples)
   python scripts/validate_diagnostician.py --start 0 --end 4 --api-key gsk_xxx
 
-  # After running all batches, combine results
+  # After running all batches, combine results + full metrics report
   python scripts/validate_diagnostician.py --combine
 
 Results are saved to data/compiled/val/ as individual JSON files.
@@ -28,9 +28,18 @@ import click
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-DATA_DIR = Path("data/synthetic")
+DATA_DIR     = Path("data/synthetic")
 COMPILED_DIR = Path("data/compiled")
-VAL_DIR = COMPILED_DIR / "val"
+VAL_DIR      = COMPILED_DIR / "val"
+
+CLASSES = [
+    "prompt_drift",
+    "tool_misuse",
+    "context_overflow",
+    "goal_misalignment",
+    "hallucination_loop",
+    "none",
+]
 
 
 def load_valset(per_class_limit: int = 40, val_ratio: float = 0.2, seed: int = 42) -> list:
@@ -70,10 +79,17 @@ def run_single(program, example) -> dict:
         pred = program(**example.inputs())
         predicted = getattr(pred, "failure_class", "").strip().lower()
         correct = gold == predicted
+        try:
+            confidence = float(getattr(pred, "confidence", "0.5"))
+        except (ValueError, TypeError):
+            confidence = 0.5
+        reasoning = getattr(pred, "reasoning", "")
         return {
             "gold": gold,
             "predicted": predicted,
             "correct": correct,
+            "confidence": confidence,
+            "reasoning": reasoning[:200],
             "error": None,
         }
     except Exception as exc:
@@ -81,18 +97,20 @@ def run_single(program, example) -> dict:
             "gold": gold,
             "predicted": None,
             "correct": False,
+            "confidence": 0.0,
+            "reasoning": "",
             "error": str(exc),
         }
 
 
 @click.command()
-@click.option("--start", default=None, type=int, help="Start index (inclusive)")
-@click.option("--end", default=None, type=int, help="End index (inclusive)")
-@click.option("--index", default=None, type=int, help="Single example index (shorthand for --start N --end N)")
+@click.option("--start",   default=None, type=int, help="Start index (inclusive)")
+@click.option("--end",     default=None, type=int, help="End index (inclusive)")
+@click.option("--index",   default=None, type=int, help="Single example index")
 @click.option("--api-key", default=None, help="Groq API key (overrides .env)")
-@click.option("--delay", default=12, show_default=True, type=float,
-              help="Seconds to wait between calls (keeps TPM under limit)")
-@click.option("--combine", is_flag=True, help="Combine all saved batch results and print final accuracy")
+@click.option("--delay",   default=12, show_default=True, type=float,
+              help="Seconds between calls (keeps TPM under limit)")
+@click.option("--combine", is_flag=True, help="Combine saved results and print full metrics report")
 def main(start, end, index, api_key, delay, combine):
     """Validate compiled Diagnostician in rate-limit-safe batches."""
 
@@ -113,7 +131,6 @@ def main(start, end, index, api_key, delay, combine):
         print("No synthetic data. Run generate_synthetic_data.py first.")
         sys.exit(1)
 
-    # Resolve index range
     if index is not None:
         start = index
         end = index
@@ -124,7 +141,6 @@ def main(start, end, index, api_key, delay, combine):
         print(f"--start ({start}) must be <= --end ({end})")
         sys.exit(1)
 
-    # API key: CLI arg > .env
     key = api_key
     if not key:
         s = get_settings()
@@ -133,12 +149,11 @@ def main(start, end, index, api_key, delay, combine):
         print("No API key. Pass --api-key or set GROQ_API_KEY in .env")
         sys.exit(1)
 
-    from aria.config import get_settings
     s = get_settings()
     lm = build_lm(api_key=key, model=f"groq/{s.groq_model}")
     dspy.configure(lm=lm)
 
-    print("Loading validation set…")
+    print("Loading validation set...")
     valset = load_valset()
     total = len(valset)
     print(f"  Total val examples: {total}")
@@ -154,7 +169,7 @@ def main(start, end, index, api_key, delay, combine):
     VAL_DIR.mkdir(parents=True, exist_ok=True)
 
     indices = list(range(start, end + 1))
-    print(f"\nRunning examples {start}–{end} ({len(indices)} calls, ~{len(indices) * delay:.0f}s)\n")
+    print(f"\nRunning examples {start}-{end} ({len(indices)} calls, ~{len(indices) * delay:.0f}s)\n")
 
     for i, idx in enumerate(indices):
         ex = valset[idx]
@@ -166,11 +181,12 @@ def main(start, end, index, api_key, delay, combine):
         out_path = VAL_DIR / f"val_{idx:03d}.json"
         out_path.write_text(json.dumps(result, indent=2), encoding="utf-8")
 
-        status = "✓" if result["correct"] else "✗"
+        status = "OK" if result["correct"] else "WRONG"
         if result["error"]:
             print(f"ERROR: {result['error'][:80]}")
         else:
-            print(f"pred={result['predicted']} {status}")
+            conf = result.get("confidence", 0.0)
+            print(f"pred={result['predicted']} [{status}] conf={conf:.2f}")
 
         if i < len(indices) - 1:
             time.sleep(delay)
@@ -189,39 +205,129 @@ def _combine_results():
         print("No result files found in data/compiled/val/")
         sys.exit(1)
 
-    results = [json.loads(f.read_text(encoding="utf-8")) for f in result_files]
-    total = len(results)
+    all_results = [json.loads(f.read_text(encoding="utf-8")) for f in result_files]
+    errors  = [r for r in all_results if r.get("error")]
+    results = [r for r in all_results if not r.get("error")]
+    total   = len(results)
     correct = sum(1 for r in results if r["correct"])
-    errors = sum(1 for r in results if r["error"])
 
-    print(f"\n{'─' * 40}")
-    print(f"Validation results ({total} examples)")
-    print(f"{'─' * 40}")
+    SEP  = "-" * 62
+    SEP2 = "=" * 62
 
-    by_class: dict[str, list[bool]] = {}
+    # ── Per-class precision / recall / F1 ────────────────────────
+    tp: dict[str, int] = {c: 0 for c in CLASSES}
+    fp: dict[str, int] = {c: 0 for c in CLASSES}
+    fn: dict[str, int] = {c: 0 for c in CLASSES}
+
     for r in results:
-        cls = r["gold"]
-        by_class.setdefault(cls, []).append(r["correct"])
+        g = r["gold"]
+        p = r["predicted"] or "unknown"
+        if g == p:
+            tp[g] = tp.get(g, 0) + 1
+        else:
+            fn[g] = fn.get(g, 0) + 1
+            fp[p] = fp.get(p, 0) + 1
 
-    for cls, preds in sorted(by_class.items()):
-        n_correct = sum(preds)
-        print(f"  {cls:<22} {n_correct}/{len(preds)} = {n_correct/len(preds):.0%}")
+    print(f"\n{SEP2}")
+    print(f"  ARIA DSPy Diagnostician -- Validation Report")
+    print(f"  {total} examples evaluated  |  {len(errors)} API errors skipped")
+    print(SEP2)
 
-    print(f"{'─' * 40}")
-    print(f"  Overall accuracy:      {correct}/{total} = {correct/total:.0%}")
-    if errors:
-        print(f"  API errors (skipped): {errors}")
-    print(f"{'─' * 40}\n")
+    print(f"\n  {'Class':<22}  {'Prec':>6}  {'Recall':>7}  {'F1':>6}  {'TP':>4}  {'FP':>4}  {'FN':>4}")
+    print(f"  {SEP}")
+    for cls in CLASSES:
+        t   = tp.get(cls, 0)
+        fp_ = fp.get(cls, 0)
+        fn_ = fn.get(cls, 0)
+        prec   = t / (t + fp_)  if (t + fp_) > 0 else 0.0
+        recall = t / (t + fn_)  if (t + fn_) > 0 else 0.0
+        f1     = 2 * prec * recall / (prec + recall) if (prec + recall) > 0 else 0.0
+        print(f"  {cls:<22}  {prec:>5.1%}  {recall:>6.1%}  {f1:>5.1%}  {t:>4}  {fp_:>4}  {fn_:>4}")
+
+    print(f"  {SEP}")
+    print(f"  Overall accuracy: {correct}/{total} = {correct/total:.1%}")
+
+    # ── Confusion matrix ──────────────────────────────────────────
+    confusion: dict[str, dict[str, int]] = {g: {p: 0 for p in CLASSES} for g in CLASSES}
+    for r in results:
+        g = r["gold"]
+        p = r["predicted"] or "unknown"
+        if g in confusion and p in confusion[g]:
+            confusion[g][p] += 1
+
+    print(f"\n  CONFUSION MATRIX  (rows=gold, cols=predicted)")
+    short = [c[:8] for c in CLASSES]
+    print("  " + " " * 22 + "  ".join(f"{s:>8}" for s in short))
+    print(f"  {SEP}")
+    for g in CLASSES:
+        row = f"  {g:<22}" + "  ".join(f"{confusion[g].get(p, 0):>8}" for p in CLASSES)
+        print(row)
+
+    # ── Confidence distribution ───────────────────────────────────
+    print(f"\n  CONFIDENCE DISTRIBUTION")
+    print(f"  {SEP}")
+    by_conf: dict[str, list[float]] = {}
+    for r in results:
+        by_conf.setdefault(r["gold"], []).append(float(r.get("confidence", 0.5)))
+
+    for cls in CLASSES:
+        vals = by_conf.get(cls, [])
+        if not vals:
+            continue
+        avg  = sum(vals) / len(vals)
+        high = sum(1 for v in vals if v >= 0.8)
+        low  = sum(1 for v in vals if v < 0.5)
+        bar  = "#" * int(avg * 20)
+        print(f"  {cls:<22}  avg={avg:.2f} [{bar:<20}]  high={high}  low={low}")
+
+    # ── Hard pair focus ───────────────────────────────────────────
+    hl_as_gm = confusion.get("hallucination_loop", {}).get("goal_misalignment", 0)
+    gm_as_hl = confusion.get("goal_misalignment",  {}).get("hallucination_loop", 0)
+    total_hard = hl_as_gm + gm_as_hl
+
+    print(f"\n  HARD PAIR: hallucination_loop <-> goal_misalignment")
+    print(f"  {SEP}")
+    print(f"  hallucination_loop predicted as goal_misalignment : {hl_as_gm}")
+    print(f"  goal_misalignment  predicted as hallucination_loop: {gm_as_hl}")
+    if total_hard == 0:
+        print("  Result: 0 confusions -- boundary held.")
+    elif total_hard <= 3:
+        print(f"  Result: {total_hard} confusions -- minor overlap, acceptable.")
+    else:
+        print(f"  Result: {total_hard} confusions -- WARNING: boundary is blurring.")
+
+    print(f"\n{SEP2}\n")
+
+    # ── Save JSON summary ─────────────────────────────────────────
+    per_class_out = {}
+    for cls in CLASSES:
+        t   = tp.get(cls, 0)
+        fp_ = fp.get(cls, 0)
+        fn_ = fn.get(cls, 0)
+        prec   = t / (t + fp_)  if (t + fp_) > 0 else 0.0
+        recall = t / (t + fn_)  if (t + fn_) > 0 else 0.0
+        f1     = 2 * prec * recall / (prec + recall) if (prec + recall) > 0 else 0.0
+        per_class_out[cls] = {
+            "precision": round(prec, 4),
+            "recall":    round(recall, 4),
+            "f1":        round(f1, 4),
+            "tp": t, "fp": fp_, "fn": fn_,
+        }
 
     summary_path = COMPILED_DIR / "val_summary.json"
     summary_path.write_text(
-        json.dumps({"total": total, "correct": correct, "errors": errors,
-                    "accuracy": correct / total, "per_class": {
-                        cls: {"correct": sum(v), "total": len(v)} for cls, v in by_class.items()
-                    }}, indent=2),
-        encoding="utf-8"
+        json.dumps({
+            "total":    total,
+            "correct":  correct,
+            "accuracy": round(correct / total, 4),
+            "api_errors": len(errors),
+            "per_class": per_class_out,
+            "confusion_matrix": confusion,
+            "hard_pair": {"hl_as_gm": hl_as_gm, "gm_as_hl": gm_as_hl},
+        }, indent=2),
+        encoding="utf-8",
     )
-    print(f"Summary saved → {summary_path}")
+    print(f"  Full summary saved -> {summary_path}")
 
 
 if __name__ == "__main__":
