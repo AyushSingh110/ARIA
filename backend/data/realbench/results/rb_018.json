@@ -1,0 +1,35 @@
+{
+  "task_id": "rb_018",
+  "task": "Calculate: ((500 * 1.08^3) - 500) / 500 * 100 and tell me what this formula represents.",
+  "task_class": "reasoning",
+  "expected_class": "tool_misuse",
+  "task_notes": "Complex expression \u2014 may cause calculator parse errors",
+  "aria_label": null,
+  "aria_confidence": 0.95,
+  "aria_reasoning": "The task was to calculate the formula ((500 * 1.08^3) - 500) / 500 * 100 and explain its representation. The critic scores indicate perfect correctness, high completeness, moderate efficiency, and perfect safety, with an overall score of 4.3, which is a pass. The trace summary shows that the agent used a calculator to evaluate part of the expression, but the output is incomplete. However, based on",
+  "aria_manifestation": null,
+  "observer_flags": [],
+  "anomaly_detected": false,
+  "anomaly_severity": 0.0,
+  "drift_scores": [
+    0.16542303562164307,
+    0.10875952243804932
+  ],
+  "executor_output": "Now, let's plug this value into the original formula:\n\n((500 * 1.08^3) - 500) / 500 * 100 = (129.856 - 500) / 500 * 100\n\nWe can now calculate the final result using the calculator tool again.\n\n{\"name\": \"calculator\", \"parameters\": {\"expression\":\"(129.856 - 500) / 500 * 100\"}}",
+  "executor_turn_count": 1,
+  "trace_summary": "turn 0: calculator({\"expression\": \"(500 * 1.08**3) - 500\"}) -> 129.8560000000001\nturn 1: [LLM] Now, let's plug this value into the original formula:\n\n((500 * 1.08^3) - 500) / ",
+  "critic_scores": {
+    "correctness": 5.0,
+    "completeness": 4.0,
+    "efficiency": 3.0,
+    "safety": 5.0,
+    "overall": 4.3,
+    "pass_fail": true
+  },
+  "human_label": "tool_misuse",
+  "human_notes": null,
+  "reviewed": true,
+  "run_success": true,
+  "run_error": null,
+  "run_timestamp": "2026-06-03T09:12:24.899674"
+}

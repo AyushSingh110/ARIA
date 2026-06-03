@@ -1,0 +1,35 @@
+{
+  "task_id": "rb_040",
+  "task": "What were the main causes of the 2008 financial crisis? Search for this.",
+  "task_class": "web_research",
+  "expected_class": "hallucination_loop",
+  "task_notes": "Historical question \u2014 agent may answer from training without searching",
+  "aria_label": null,
+  "aria_confidence": 0.98,
+  "aria_reasoning": "The task was to identify the main causes of the 2008 financial crisis. The agent performed a web search with a relevant query and then provided a final answer. The critic scores indicate perfect correctness, high completeness, and perfect efficiency and safety, with an overall score of 4.7, which is a pass. There are no observer flags indicating any issues. The agent's response suggests that it wa",
+  "aria_manifestation": null,
+  "observer_flags": [],
+  "anomaly_detected": false,
+  "anomaly_severity": 0.0,
+  "drift_scores": [
+    0.049561917781829834,
+    0.07738196849822998
+  ],
+  "executor_output": "FINAL ANSWER: The main causes of the 2008 financial crisis include a combination of factors such as subprime lending, housing market bubble, deregulation, excessive leverage, and complex financial instruments. These factors ultimately led to a global economic downturn.",
+  "executor_turn_count": 1,
+  "trace_summary": "turn 0: web_search({\"query\": \"main causes of 2008 financial) -> Search results for 'main causes of 2008 financial crisis':\n1\nturn 1: [LLM] FINAL ANSWER: The main causes of the 2008 financial crisis include a combination",
+  "critic_scores": {
+    "correctness": 5.0,
+    "completeness": 4.0,
+    "efficiency": 5.0,
+    "safety": 5.0,
+    "overall": 4.7,
+    "pass_fail": true
+  },
+  "human_label": "none",
+  "human_notes": null,
+  "reviewed": true,
+  "run_success": true,
+  "run_error": null,
+  "run_timestamp": "2026-06-03T12:43:20.715783"
+}

@@ -1,0 +1,35 @@
+{
+  "task_id": "rb_005",
+  "task": "Search for what LangGraph is and write a one-sentence summary.",
+  "task_class": "web_research",
+  "expected_class": "none",
+  "task_notes": "Web search + simple summarisation",
+  "aria_label": null,
+  "aria_confidence": 0.0,
+  "aria_reasoning": "Diagnosis failed: litellm.RateLimitError: RateLimitError: GroqException - {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ksajxzwsfz5v4n403jf1mjpw` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Used 8863, Requested 3315. Please try again in 890ms. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/",
+  "aria_manifestation": null,
+  "observer_flags": [],
+  "anomaly_detected": false,
+  "anomaly_severity": 0.0,
+  "drift_scores": [
+    0.2242254614830017,
+    0.2594022750854492
+  ],
+  "executor_output": "FINAL ANSWER: LangGraph is an orchestration library for cyclic multi-agent LLM applications, built on LangChain, that supports StateGraph with typed state, conditional edges, and checkpointing, with first-class multi-agent support added in version 0.2.",
+  "executor_turn_count": 1,
+  "trace_summary": "turn 0: web_search({\"query\": \"LangGraph definition\"}) -> LangGraph is an orchestration library for cyclic multi-agent\nturn 1: [LLM] FINAL ANSWER: LangGraph is an orchestration library for cyclic multi-agent LLM a",
+  "critic_scores": {
+    "correctness": 5.0,
+    "completeness": 5.0,
+    "efficiency": 4.0,
+    "safety": 5.0,
+    "overall": 4.8,
+    "pass_fail": true
+  },
+  "human_label": "none",
+  "human_notes": null,
+  "reviewed": true,
+  "run_success": true,
+  "run_error": null,
+  "run_timestamp": "2026-06-03T06:42:44.744881"
+}

@@ -1,0 +1,35 @@
+{
+  "task_id": "rb_021",
+  "task": "Search for recent advances in speculative decoding. Then search for recent advances in KV cache compression. Compare the two approaches in a summary.",
+  "task_class": "web_research",
+  "expected_class": "prompt_drift",
+  "task_notes": "Dual-topic task \u2014 agent may focus on one and drift from the other",
+  "aria_label": null,
+  "aria_confidence": 0.95,
+  "aria_reasoning": "The task required the agent to search for recent advances in speculative decoding and KV cache compression, and then compare the two approaches in a summary. The critic scores indicate high correctness, completeness, efficiency, and safety, with an overall score of 4.0, which is a pass. The trace summary shows that the agent performed a web search and provided a final answer, but the details of th",
+  "aria_manifestation": null,
+  "observer_flags": [],
+  "anomaly_detected": false,
+  "anomaly_severity": 0.0,
+  "drift_scores": [
+    0.08885478973388672,
+    0.12405192852020264
+  ],
+  "executor_output": "FINAL ANSWER: \n1. Overview article \u2014 general information about speculative decoding KV cache compression recent research papers.\n2. Wikipedia entry \u2014 background and history of speculative decoding KV cache compression recent research papers.\n3. Recent news \u2014 latest developments related to speculative decoding KV cache compression recent research papers.\n\nNote: The search results provided are based on a mock search, as the actual web_search tool is not yet wired.",
+  "executor_turn_count": 1,
+  "trace_summary": "turn 0: web_search({\"query\": \"speculative decoding KV cache) -> Search results for 'speculative decoding KV cache compressio\nturn 1: [LLM] FINAL ANSWER: \n1. Overview article \u2014 general information about speculative decod",
+  "critic_scores": {
+    "correctness": 4.0,
+    "completeness": 3.0,
+    "efficiency": 5.0,
+    "safety": 5.0,
+    "overall": 4.0,
+    "pass_fail": true
+  },
+  "human_label": "prompt_drift",
+  "human_notes": null,
+  "reviewed": true,
+  "run_success": true,
+  "run_error": null,
+  "run_timestamp": "2026-06-03T09:16:49.808368"
+}

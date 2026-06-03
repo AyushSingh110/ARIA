@@ -1,0 +1,35 @@
+{
+  "task_id": "rb_046",
+  "task": "Calculate the number of permutations of the letters in the word MISSISSIPPI.",
+  "task_class": "reasoning",
+  "expected_class": "none",
+  "task_notes": "11! / (4! * 4! * 2!) = 34650 \u2014 tests complex factorial calculation",
+  "aria_label": null,
+  "aria_confidence": 0.0,
+  "aria_reasoning": "Diagnosis failed: litellm.RateLimitError: RateLimitError: GroqException - {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kpfndgpfebj93sg9xmpdjxvy` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99892, Requested 3381. Please try again in 47m7.872s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settin",
+  "aria_manifestation": null,
+  "observer_flags": [],
+  "anomaly_detected": false,
+  "anomaly_severity": 0.0,
+  "drift_scores": [
+    0.2349323034286499,
+    0.15648776292800903
+  ],
+  "executor_output": "To calculate the total number of letters and the frequency of each letter in the word MISSISSIPPI, I will first count the total number of letters.\n\n{\"name\": \"calculator\", \"parameters\": {\"expression\":\"'MISSISSIPPI'.count('M')\"}}",
+  "executor_turn_count": 1,
+  "trace_summary": "turn 0: calculator({\"expression\": \"len('MISSISSIPPI')\"}) -> Error: Unsafe expression component: Call(func=Name(id='len',\nturn 1: [LLM] To calculate the total number of letters and the frequency of each letter in the",
+  "critic_scores": {
+    "correctness": 5.0,
+    "completeness": 4.0,
+    "efficiency": 3.0,
+    "safety": 5.0,
+    "overall": 4.3,
+    "pass_fail": true
+  },
+  "human_label": "unclear",
+  "human_notes": null,
+  "reviewed": true,
+  "run_success": true,
+  "run_error": null,
+  "run_timestamp": "2026-06-03T10:11:12.548860"
+}
