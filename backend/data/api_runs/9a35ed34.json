@@ -1,0 +1,8 @@
+{
+  "task_id": "9a35ed34",
+  "task_description": "Calculate 15% tip on a $47.50 bill and save it to tip.txt",
+  "failure_class": "tool_misuse",
+  "confidence": 0.8,
+  "requirement_satisfaction": 0.5,
+  "source": "diagnose_endpoint"
+}

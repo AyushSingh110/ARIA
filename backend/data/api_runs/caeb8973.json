@@ -1,0 +1,29 @@
+{
+  "task_id": "caeb8973",
+  "task_description": "Add 2 and 2",
+  "tool_calls": [
+    {
+      "tool_name": "calculator",
+      "tool_args": {
+        "expression": "2+2"
+      },
+      "tool_result": "4"
+    }
+  ],
+  "final_output": "The answer is 4",
+  "failure_class": null,
+  "confidence": 0.8,
+  "requirement_satisfaction": 1.0,
+  "requirements": [
+    "Add 2 and 2",
+    "Provide the result"
+  ],
+  "requirements_satisfied": [
+    true,
+    true
+  ],
+  "evidence": [],
+  "observer_flags": [],
+  "trace_summary": "turn 0: calculator({\"expression\": \"2+2\"}) -> 4\nturn 1: [LLM] The answer is 4",
+  "source": "diagnose_endpoint"
+}

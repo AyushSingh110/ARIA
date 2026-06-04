@@ -66,12 +66,26 @@ def diagnostician_node(state: ARIAState) -> dict:
 
     xgb_prediction = _xgb.predict(dict(state))
 
+    # Build requirement summary for the new Diagnostician input
+    req_checklist  = state.get("requirement_checklist") or []
+    req_satisfied  = state.get("requirements_satisfied") or []
+    req_sat_score  = state.get("requirement_satisfaction", 1.0)
+    req_lines = []
+    for req, ok in zip(req_checklist, req_satisfied):
+        status = "OK" if ok else "MISS"
+        req_lines.append(f"REQ: {req} [{status}]")
+    requirement_summary = (
+        "\n".join(req_lines) if req_lines
+        else f"requirement_satisfaction={req_sat_score:.2f} (no checklist available)"
+    )
+
     program = _get_dspy_program()
     try:
         result = program(
             task_description=state["task_description"],
             observer_flags=json.dumps([dict(f) for f in observer_flags], indent=None),
             critic_scores=json.dumps(dict(critic_scores) if critic_scores else {}, indent=None),
+            requirement_summary=requirement_summary,
             trace_summary=_build_trace_summary(trace),
         )
         failure_class = result.failure_class.strip().lower()

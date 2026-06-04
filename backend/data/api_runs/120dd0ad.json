@@ -1,0 +1,34 @@
+{
+  "task_id": "120dd0ad",
+  "task_description": "Calculate 15% tip on $47.50 and save result to tip.txt",
+  "tool_calls": [
+    {
+      "tool_name": "calculator",
+      "tool_args": {
+        "expression": "0.15 * 47.5"
+      },
+      "tool_result": "7.125"
+    }
+  ],
+  "final_output": "The tip is $7.13",
+  "failure_class": "goal_misalignment",
+  "confidence": 0.9,
+  "requirement_satisfaction": 0.5,
+  "requirements": [
+    "Calculate 15% tip on $47.50",
+    "Save result to tip.txt"
+  ],
+  "requirements_satisfied": [
+    true,
+    false
+  ],
+  "evidence": [
+    "Requirement not satisfied: 'Save result to tip.txt'"
+  ],
+  "observer_flags": [],
+  "trace_summary": "turn 0: calculator({\"expression\": \"0.15 * 47.5\"}) -> 7.125\nturn 1: [LLM] The tip is $7.13",
+  "source": "diagnose_endpoint",
+  "aria_correct": false,
+  "human_label": "none",
+  "feedback_notes": "Agent did compute correctly, file save was not required in context"
+}

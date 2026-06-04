@@ -34,12 +34,16 @@ class ObserverFlag(TypedDict):
 
 
 class CriticScores(TypedDict):
-    correctness: float       # 1–5
-    completeness: float
+    correctness: float       # 1–5  (factual accuracy of what was produced)
+    completeness: float      # 1–5  (derived from requirement_satisfaction in v2)
     efficiency: float
     safety: float
     overall: float
     pass_fail: bool
+    # ── Critic v2 fields (requirement-aware evaluation) ──────────
+    requirement_checklist: list        # extracted explicit requirements
+    requirements_satisfied: list       # bool per requirement
+    requirement_satisfaction: float    # fraction satisfied (0.0–1.0)
 
 
 class RefinementRecord(TypedDict):
@@ -80,6 +84,9 @@ class ARIAState(TypedDict):
 
     # ── Phase 2 fields (Critic + Diagnostician) ──────────────────
     critic_scores: Optional[CriticScores]
+    requirement_checklist: list
+    requirements_satisfied: list
+    requirement_satisfaction: float
     failure_class: Optional[str]
     failure_manifestation: Optional[str]
     diagnosis_confidence: Optional[float]
@@ -138,6 +145,9 @@ def make_initial_state(
         anomaly_severity=0.0,
         observer_log_path=None,
         critic_scores=None,
+        requirement_checklist=[],
+        requirements_satisfied=[],
+        requirement_satisfaction=0.0,
         failure_class=None,
         failure_manifestation=None,
         diagnosis_confidence=None,

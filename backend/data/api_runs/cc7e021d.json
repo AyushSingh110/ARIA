@@ -1,0 +1,8 @@
+{
+  "task_id": "cc7e021d",
+  "task_description": "Search for Python docs and save to notes.txt",
+  "failure_class": "goal_misalignment",
+  "confidence": 0.8,
+  "requirement_satisfaction": 0.5,
+  "source": "diagnose_endpoint"
+}

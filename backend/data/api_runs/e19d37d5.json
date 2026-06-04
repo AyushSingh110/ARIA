@@ -1,0 +1,23 @@
+{
+  "task_id": "e19d37d5",
+  "task_description": "Calculate 15% tip on $47.50 and save result to tip.txt",
+  "tool_calls": [
+    {
+      "tool_name": "calculator",
+      "tool_args": {
+        "expression": "0.15 * 47.5"
+      },
+      "tool_result": "7.125"
+    }
+  ],
+  "final_output": "The tip is $7.13",
+  "failure_class": "tool_misuse",
+  "confidence": 0.8,
+  "requirement_satisfaction": 0.0,
+  "requirements": [],
+  "requirements_satisfied": [],
+  "evidence": [],
+  "observer_flags": [],
+  "trace_summary": "turn 0: calculator({\"expression\": \"0.15 * 47.5\"}) -> 7.125\nturn 1: [LLM] The tip is $7.13",
+  "source": "diagnose_endpoint"
+}

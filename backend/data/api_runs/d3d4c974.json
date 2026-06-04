@@ -1,0 +1,43 @@
+{
+  "task_id": "d3d4c974",
+  "task_description": "Search for current Python version",
+  "tool_calls": [
+    {
+      "tool_name": "web_search",
+      "tool_args": {
+        "query": "Python version"
+      },
+      "tool_result": "Error: network timeout"
+    },
+    {
+      "tool_name": "web_search",
+      "tool_args": {
+        "query": "Python version"
+      },
+      "tool_result": "Error: network timeout"
+    }
+  ],
+  "final_output": "I could not find the Python version due to network errors.",
+  "failure_class": "goal_misalignment",
+  "confidence": 0.7,
+  "requirement_satisfaction": 0.0,
+  "requirements": [],
+  "requirements_satisfied": [],
+  "evidence": [],
+  "observer_flags": [
+    {
+      "flag_type": "tool_repetition",
+      "signal_value": 0.8,
+      "turn": 1,
+      "description": "Turn 1: 'web_search' called with identical args as turn 0. Possible context overflow."
+    },
+    {
+      "flag_type": "tool_error_loop",
+      "signal_value": 0.9,
+      "turn": 1,
+      "description": "Turn 1: 'web_search' retried after an error on turn 0. Possible tool misuse."
+    }
+  ],
+  "trace_summary": "turn 0: web_search({\"query\": \"Python version\"}) -> Error: network timeout\nturn 1: web_search({\"query\": \"Python version\"}) -> Error: network timeout\nturn 2: [LLM] I could not find the Python version due to network errors.",
+  "source": "diagnose_endpoint"
+}
