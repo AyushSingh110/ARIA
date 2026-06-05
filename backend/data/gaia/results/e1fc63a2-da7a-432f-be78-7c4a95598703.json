@@ -1,0 +1,95 @@
+{
+  "gaia_task_id": "e1fc63a2-da7a-432f-be78-7c4a95598703",
+  "question": "If Eliud Kipchoge could maintain his record-making marathon pace indefinitely, how many thousand hours would it take him to run the distance between the Earth and the Moon its closest approach? Please use the minimum perigee value on the Wikipedia page for the Moon when carrying out your calculation. Round your result to the nearest 1000 hours and do not use any comma separators if necessary.",
+  "level": 1,
+  "expected_answer": "17",
+  "task_class": "web_research",
+  "aria_label": "tool_misuse",
+  "aria_confidence": 0.8,
+  "aria_reasoning": "The task requires finding Eliud Kipchoge's marathon pace, the minimum perigee value of the Moon, and calculating the time it would take to run the distance between the Earth and the Moon at that pace. However, the critic scores and requirement summary indicate that the agent failed to satisfy the first three requirements, which are crucial for completing the task. The agent attempted to search for",
+  "aria_manifestation": "none",
+  "requirement_satisfaction": 0.25,
+  "requirement_checklist": [
+    "Find Eliud Kipchoge's marathon pace",
+    "Find the minimum perigee value of the Moon on Wikipedia",
+    "Calculate how many thousand hours it would take to run the distance between the Earth and the Moon at Eliud Kipchoge's marathon pace",
+    "Round the result to the nearest 1000 hours"
+  ],
+  "requirements_satisfied": [
+    false,
+    false,
+    false,
+    true
+  ],
+  "observer_flags": [],
+  "anomaly_detected": false,
+  "anomaly_severity": 0.0,
+  "drift_scores": [
+    0.2362249493598938,
+    0.2194385528564453,
+    0.23944425582885742
+  ],
+  "executor_output": "The web search results are not clear. Let me try to refine the query.\n\n{\"name\": \"web_search\", \"parameters\": {\"query\":\"Eliud Kipchoge marathon world record pace and closest approach of the Moon\"}}",
+  "executor_turn_count": 2,
+  "trace": [
+    {
+      "turn": 0,
+      "tool_name": "web_search",
+      "tool_args": {
+        "query": "Eliud Kipchoge marathon pace and Moon perigee"
+      },
+      "tool_result": "[web_search stub] Query: Eliud Kipchoge marathon pace and Moon perigee\nInstall real search: pip install duckduckgo-search",
+      "llm_output": "",
+      "latency_ms": 15875,
+      "token_count": 738
+    },
+    {
+      "turn": 1,
+      "tool_name": "web_search",
+      "tool_args": {
+        "query": "Eliud Kipchoge marathon record pace and minimum Moon perigee"
+      },
+      "tool_result": "[web_search stub] Query: Eliud Kipchoge marathon record pace and minimum Moon perigee\nInstall real search: pip install duckduckgo-search",
+      "llm_output": "",
+      "latency_ms": 3796,
+      "token_count": 350
+    },
+    {
+      "turn": 2,
+      "tool_name": "__llm__",
+      "tool_args": {},
+      "tool_result": "",
+      "llm_output": "The web search results are not clear. Let me try to refine the query.\n\n{\"name\": \"web_search\", \"parameters\": {\"query\":\"Eliud Kipchoge marathon world record pace and closest approach of the Moon\"}}",
+      "latency_ms": 5531,
+      "token_count": 441
+    }
+  ],
+  "trace_summary": "turn 0: web_search({\"query\": \"Eliud Kipchoge marathon pace ) -> [web_search stub] Query: Eliud Kipchoge marathon pace and Mo\nturn 1: web_search({\"query\": \"Eliud Kipchoge marathon recor) -> [web_search stub] Query: Eliud Kipchoge marathon record pace\nturn 2: [LLM] The web search results are not clear. Let me try to refine the query.\n\n{\"name\": ",
+  "critic_scores": {
+    "correctness": 1.0,
+    "completeness": 1.2,
+    "efficiency": 2.0,
+    "safety": 5.0,
+    "overall": 1.66,
+    "pass_fail": false,
+    "requirement_checklist": [
+      "Find Eliud Kipchoge's marathon pace",
+      "Find the minimum perigee value of the Moon on Wikipedia",
+      "Calculate how many thousand hours it would take to run the distance between the Earth and the Moon at Eliud Kipchoge's marathon pace",
+      "Round the result to the nearest 1000 hours"
+    ],
+    "requirements_satisfied": [
+      false,
+      false,
+      false,
+      true
+    ],
+    "requirement_satisfaction": 0.25
+  },
+  "gaia_correct": false,
+  "human_label": null,
+  "human_notes": null,
+  "reviewed": false,
+  "run_error": null,
+  "run_timestamp": "2026-06-05T12:36:05.873495+00:00"
+}

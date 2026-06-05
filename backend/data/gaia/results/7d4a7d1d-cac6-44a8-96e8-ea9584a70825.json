@@ -1,0 +1,79 @@
+{
+  "gaia_task_id": "7d4a7d1d-cac6-44a8-96e8-ea9584a70825",
+  "question": "According to Girls Who Code, how long did it take in years for the percentage of computer scientists that were women to change by 13% from a starting point of 37%?",
+  "level": 1,
+  "expected_answer": "22",
+  "task_class": "web_research",
+  "aria_label": "context_overflow",
+  "aria_confidence": 0.8,
+  "aria_reasoning": "The task requires calculating the time it took for the percentage of women computer scientists to change by 13% from a starting point of 37%, according to Girls Who Code. However, the agent was unable to find the specific information needed to complete the task, as indicated by the critic scores and the requirement summary. The agent performed a web search but did not provide a final answer that s",
+  "aria_manifestation": "none",
+  "requirement_satisfaction": 0.33,
+  "requirement_checklist": [
+    "calculate the change in percentage of women computer scientists",
+    "use Girls Who Code as a source",
+    "provide the time it took to achieve this change"
+  ],
+  "requirements_satisfied": [
+    false,
+    true,
+    false
+  ],
+  "observer_flags": [],
+  "anomaly_detected": false,
+  "anomaly_severity": 0.0,
+  "drift_scores": [
+    0.1797448992729187,
+    0.23672235012054443
+  ],
+  "executor_output": "FINAL ANSWER: Unfortunately, I was unable to find the specific information you requested in my search results. However, I can suggest some possible sources where you may be able to find this information:\n\n* The Girls Who Code website (girlswhocode.com) may have a section on statistics or research related to women in computer science.\n* You can try searching for academic papers or studies on the topic of women in computer science over time.\n* Organizations such as the National Center for Women & Information Technology (NCWIT) or the Association for Computing Machinery (ACM) Women's Committee ma",
+  "executor_turn_count": 1,
+  "trace": [
+    {
+      "turn": 0,
+      "tool_name": "web_search",
+      "tool_args": {
+        "query": "percentage of women computer scientists over time Girls Who Code"
+      },
+      "tool_result": "Search results for 'percentage of women computer scientists over time Girls Who Code':\n1. Overview article \u2014 general information about percentage of women computer scientists over time Girls Who Code.\n2. Wikipedia entry \u2014 background and history of percentage of women computer scientists over time Girls Who Code.\n3. Recent news \u2014 latest developments related to percentage of women computer scientists over time Girls Who Code.\n[Phase 1 mock \u2014 real search not yet wired]",
+      "llm_output": "",
+      "latency_ms": 8907,
+      "token_count": 723
+    },
+    {
+      "turn": 1,
+      "tool_name": "__llm__",
+      "tool_args": {},
+      "tool_result": "",
+      "llm_output": "FINAL ANSWER: Unfortunately, I was unable to find the specific information you requested in my search results. However, I can suggest some possible sources where you may be able to find this information:\n\n* The Girls Who Code website (girlswhocode.com) may have a section on statistics or research related to women in computer science.\n* You can try searching for academic papers or studies on the topic of women in computer science over time.\n* Organizations such as the National Center for Women & Information Technology (NCWIT) or the Association for Computing Machinery (ACM) Women's Committee may also have relevant information.\n\nI hope this helps! Let me know if you need further assistance.",
+      "latency_ms": 24594,
+      "token_count": 502
+    }
+  ],
+  "trace_summary": "turn 0: web_search({\"query\": \"percentage of women computer ) -> Search results for 'percentage of women computer scientists \nturn 1: [LLM] FINAL ANSWER: Unfortunately, I was unable to find the specific information you r",
+  "critic_scores": {
+    "correctness": 1.0,
+    "completeness": 1.7,
+    "efficiency": 5.0,
+    "safety": 5.0,
+    "overall": 2.41,
+    "pass_fail": false,
+    "requirement_checklist": [
+      "calculate the change in percentage of women computer scientists",
+      "use Girls Who Code as a source",
+      "provide the time it took to achieve this change"
+    ],
+    "requirements_satisfied": [
+      false,
+      true,
+      false
+    ],
+    "requirement_satisfaction": 0.33
+  },
+  "gaia_correct": false,
+  "human_label": null,
+  "human_notes": null,
+  "reviewed": false,
+  "run_error": null,
+  "run_timestamp": "2026-06-05T12:14:18.142293+00:00"
+}

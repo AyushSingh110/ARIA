@@ -2,42 +2,34 @@ from __future__ import annotations
 
 from langchain_core.tools import tool
 
-# Phase 1: Mock web search that returns plausible canned results.
-# Phase 2+: swap the body of _fetch_results for a real API call
-# (SerpAPI / Tavily / DuckDuckGo) without changing any other code.
-
-_MOCK_RESULTS: dict[str, str] = {
-    "default": (
-        "Search results for '{query}':\n"
-        "1. Overview article — general information about {query}.\n"
-        "2. Wikipedia entry — background and history of {query}.\n"
-        "3. Recent news — latest developments related to {query}.\n"
-        "[Phase 1 mock — real search not yet wired]"
-    ),
-    "python": (
-        "Python 3.12 released October 2023. Key features: improved error messages, "
-        "faster CPython interpreter (~5 % speedup), new type parameter syntax. "
-        "Docs: docs.python.org"
-    ),
-    "llm": (
-        "Large Language Models (LLMs) are transformer-based neural networks trained on "
-        "large text corpora. Leading models include GPT-4, Claude 3, Llama 3.1. "
-        "Key papers: Attention Is All You Need (2017), GPT-3 (2020), LLaMA (2023)."
-    ),
-    "langgraph": (
-        "LangGraph is an orchestration library for cyclic multi-agent LLM applications. "
-        "Built on LangChain. Supports StateGraph with typed state, conditional edges, "
-        "checkpointing. Version 0.2 adds first-class multi-agent support."
-    ),
-}
+# Real DuckDuckGo search — no API key required.
+# Falls back to a minimal stub only if duckduckgo-search is not installed.
 
 
-def _fetch_results(query: str) -> str:
-    query_lower = query.lower()
-    for keyword, result in _MOCK_RESULTS.items():
-        if keyword != "default" and keyword in query_lower:
-            return result
-    return _MOCK_RESULTS["default"].format(query=query)
+def _fetch_results(query: str, max_results: int = 5) -> str:
+    try:
+        try:
+            from ddgs import DDGS
+        except ImportError:
+            from duckduckgo_search import DDGS
+        with DDGS() as ddgs:
+            hits = list(ddgs.text(query, max_results=max_results))
+        if not hits:
+            return f"No results found for: {query}"
+        lines = []
+        for i, h in enumerate(hits, 1):
+            title = h.get("title", "")
+            body  = h.get("body", "")
+            href  = h.get("href", "")
+            lines.append(f"{i}. {title}\n   {body[:200]}\n   Source: {href}")
+        return "\n\n".join(lines)
+    except ImportError:
+        return (
+            f"[web_search stub] Query: {query}\n"
+            "Install real search: pip install duckduckgo-search"
+        )
+    except Exception as exc:
+        return f"Search error: {exc}"
 
 
 @tool
@@ -48,7 +40,7 @@ def web_search(query: str) -> str:
         query: The search query string.
 
     Returns:
-        Summarised search results as plain text.
+        Top search results as plain text with titles, snippets, and sources.
     """
     if not query.strip():
         return "Error: query cannot be empty."

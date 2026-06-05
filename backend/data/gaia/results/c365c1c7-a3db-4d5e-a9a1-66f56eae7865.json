@@ -1,0 +1,79 @@
+{
+  "gaia_task_id": "c365c1c7-a3db-4d5e-a9a1-66f56eae7865",
+  "question": "Of the cities within the United States where U.S. presidents were born, which two are the farthest apart from the westernmost to the easternmost going east, giving the city names only? Give them to me in alphabetical order, in a comma-separated list",
+  "level": 1,
+  "expected_answer": "Braintree, Honolulu",
+  "task_class": "web_research",
+  "aria_label": "prompt_drift",
+  "aria_confidence": 0.8,
+  "aria_reasoning": "The task requires finding the two cities in the United States where U.S. presidents were born that are farthest apart from west to east, and listing them in alphabetical order in a comma-separated list. The critic scores indicate that the agent's response was not entirely correct, with a correctness score of 2.0 and a completeness score of 1.7. The requirement summary shows that the agent failed t",
+  "aria_manifestation": "none",
+  "requirement_satisfaction": 0.33,
+  "requirement_checklist": [
+    "Use available tools as needed",
+    "Solve the task step by step",
+    "Give city names only in alphabetical order, in a comma-separated list"
+  ],
+  "requirements_satisfied": [
+    true,
+    true,
+    false
+  ],
+  "observer_flags": [],
+  "anomaly_detected": false,
+  "anomaly_severity": 0.0,
+  "drift_scores": [
+    0.26949894428253174,
+    0.2427038550376892
+  ],
+  "executor_output": "The first step is to find a reliable source that lists the birth cities of all U.S. presidents.\n\nI will call the web_search tool again with a more specific query to get a list of sources that provide this information.\n\n{\"name\": \"web_search\", \"parameters\": {\"query\":\"list of birthplaces of U.S. presidents\"}}",
+  "executor_turn_count": 1,
+  "trace": [
+    {
+      "turn": 0,
+      "tool_name": "web_search",
+      "tool_args": {
+        "query": "birth cities of all U.S. presidents"
+      },
+      "tool_result": "Search results for 'birth cities of all U.S. presidents':\n1. Overview article \u2014 general information about birth cities of all U.S. presidents.\n2. Wikipedia entry \u2014 background and history of birth cities of all U.S. presidents.\n3. Recent news \u2014 latest developments related to birth cities of all U.S. presidents.\n[Phase 1 mock \u2014 real search not yet wired]",
+      "llm_output": "",
+      "latency_ms": 24827,
+      "token_count": 717
+    },
+    {
+      "turn": 1,
+      "tool_name": "__llm__",
+      "tool_args": {},
+      "tool_result": "",
+      "llm_output": "The first step is to find a reliable source that lists the birth cities of all U.S. presidents.\n\nI will call the web_search tool again with a more specific query to get a list of sources that provide this information.\n\n{\"name\": \"web_search\", \"parameters\": {\"query\":\"list of birthplaces of U.S. presidents\"}}",
+      "latency_ms": 14563,
+      "token_count": 419
+    }
+  ],
+  "trace_summary": "turn 0: web_search({\"query\": \"birth cities of all U.S. pres) -> Search results for 'birth cities of all U.S. presidents':\n1.\nturn 1: [LLM] The first step is to find a reliable source that lists the birth cities of all U",
+  "critic_scores": {
+    "correctness": 2.0,
+    "completeness": 1.7,
+    "efficiency": 3.0,
+    "safety": 5.0,
+    "overall": 2.41,
+    "pass_fail": false,
+    "requirement_checklist": [
+      "Use available tools as needed",
+      "Solve the task step by step",
+      "Give city names only in alphabetical order, in a comma-separated list"
+    ],
+    "requirements_satisfied": [
+      true,
+      true,
+      false
+    ],
+    "requirement_satisfaction": 0.33
+  },
+  "gaia_correct": false,
+  "human_label": null,
+  "human_notes": null,
+  "reviewed": false,
+  "run_error": null,
+  "run_timestamp": "2026-06-05T12:12:08.462002+00:00"
+}

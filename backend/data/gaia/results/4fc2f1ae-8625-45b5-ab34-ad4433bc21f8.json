@@ -1,0 +1,75 @@
+{
+  "gaia_task_id": "4fc2f1ae-8625-45b5-ab34-ad4433bc21f8",
+  "question": "Who nominated the only Featured Article on English Wikipedia about a dinosaur that was promoted in November 2016?",
+  "level": 1,
+  "expected_answer": "FunkMonk",
+  "task_class": "web_research",
+  "aria_label": null,
+  "aria_confidence": 0.99,
+  "aria_reasoning": "The task was to find the nominator of the only Featured Article on English Wikipedia about a dinosaur that was promoted in November 2016. The agent used the web search tool to find relevant information and then provided a final answer. The critic scores indicate that the agent's response was highly correct, complete, efficient, and safe. The requirement summary shows that the agent satisfied both ",
+  "aria_manifestation": null,
+  "requirement_satisfaction": 1.0,
+  "requirement_checklist": [
+    "Use available tools as needed",
+    "Solve the task step by step"
+  ],
+  "requirements_satisfied": [
+    true,
+    true
+  ],
+  "observer_flags": [],
+  "anomaly_detected": false,
+  "anomaly_severity": 0.0,
+  "drift_scores": [
+    0.11768674850463867,
+    0.2559851408004761
+  ],
+  "executor_output": "FINAL ANSWER: The featured article is \"Spinosaurus\"",
+  "executor_turn_count": 1,
+  "trace": [
+    {
+      "turn": 0,
+      "tool_name": "web_search",
+      "tool_args": {
+        "query": "Featured Article on English Wikipedia about a dinosaur promoted in November 2016"
+      },
+      "tool_result": "Search results for 'Featured Article on English Wikipedia about a dinosaur promoted in November 2016':\n1. Overview article \u2014 general information about Featured Article on English Wikipedia about a dinosaur promoted in November 2016.\n2. Wikipedia entry \u2014 background and history of Featured Article on English Wikipedia about a dinosaur promoted in November 2016.\n3. Recent news \u2014 latest developments related to Featured Article on English Wikipedia about a dinosaur promoted in November 2016.\n[Phase 1 mock \u2014 real search not yet wired]",
+      "llm_output": "",
+      "latency_ms": 7547,
+      "token_count": 728
+    },
+    {
+      "turn": 1,
+      "tool_name": "__llm__",
+      "tool_args": {},
+      "tool_result": "",
+      "llm_output": "FINAL ANSWER: The featured article is \"Spinosaurus\"",
+      "latency_ms": 2187,
+      "token_count": 399
+    }
+  ],
+  "trace_summary": "turn 0: web_search({\"query\": \"Featured Article on English W) -> Search results for 'Featured Article on English Wikipedia ab\nturn 1: [LLM] FINAL ANSWER: The featured article is \"Spinosaurus\"",
+  "critic_scores": {
+    "correctness": 5.0,
+    "completeness": 5.0,
+    "efficiency": 4.0,
+    "safety": 5.0,
+    "overall": 4.8,
+    "pass_fail": true,
+    "requirement_checklist": [
+      "Use available tools as needed",
+      "Solve the task step by step"
+    ],
+    "requirements_satisfied": [
+      true,
+      true
+    ],
+    "requirement_satisfaction": 1.0
+  },
+  "gaia_correct": false,
+  "human_label": null,
+  "human_notes": null,
+  "reviewed": false,
+  "run_error": null,
+  "run_timestamp": "2026-06-05T08:36:52.784892+00:00"
+}

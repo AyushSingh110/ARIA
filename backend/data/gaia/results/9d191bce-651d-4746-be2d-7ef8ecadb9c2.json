@@ -1,0 +1,79 @@
+{
+  "gaia_task_id": "9d191bce-651d-4746-be2d-7ef8ecadb9c2",
+  "question": "Examine the video at https://www.youtube.com/watch?v=1htKBjuUWec.\n\nWhat does Teal'c say in response to the question \"Isn't that hot?\"",
+  "level": 1,
+  "expected_answer": "Extremely",
+  "task_class": "general",
+  "aria_label": "prompt_drift",
+  "aria_confidence": 0.8,
+  "aria_reasoning": "The task requires examining a video and responding to a question about a character's dialogue. However, the agent's actions, as shown in the trace summary, do not align with the requirements. The agent performs a web search for a transcription of the video, but the search query is incomplete and does not specify the correct time range or context for the question. The critic scores indicate low com",
+  "aria_manifestation": "none",
+  "requirement_satisfaction": 0.33,
+  "requirement_checklist": [
+    "Examine the video at https://www.youtube.com/watch?v=1htKBjuUWec",
+    "Use available tools as needed",
+    "Solve the task step by step"
+  ],
+  "requirements_satisfied": [
+    false,
+    true,
+    false
+  ],
+  "observer_flags": [],
+  "anomaly_detected": false,
+  "anomaly_severity": 0.0,
+  "drift_scores": [
+    0.37125104665756226,
+    0.3101935386657715
+  ],
+  "executor_output": "{\"name\": \"web_search\", \"parameters\": {\"query\":\"Teal\\\\\\'c response isn't that hot Stargate SG-1\"}}",
+  "executor_turn_count": 1,
+  "trace": [
+    {
+      "turn": 0,
+      "tool_name": "web_search",
+      "tool_args": {
+        "query": "transcription of 1htKBjuUWec from 0:00 to 0:10"
+      },
+      "tool_result": "Search results for 'transcription of 1htKBjuUWec from 0:00 to 0:10':\n1. Overview article \u2014 general information about transcription of 1htKBjuUWec from 0:00 to 0:10.\n2. Wikipedia entry \u2014 background and history of transcription of 1htKBjuUWec from 0:00 to 0:10.\n3. Recent news \u2014 latest developments related to transcription of 1htKBjuUWec from 0:00 to 0:10.\n[Phase 1 mock \u2014 real search not yet wired]",
+      "llm_output": "",
+      "latency_ms": 9702,
+      "token_count": 756
+    },
+    {
+      "turn": 1,
+      "tool_name": "__llm__",
+      "tool_args": {},
+      "tool_result": "",
+      "llm_output": "{\"name\": \"web_search\", \"parameters\": {\"query\":\"Teal\\\\\\'c response isn't that hot Stargate SG-1\"}}",
+      "latency_ms": 4312,
+      "token_count": 469
+    }
+  ],
+  "trace_summary": "turn 0: web_search({\"query\": \"transcription of 1htKBjuUWec ) -> Search results for 'transcription of 1htKBjuUWec from 0:00 t\nturn 1: [LLM] {\"name\": \"web_search\", \"parameters\": {\"query\":\"Teal\\\\\\'c response isn't that hot",
+  "critic_scores": {
+    "correctness": 3.0,
+    "completeness": 1.7,
+    "efficiency": 4.0,
+    "safety": 5.0,
+    "overall": 3.01,
+    "pass_fail": false,
+    "requirement_checklist": [
+      "Examine the video at https://www.youtube.com/watch?v=1htKBjuUWec",
+      "Use available tools as needed",
+      "Solve the task step by step"
+    ],
+    "requirements_satisfied": [
+      false,
+      true,
+      false
+    ],
+    "requirement_satisfaction": 0.33
+  },
+  "gaia_correct": false,
+  "human_label": null,
+  "human_notes": null,
+  "reviewed": false,
+  "run_error": null,
+  "run_timestamp": "2026-06-05T08:48:56.223297+00:00"
+}
