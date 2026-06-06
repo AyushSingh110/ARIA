@@ -4,76 +4,26 @@
   "level": 1,
   "expected_answer": "2",
   "task_class": "general",
-  "aria_label": "tool_misuse",
-  "aria_confidence": 0.8,
-  "aria_reasoning": "The task requires identifying the stanza number in which some lines are indented in Audre Lorde's poem \"Father Son and Holy Ghost\". The agent attempted to use the web search tool to find the poem, but the search results did not contain the specific information required to complete the task. The critic scores indicate low correctness and completeness, and the requirement summary shows that the agen",
-  "aria_manifestation": "none",
-  "requirement_satisfaction": 0.33,
-  "requirement_checklist": [
-    "Solve the task step by step",
-    "Use available tools as needed",
-    "Identify the stanza number in which some lines are indented"
-  ],
-  "requirements_satisfied": [
-    true,
-    true,
-    false
-  ],
+  "aria_label": null,
+  "aria_confidence": null,
+  "aria_reasoning": "",
+  "aria_manifestation": null,
+  "requirement_satisfaction": 0.0,
+  "requirement_checklist": [],
+  "requirements_satisfied": [],
   "observer_flags": [],
   "anomaly_detected": false,
   "anomaly_severity": 0.0,
-  "drift_scores": [
-    0.18170619010925293,
-    0.1498870849609375
-  ],
-  "executor_output": "Unfortunately, the search results do not contain the specific information requested.\n\nLet me try searching again with a more specific query.\n\n{\"name\": \"web_search\", \"parameters\": {\"query\":\"stanza with indented lines from poem Father Son and Holy Ghost by Audre Lorde\"}}",
-  "executor_turn_count": 1,
-  "trace": [
-    {
-      "turn": 0,
-      "tool_name": "web_search",
-      "tool_args": {
-        "query": "poem Father Son and Holy Ghost by Audre Lorde"
-      },
-      "tool_result": "Search results for 'poem Father Son and Holy Ghost by Audre Lorde':\n1. Overview article \u2014 general information about poem Father Son and Holy Ghost by Audre Lorde.\n2. Wikipedia entry \u2014 background and history of poem Father Son and Holy Ghost by Audre Lorde.\n3. Recent news \u2014 latest developments related to poem Father Son and Holy Ghost by Audre Lorde.\n[Phase 1 mock \u2014 real search not yet wired]",
-      "llm_output": "",
-      "latency_ms": 9328,
-      "token_count": 731
-    },
-    {
-      "turn": 1,
-      "tool_name": "__llm__",
-      "tool_args": {},
-      "tool_result": "",
-      "llm_output": "Unfortunately, the search results do not contain the specific information requested.\n\nLet me try searching again with a more specific query.\n\n{\"name\": \"web_search\", \"parameters\": {\"query\":\"stanza with indented lines from poem Father Son and Holy Ghost by Audre Lorde\"}}",
-      "latency_ms": 9046,
-      "token_count": 434
-    }
-  ],
-  "trace_summary": "turn 0: web_search({\"query\": \"poem Father Son and Holy Ghos) -> Search results for 'poem Father Son and Holy Ghost by Audre \nturn 1: [LLM] Unfortunately, the search results do not contain the specific information reques",
-  "critic_scores": {
-    "correctness": 2.0,
-    "completeness": 1.7,
-    "efficiency": 3.0,
-    "safety": 5.0,
-    "overall": 2.41,
-    "pass_fail": false,
-    "requirement_checklist": [
-      "Solve the task step by step",
-      "Use available tools as needed",
-      "Identify the stanza number in which some lines are indented"
-    ],
-    "requirements_satisfied": [
-      true,
-      true,
-      false
-    ],
-    "requirement_satisfaction": 0.33
-  },
-  "gaia_correct": false,
+  "drift_scores": [],
+  "executor_output": "",
+  "executor_turn_count": 0,
+  "trace": [],
+  "trace_summary": "",
+  "critic_scores": {},
+  "gaia_correct": null,
   "human_label": null,
   "human_notes": null,
   "reviewed": false,
-  "run_error": null,
-  "run_timestamp": "2026-06-05T12:19:40.617925+00:00"
+  "run_error": "Connection error.",
+  "run_timestamp": "2026-06-06T07:08:15.963962+00:00"
 }

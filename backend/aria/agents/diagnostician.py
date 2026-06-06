@@ -107,8 +107,32 @@ def diagnostician_node(state: ARIAState) -> dict:
         confidence = max(confidence, 0.6)
         reasoning = f"[XGBoost signal] {reasoning}"
 
+    # Deterministic overrides — same rules as the API endpoint.
+    # The compiled DSPy program (old 4-field signature) can output "none"
+    # even when Critic v2 signals a clear failure. These rules fix that.
+    obs_flag_types = {f["flag_type"] for f in (state.get("observer_flags") or [])}
+
+    if failure_class == "none" or failure_class is None:
+        if req_sat_score < 0.5 and not obs_flag_types:
+            failure_class = "goal_misalignment"
+            confidence = max(confidence, 0.6)
+            reasoning += " [corrected: req_sat<0.5 with no observer flags -> goal_misalignment]"
+
+    if failure_class == "goal_misalignment":
+        if "tool_error_loop" in obs_flag_types:
+            failure_class = "tool_misuse"
+            reasoning += " [corrected: tool_error_loop flag -> tool_misuse]"
+        elif "tool_repetition" in obs_flag_types and "tool_error_loop" not in obs_flag_types:
+            failure_class = "context_overflow"
+            reasoning += " [corrected: tool_repetition, no errors -> context_overflow]"
+        elif not obs_flag_types and req_sat_score >= 0.75:
+            failure_class = None
+            reasoning += " [corrected: no flags + req_sat>=0.75 -> none]"
+
     if failure_class == "none":
         failure_class = None
+        manifestation = None
+    elif failure_class is None:
         manifestation = None
 
     color = "red" if failure_class else "green"

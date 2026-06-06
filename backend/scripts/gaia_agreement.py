@@ -129,7 +129,7 @@ def print_report(report: dict) -> None:
     print(f"  Answer accuracy     : {report['answer_accuracy_pct']}%  "
           f"({report['correct_count']}/{report['answered_count']} answered)")
     print(f"  Avg req satisfaction: {report['avg_requirement_satisfaction']:.3f}")
-    print(f"  Pass rate (≥0.75)   : {report['pass_rate_pct']}%")
+    print(f"  Pass rate (>=0.75)  : {report['pass_rate_pct']}%")
     print()
     print("  ARIA Failure Distribution:")
     for cls, pct in sorted(report["aria_failure_pct"].items(), key=lambda x: -x[1]):
@@ -137,8 +137,8 @@ def print_report(report: dict) -> None:
         print(f"    {cls:<22} {pct:>5.1f}%  ({count})")
     print()
     print("  Diagnostic correlation:")
-    print(f"    When ARIA says 'clean' → agent was correct: {report['clean_run_accuracy_pct']}%")
-    print(f"    When ARIA flags failure → agent was wrong:  {report['failure_detection_acc_pct']}%")
+    print(f"    When ARIA says 'clean' -> agent was correct: {report['clean_run_accuracy_pct']}%")
+    print(f"    When ARIA flags failure -> agent was wrong:  {report['failure_detection_acc_pct']}%")
     print()
     print("  By GAIA Level:")
     for lvl, data in report["by_level"].items():

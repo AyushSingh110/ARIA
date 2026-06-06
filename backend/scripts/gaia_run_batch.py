@@ -106,9 +106,11 @@ def _preflight():
 def _answer_matches(expected: str, output: str) -> bool:
     """Check if the agent's output contains the expected answer.
 
-    Handles: case normalization, numeric equivalence, leading zeros,
-    and common phrasings like "The answer is X".
+    Handles: case normalization, numeric equivalence, abbreviations
+    (Saint/St., Mount/Mt.), and word-boundary matching.
     """
+    import re
+
     exp = expected.lower().strip()
     out = output.lower()
 
@@ -116,11 +118,17 @@ def _answer_matches(expected: str, output: str) -> bool:
     if exp in out:
         return True
 
+    # Abbreviation expansions (Saint Petersburg / St. Petersburg)
+    _ABBREV = {"saint": "st", "street": "st", "mount": "mt", "doctor": "dr", "fort": "ft"}
+    for full, short in _ABBREV.items():
+        if exp.replace(full, short) in out:
+            return True
+        if exp.replace(short, full) in out:
+            return True
+
     # Numeric: compare as float (handles "6" vs "6.0", "1,234" vs "1234")
     try:
         exp_num = float(exp.replace(",", ""))
-        # Look for any number in output that matches
-        import re
         for m in re.findall(r"-?\d[\d,]*\.?\d*", out):
             try:
                 if abs(float(m.replace(",", "")) - exp_num) < 0.01:
@@ -130,8 +138,7 @@ def _answer_matches(expected: str, output: str) -> bool:
     except ValueError:
         pass
 
-    # Word-level: expected is a single word/name — check word boundary match
-    import re
+    # Word-boundary match for single-word answers
     if re.search(r"\b" + re.escape(exp) + r"\b", out):
         return True
 

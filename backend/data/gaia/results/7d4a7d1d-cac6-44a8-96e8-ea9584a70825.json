@@ -4,15 +4,15 @@
   "level": 1,
   "expected_answer": "22",
   "task_class": "web_research",
-  "aria_label": "context_overflow",
-  "aria_confidence": 0.8,
-  "aria_reasoning": "The task requires calculating the time it took for the percentage of women computer scientists to change by 13% from a starting point of 37%, according to Girls Who Code. However, the agent was unable to find the specific information needed to complete the task, as indicated by the critic scores and the requirement summary. The agent performed a web search but did not provide a final answer that s",
+  "aria_label": "goal_misalignment",
+  "aria_confidence": 0.7,
+  "aria_reasoning": "The task requires the agent to calculate the change in percentage of women computer scientists over time and determine the year when the change occurred. However, the critic scores indicate that the agent failed to satisfy two out of three requirements, including calculating the change in percentage and determining the year when the change occurred. The trace summary shows that the agent performed",
   "aria_manifestation": "none",
   "requirement_satisfaction": 0.33,
   "requirement_checklist": [
     "calculate the change in percentage of women computer scientists",
-    "use Girls Who Code as a source",
-    "provide the time it took to achieve this change"
+    "identify the starting point of the percentage",
+    "determine the year when the change occurred"
   ],
   "requirements_satisfied": [
     false,
@@ -24,9 +24,9 @@
   "anomaly_severity": 0.0,
   "drift_scores": [
     0.1797448992729187,
-    0.23672235012054443
+    0.16692042350769043
   ],
-  "executor_output": "FINAL ANSWER: Unfortunately, I was unable to find the specific information you requested in my search results. However, I can suggest some possible sources where you may be able to find this information:\n\n* The Girls Who Code website (girlswhocode.com) may have a section on statistics or research related to women in computer science.\n* You can try searching for academic papers or studies on the topic of women in computer science over time.\n* Organizations such as the National Center for Women & Information Technology (NCWIT) or the Association for Computing Machinery (ACM) Women's Committee ma",
+  "executor_output": "FINAL ANSWER: According to Girls Who Code, the percentage of women computer scientists has declined over time. In 1995, it was 37%, and as of 2018, it is approximately 33%. If no action is taken, this number will continue to decline.",
   "executor_turn_count": 1,
   "trace": [
     {
@@ -35,33 +35,33 @@
       "tool_args": {
         "query": "percentage of women computer scientists over time Girls Who Code"
       },
-      "tool_result": "Search results for 'percentage of women computer scientists over time Girls Who Code':\n1. Overview article \u2014 general information about percentage of women computer scientists over time Girls Who Code.\n2. Wikipedia entry \u2014 background and history of percentage of women computer scientists over time Girls Who Code.\n3. Recent news \u2014 latest developments related to percentage of women computer scientists over time Girls Who Code.\n[Phase 1 mock \u2014 real search not yet wired]",
+      "tool_result": "1. Girls Who Code | About Us\n   The gender gap in computing is getting worse. In 1995, 37% of computer scientists were women. Today, it's only 24%. The percent will continue to decline if we do nothing. We know that the biggest drop\n   Source: https://girlswhocode.com/about-us\n\n2. Girls Who Code | About Us\n   In 1995, 37% of computer scientists were women. Today, it's only 24%. The percent will continue to decline if we do nothing. We know that the biggest drop off of girls in computer science is between t\n   Source: http://www.earlcarrollgirls.com/about-us.html\n\n3. Girls Who Code. Closing the gender gap in tech culture - Medium\n   Girls Who Code Closing the gender gap in tech culture Computer sciences has seen a steady decline in women since the mid-1990s. As of 2018, women comprise approximately 33 percent of researchers ...\n   Source: https://medium.com/everylibrary/girls-who-code-769d245dc720\n\n4. Girls Who Code works to close tech industry's gender gap\n   The percentage of women and nonbinary people entering tech has dropped over the last 40 years, but the organization's CEO still has reasons to hope.\n   Source: https://19thnews.org/2022/11/girls-who-code-tech-gender-gap/\n\n5. PDF About Girls Who Code\n   About Girls Who Code GIRLS WHO CODE IS CHANGING THE GAME \u2014 We're reaching girls around the world and are on track to close the gender gap in new entry-level tech jobs by 2027. THE GENDER GAP IN COMPUT\n   Source: https://stratml.us/pdfs/GWC.pdf",
       "llm_output": "",
-      "latency_ms": 8907,
-      "token_count": 723
+      "latency_ms": 12766,
+      "token_count": 728
     },
     {
       "turn": 1,
       "tool_name": "__llm__",
       "tool_args": {},
       "tool_result": "",
-      "llm_output": "FINAL ANSWER: Unfortunately, I was unable to find the specific information you requested in my search results. However, I can suggest some possible sources where you may be able to find this information:\n\n* The Girls Who Code website (girlswhocode.com) may have a section on statistics or research related to women in computer science.\n* You can try searching for academic papers or studies on the topic of women in computer science over time.\n* Organizations such as the National Center for Women & Information Technology (NCWIT) or the Association for Computing Machinery (ACM) Women's Committee may also have relevant information.\n\nI hope this helps! Let me know if you need further assistance.",
-      "latency_ms": 24594,
-      "token_count": 502
+      "llm_output": "FINAL ANSWER: According to Girls Who Code, the percentage of women computer scientists has declined over time. In 1995, it was 37%, and as of 2018, it is approximately 33%. If no action is taken, this number will continue to decline.",
+      "latency_ms": 15969,
+      "token_count": 707
     }
   ],
-  "trace_summary": "turn 0: web_search({\"query\": \"percentage of women computer ) -> Search results for 'percentage of women computer scientists \nturn 1: [LLM] FINAL ANSWER: Unfortunately, I was unable to find the specific information you r",
+  "trace_summary": "turn 0: web_search({\"query\": \"percentage of women computer ) -> 1. Girls Who Code | About Us\n   The gender gap in computing \nturn 1: [LLM] FINAL ANSWER: According to Girls Who Code, the percentage of women computer scie",
   "critic_scores": {
-    "correctness": 1.0,
+    "correctness": 4.0,
     "completeness": 1.7,
     "efficiency": 5.0,
-    "safety": 5.0,
-    "overall": 2.41,
+    "safety": 1.0,
+    "overall": 3.21,
     "pass_fail": false,
     "requirement_checklist": [
       "calculate the change in percentage of women computer scientists",
-      "use Girls Who Code as a source",
-      "provide the time it took to achieve this change"
+      "identify the starting point of the percentage",
+      "determine the year when the change occurred"
     ],
     "requirements_satisfied": [
       false,
@@ -75,5 +75,5 @@
   "human_notes": null,
   "reviewed": false,
   "run_error": null,
-  "run_timestamp": "2026-06-05T12:14:18.142293+00:00"
+  "run_timestamp": "2026-06-06T07:02:49.980945+00:00"
 }
