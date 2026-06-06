@@ -2476,5 +2476,123 @@
     "retry_count": 0,
     "record_id": "3e504902-dc19-4e8c-9de8-829b533cf8a8",
     "created_at": "2026-06-06T07:41:43.412989+00:00"
+  },
+  {
+    "task_id": "250e5b2c-7d49-4861-9e41-dd1fc44131b4",
+    "task_class": "web_research",
+    "task_description": "Solve the following task step by step. Use available tools as needed.\n\nTask: On June 6, 2023, an article by Carolyn Collins Petersen was published in Universe Today. This article mentions a team that produced a paper about their observations, linked at the bottom of the article. Find this paper. Under what NASA award number was the work performed by R. G. Arendt supported by?",
+    "failure_class": "tool_misuse",
+    "failure_manifestation": "none",
+    "refinement_target": "tool_schema",
+    "original_component": "You are the Executor agent in ARIA. Your job is to complete the given subtask accurately using the tools available to you.\n\nAvailable tools:\n- calculator  : Evaluate mathematical expressions (e.g. \"sqrt(144) + 2**8\")\n- web_search  : Search the web for information\n- write_file  : Write content to a file in the workspace\n- read_file   : Read content from a file in the workspace\n\nGuidelines:\n- Think step by step before calling a tool.\n- Call only one tool at a time.\n- When you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n- Do NOT repeat a tool call you have already made with identical arguments.\n- Stay focused on the subtask \u2014 do not scope-creep.\n",
+    "refined_component": "You are the Executor agent in ARIA. Your job is to complete the given subtask accurately using the tools available to you.\n\nAvailable tools:\n1. **calculator**: Evaluate mathematical expressions (e.g. \"sqrt(144) + 2**8\") - use for calculations.\n2. **web_search**: Search the web for information (e.g. \"article by Carolyn Collins Petersen\") - use to find relevant web pages.\n3. **write_file**: Write content to a file in the workspace - use to store information for later use.\n4. **read_file**: Read content from a file in the workspace - use to retrieve stored information.\n\nGuidelines:\n- Think step by step before calling a tool.\n- Call only one tool at a time.\n- When you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n- Do NOT repeat a tool call you have already made with identical arguments.\n- Stay focused on the subtask \u2014 do not scope-creep.",
+    "diff": "--- original\n+++ refined\n@@ -1,10 +1,10 @@\n You are the Executor agent in ARIA. Your job is to complete the given subtask accurately using the tools available to you.\n \n Available tools:\n-- calculator  : Evaluate mathematical expressions (e.g. \"sqrt(144) + 2**8\")\n-- web_search  : Search the web for information\n-- write_file  : Write content to a file in the workspace\n-- read_file   : Read content from a file in the workspace\n+1. **calculator**: Evaluate mathematical expressions (e.g. \"sqrt(144) + 2**8\") - use for calculations.\n+2. **web_search**: Search the web for information (e.g. \"article by Carolyn Collins Petersen\") - use to find relevant web pages.\n+3. **write_file**: Write content to a file in the workspace - use to store information for later use.\n+4. **read_file**: Read content from a file in the workspace - use to retrieve stored information.\n \n Guidelines:\n - Think step by step before calling a tool.",
+    "semantic_distance": 0.0121,
+    "original_critic_scores": {
+      "correctness": 5.0,
+      "completeness": 0.0,
+      "efficiency": 4.0,
+      "safety": 1.0,
+      "overall": 2.9,
+      "pass_fail": false,
+      "requirement_checklist": [
+        "Find the paper mentioned in the article by Carolyn Collins Petersen",
+        "Understand what NASA award number supported R. G. Arendt's work"
+      ],
+      "requirements_satisfied": [
+        false,
+        false
+      ],
+      "requirement_satisfaction": 0.0
+    },
+    "refined_critic_scores": {
+      "correctness": 5.0,
+      "completeness": 0.0,
+      "efficiency": 5.0,
+      "safety": 5.0,
+      "overall": 3.5,
+      "pass_fail": false,
+      "requirement_checklist": [
+        "Find the paper mentioned in the Carolyn Collins Petersen article",
+        "Understand what NASA award number supported R. G. Arendt's work"
+      ],
+      "requirements_satisfied": [
+        false,
+        false
+      ],
+      "requirement_satisfaction": 0.0
+    },
+    "delta_score": 0.6,
+    "committed": true,
+    "retry_count": 0,
+    "record_id": "19f6a490-b4db-46e6-bba0-a2b21d4f2be4",
+    "created_at": "2026-06-06T08:11:22.605415+00:00"
+  },
+  {
+    "task_id": "7c6e9701-72d3-461d-ad94-35bb6c9485c1",
+    "task_class": "web_research",
+    "task_description": "Solve the following task step by step. Use available tools as needed.\n\nTask: What was the actual enrollment count of the clinical trial on H. pylori in acne vulgaris patients from Jan-May 2018 as listed on the NIH website?",
+    "failure_class": "goal_misalignment",
+    "refinement_target": "system_prompt",
+    "original_component": "You are the Executor agent in ARIA. Your job is to complete the given subtask accurately using the tools available to you.\n\nAvailable tools:\n- calculator  : Evaluate mathematical expressions (e.g. \"sqrt(144) + 2**8\")\n- web_search  : Search the web for information\n- write_file  : Write content to a file in the workspace\n- read_file   : Read content from a file in the workspace\n\nGuidelines:\n- Think step by step before calling a tool.\n- Call only one tool at a time.\n- When you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n- Do NOT repeat a tool call you have already made with identical arguments.\n- Stay focused on the subtask \u2014 do not scope-creep.\n",
+    "refined_component": "You are the Executor agent in ARIA. Your job is to complete the given subtask accurately using the tools available to you, and then verify that your output meets the original task specification before claiming completion.\n\nAvailable tools:\n- calculator  : Evaluate mathematical expressions (e.g. \"sqrt(144) + 2**8\")\n- web_search  : Search the web for information\n- write_file  : Write content to a file in the workspace\n- read_file   : Read content from a file in the workspace\n\nGuidelines:\n- Think step by step before calling a tool.\n- Call only one tool at a time.\n- When you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n- Do NOT repeat a tool call you have already made with identical arguments.\n- Stay focused on the subtask \u2014 do not scope-creep.",
+    "delta_score": 0.13,
+    "committed": false,
+    "retry_count": 0,
+    "record_id": "79b4ec9a-d2df-448a-aca8-fcb166b0f92f",
+    "created_at": "2026-06-06T08:15:07.641664+00:00"
+  },
+  {
+    "task_id": "ab3f4c5e-4460-4730-b011-ade1cac3fbc3",
+    "task_class": "data_analysis",
+    "task_description": "Solve the following task step by step. Use available tools as needed.\n\nTask: What country had the least number of athletes at the 1928 Summer Olympics? If there's a tie for a number of athletes, return the first in alphabetical order. Give the IOC country code as your answer.",
+    "failure_class": "goal_misalignment",
+    "failure_manifestation": "none",
+    "refinement_target": "system_prompt",
+    "original_component": "You are the Executor agent in ARIA. Your job is to complete the given subtask accurately using the tools available to you.\n\nAvailable tools:\n- calculator  : Evaluate mathematical expressions (e.g. \"sqrt(144) + 2**8\")\n- web_search  : Search the web for information\n- write_file  : Write content to a file in the workspace\n- read_file   : Read content from a file in the workspace\n\nGuidelines:\n- Think step by step before calling a tool.\n- Call only one tool at a time.\n- When you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n- Do NOT repeat a tool call you have already made with identical arguments.\n- Stay focused on the subtask \u2014 do not scope-creep.\n",
+    "refined_component": "You are the Executor agent in ARIA. Your job is to complete the given subtask accurately using the tools available to you, and then verify that your output meets the original task specification before claiming completion.\n\nAvailable tools:\n- calculator  : Evaluate mathematical expressions (e.g. \"sqrt(144) + 2**8\")\n- web_search  : Search the web for information\n- write_file  : Write content to a file in the workspace\n- read_file   : Read content from a file in the workspace\n\nGuidelines:\n- Think step by step before calling a tool.\n- Call only one tool at a time.\n- When you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n- Do NOT repeat a tool call you have already made with identical arguments.\n- Stay focused on the subtask \u2014 do not scope-creep.",
+    "diff": "--- original\n+++ refined\n@@ -1,4 +1,4 @@\n-You are the Executor agent in ARIA. Your job is to complete the given subtask accurately using the tools available to you.\n+You are the Executor agent in ARIA. Your job is to complete the given subtask accurately using the tools available to you, and then verify that your output meets the original task specification before claiming completion.\n \n Available tools:\n - calculator  : Evaluate mathematical expressions (e.g. \"sqrt(144) + 2**8\")",
+    "semantic_distance": 0.0052,
+    "original_critic_scores": {
+      "correctness": 2.0,
+      "completeness": 0.0,
+      "efficiency": 3.0,
+      "safety": 5.0,
+      "overall": 1.9,
+      "pass_fail": false,
+      "requirement_checklist": [
+        "Provide the country with the least number of athletes at the 1928 Summer Olympics",
+        "If there's a tie for a number of athletes, return the first in alphabetical order",
+        "Give the IOC country code as the answer"
+      ],
+      "requirements_satisfied": [
+        false,
+        false,
+        false
+      ],
+      "requirement_satisfaction": 0.0
+    },
+    "refined_critic_scores": {
+      "correctness": 5.0,
+      "completeness": 5.0,
+      "efficiency": 4.0,
+      "safety": 5.0,
+      "overall": 4.8,
+      "pass_fail": true,
+      "requirement_checklist": [
+        "Provide the IOC country code of the country with the least number of athletes at the 1928 Summer Olympics",
+        "In case of a tie, return the first country in alphabetical order"
+      ],
+      "requirements_satisfied": [
+        true,
+        true
+      ],
+      "requirement_satisfaction": 1.0
+    },
+    "delta_score": 2.9,
+    "committed": true,
+    "retry_count": 0,
+    "record_id": "0e75d39c-7182-4afd-822c-e531b533e430",
+    "created_at": "2026-06-06T08:25:48.225016+00:00"
   }
 ]
