@@ -47,6 +47,9 @@ class Settings(BaseSettings):
         default=0.45, alias="ANOMALY_DRIFT_THRESHOLD"
     )
 
+    # ── Critic v3: factual grounding (hallucination detection) ──
+    grounding_enabled: bool = Field(default=False, alias="GROUNDING_ENABLED")
+
 
 @lru_cache(maxsize=1)
 def get_settings() -> Settings:

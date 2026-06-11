@@ -123,6 +123,7 @@ def _post_process_failure_class(
     failure_class: str | None,
     obs_flags: list[dict],
     req_sat: float,
+    trace: list[dict] | None = None,
 ) -> tuple[str | None, str]:
     """Apply deterministic overrides for clear-cut disambiguation cases.
 
@@ -132,6 +133,8 @@ def _post_process_failure_class(
     1. tool_error_loop flag present → tool_misuse (tool ran but errored)
     2. tool_repetition flag, no tool errors → context_overflow
     3. LLM returned goal_misalignment but no observer flags, req_sat >= 0.75 → none
+    4. tool_misuse without any error evidence in trace → goal_misalignment / none
+       (RealBench finding: 0/14 tool_misuse predictions had error evidence)
     """
     flag_types = {f.get("flag_type") for f in obs_flags}
     override_note = ""
@@ -148,6 +151,20 @@ def _post_process_failure_class(
     elif failure_class == "goal_misalignment" and not obs_flags and req_sat >= 0.75:
         failure_class = None
         override_note = " [corrected: no flags + req_sat≥0.75 → none]"
+
+    if failure_class == "tool_misuse" and "tool_error_loop" not in flag_types:
+        trace_has_error = any(
+            "error" in str(e.get("tool_result", "")).lower()
+            for e in (trace or [])
+            if e.get("tool_name") != "__llm__"
+        )
+        if not trace_has_error:
+            if req_sat < 0.75:
+                failure_class = "goal_misalignment"
+                override_note += " [corrected: tool_misuse without error evidence → goal_misalignment]"
+            else:
+                failure_class = None
+                override_note += " [corrected: tool_misuse without error evidence + req_sat≥0.75 → none]"
 
     return failure_class, override_note
 
@@ -307,7 +324,7 @@ def _run_diagnose(req: DiagnoseRequest) -> DiagnosisResponse:
         reasoning = f"Diagnostician unavailable ({exc}). Diagnosis derived from Observer flags and Critic scores."
 
     # Apply deterministic overrides for clear-cut disambiguation
-    failure_class, override_note = _post_process_failure_class(failure_class, obs_flags, req_sat)
+    failure_class, override_note = _post_process_failure_class(failure_class, obs_flags, req_sat, trace)
     if override_note:
         reasoning = reasoning + override_note
 

@@ -91,6 +91,7 @@ class ARIAState(TypedDict):
     failure_manifestation: Optional[str]
     diagnosis_confidence: Optional[float]
     diagnosis_reasoning: Optional[str]
+    grounding: Optional[dict]    # Critic v3 factual grounding result
 
     # ── Phase 3 fields (Refiner + Validator) ─────────────────────
     refinement: Optional[RefinementRecord]
@@ -152,6 +153,7 @@ def make_initial_state(
         failure_manifestation=None,
         diagnosis_confidence=None,
         diagnosis_reasoning=None,
+        grounding=None,
         refinement=None,
         refinement_applied=False,
         post_refinement_scores=None,

@@ -11,7 +11,8 @@ from aria.dspy_programs.diagnostician import DiagnosticProgram, build_lm
 from aria.state.schema import ARIAState
 from aria.utils.display import console, print_agent_output, print_phase
 
-_COMPILED_PATH = Path("data/compiled/diagnostician.json")
+_COMPILED_PATH    = Path("data/compiled/diagnostician.json")      # legacy 4-field (do not load)
+_COMPILED_V2_PATH = Path("data/compiled/diagnostician_v2.json")   # 5-field, real-data trained
 _xgb = XGBoostFailureClassifier()
 _xgb.load(_COMPILED_PATH.parent / "xgb_classifier.json")
 
@@ -28,14 +29,18 @@ def _get_dspy_program() -> DiagnosticProgram:
     dspy.configure(lm=lm)
 
     program = DiagnosticProgram()
-    if _COMPILED_PATH.exists():
+    # Only load the v2 compiled program (5-field signature with requirement_summary,
+    # trained on human-labeled real data). The legacy diagnostician.json was compiled
+    # with the old 4-field signature — loading it overrides the disambiguation rules
+    # with stale few-shot demos, so we never load it.
+    if _COMPILED_V2_PATH.exists():
         try:
-            program.load(_COMPILED_PATH)
-            console.print(f"[dim]Diagnostician: loaded compiled DSPy program from {_COMPILED_PATH}[/dim]")
+            program.load(_COMPILED_V2_PATH)
+            console.print(f"[dim]Diagnostician: loaded compiled v2 program from {_COMPILED_V2_PATH}[/dim]")
         except Exception as exc:
-            console.print(f"[yellow]Diagnostician: compiled program load failed ({exc}), using zero-shot[/yellow]")
+            console.print(f"[yellow]Diagnostician: v2 program load failed ({exc}), using zero-shot[/yellow]")
     else:
-        console.print("[dim]Diagnostician: no compiled program found — running zero-shot[/dim]")
+        console.print("[dim]Diagnostician: no v2 compiled program — running zero-shot (5-field signature)[/dim]")
 
     _dspy_program = program
     return _dspy_program
@@ -129,11 +134,49 @@ def diagnostician_node(state: ARIAState) -> dict:
             failure_class = None
             reasoning += " [corrected: no flags + req_sat>=0.75 -> none]"
 
+    # RealBench finding: 0/14 tool_misuse predictions had error evidence —
+    # the LLM assigns tool_misuse whenever "tools present + requirement missed".
+    # Require an actual error signal before allowing tool_misuse.
+    if failure_class == "tool_misuse" and "tool_error_loop" not in obs_flag_types:
+        trace_has_error = any(
+            "error" in str(e.get("tool_result", "")).lower()
+            for e in trace
+            if e.get("tool_name") != "__llm__"
+        )
+        if not trace_has_error:
+            if req_sat_score < 0.75:
+                failure_class = "goal_misalignment"
+                reasoning += " [corrected: tool_misuse without error evidence -> goal_misalignment]"
+            else:
+                failure_class = None
+                reasoning += " [corrected: tool_misuse without error evidence + req_sat>=0.75 -> none]"
+
     if failure_class == "none":
         failure_class = None
         manifestation = None
     elif failure_class is None:
         manifestation = None
+
+    # Critic v3 — factual grounding (GROUNDING_ENABLED=true in .env).
+    # Catches the "confident wrong answer" blind spot: run looks clean
+    # (no flags, req_sat high) but the answer is factually contradicted.
+    grounding = None
+    if failure_class is None and req_sat_score >= 0.75:
+        try:
+            from aria.agents.grounding import maybe_ground
+            grounding = maybe_ground(
+                state["task_description"], state.get("executor_output") or ""
+            )
+            if grounding and grounding["verdict"] == "contradicted" and grounding["confidence"] >= 0.6:
+                failure_class = "hallucination_loop"
+                manifestation = "confident factual error"
+                confidence = grounding["confidence"]
+                reasoning += (
+                    f" [Critic v3 grounding: claim '{grounding['claim'][:100]}' "
+                    f"contradicted by independent evidence -> hallucination_loop]"
+                )
+        except Exception as exc:
+            console.print(f"[yellow]Critic v3 grounding skipped: {exc}[/yellow]")
 
     color = "red" if failure_class else "green"
     label = failure_class or "none (clean run)"
@@ -158,6 +201,7 @@ def diagnostician_node(state: ARIAState) -> dict:
         "failure_manifestation": manifestation,
         "diagnosis_confidence": confidence,
         "diagnosis_reasoning": reasoning,
+        "grounding": dict(grounding) if grounding else None,
         "current_phase": next_phase,
         "current_subtask_index": next_index,
         "active_subtask": next_subtask,

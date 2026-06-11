@@ -174,8 +174,13 @@ def q3_taxonomy_gaps(results: list[dict]) -> list[str]:
         lines += ["  No human-reviewed results yet. Run review_realbench.py.", ""]
         return lines
 
-    # Agreement between ARIA and human
-    agreed   = sum(1 for r in reviewed if r.get("aria_label") == r.get("human_label"))
+    # Agreement between ARIA and human.
+    # aria_label is None for clean runs but human_label is the string "none" —
+    # normalise both so clean-run matches are counted.
+    agreed   = sum(
+        1 for r in reviewed
+        if (r.get("aria_label") or "none") == (r.get("human_label") or "none")
+    )
     disagreed = len(reviewed) - agreed
     lines += [
         f"  Human-reviewed runs : {len(reviewed)}",

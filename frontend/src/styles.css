@@ -1,0 +1,341 @@
+/* ── ARIA Dashboard — light research palette ─────────────────────── */
+
+:root {
+  /* Base surfaces */
+  --bg: #fafbfc;
+  --surface: #ffffff;
+  --border: #e6e9ee;
+  --border-strong: #d5dae2;
+
+  /* Text */
+  --text: #2d3643;
+  --text-soft: #6b7686;
+  --text-faint: #9aa4b2;
+
+  /* Accent — muted academic blue */
+  --accent: #5b7fa6;
+  --accent-soft: #eaf1f7;
+
+  /* Failure class palette — light, research-figure friendly */
+  --c-none: #c8e0cc;
+  --c-goal: #cdc0e8;
+  --c-tool: #f2c6c2;
+  --c-context: #f5e3b3;
+  --c-drift: #b8cde8;
+  --c-halluc: #f2d7b6;
+  --c-gap: #d9dee5;
+
+  --radius: 12px;
+  --shadow: 0 1px 3px rgba(45, 54, 67, 0.06), 0 1px 2px rgba(45, 54, 67, 0.04);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+code, .mono {
+  font-family: "JetBrains Mono", Consolas, monospace;
+  font-size: 12.5px;
+}
+
+/* ── Layout ──────────────────────────────────────────────────────── */
+
+.app {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 28px 64px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 0 18px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 28px;
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.brand h1 {
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.brand .sub {
+  color: var(--text-soft);
+  font-size: 13px;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 13px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.status-dot.online { background: #7fbf8a; }
+.status-dot.offline { background: #d99090; }
+
+/* ── Cards & grid ────────────────────────────────────────────────── */
+
+.section-title {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-faint);
+  margin: 30px 0 14px;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px 20px;
+}
+
+.stat-card .label {
+  font-size: 12.5px;
+  color: var(--text-soft);
+  margin-bottom: 6px;
+}
+
+.stat-card .value {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.stat-card .hint {
+  font-size: 11.5px;
+  color: var(--text-faint);
+  margin-top: 4px;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 14px;
+  align-items: stretch;
+}
+
+@media (max-width: 860px) {
+  .two-col { grid-template-columns: 1fr; }
+}
+
+.chart-card h3, .table-card h3, .panel-card h3 {
+  font-size: 14.5px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+/* ── Table ───────────────────────────────────────────────────────── */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+  font-size: 11.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-faint);
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+td {
+  padding: 9px 10px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  vertical-align: top;
+}
+
+tr:last-child td { border-bottom: none; }
+
+.class-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #45506033;
+  color: #3c4654;
+  white-space: nowrap;
+}
+
+/* ── Diagnose panel ──────────────────────────────────────────────── */
+
+.panel-card textarea, .panel-card input {
+  width: 100%;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-family: "Inter", sans-serif;
+  font-size: 13.5px;
+  color: var(--text);
+  background: #fdfdfe;
+  resize: vertical;
+  margin-bottom: 12px;
+}
+
+.panel-card textarea:focus, .panel-card input:focus {
+  outline: 2px solid var(--accent-soft);
+  border-color: var(--accent);
+}
+
+.panel-card label {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--text-soft);
+  margin-bottom: 5px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.btn:hover { opacity: 0.92; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.btn.secondary {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+}
+
+/* ── Diagnosis result ────────────────────────────────────────────── */
+
+.result-box {
+  margin-top: 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.result-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.result-head .cls {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.result-body {
+  padding: 16px 18px;
+  display: grid;
+  gap: 12px;
+}
+
+.kv .k {
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-faint);
+  margin-bottom: 3px;
+}
+
+.kv .v { font-size: 13.5px; }
+
+.req-item {
+  display: flex;
+  gap: 9px;
+  align-items: baseline;
+  font-size: 13px;
+  padding: 3px 0;
+}
+
+.req-ok { color: #5e9468; font-weight: 700; }
+.req-miss { color: #c2706a; font-weight: 700; }
+
+.meter {
+  height: 8px;
+  background: var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 6px;
+}
+
+.meter > div {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #aecdb5, #7fbf8a);
+}
+
+.error-banner {
+  background: #fdf0ef;
+  border: 1px solid #f0d4d1;
+  color: #a05a54;
+  border-radius: 8px;
+  padding: 11px 15px;
+  font-size: 13px;
+  margin-top: 12px;
+}
+
+.empty-note {
+  color: var(--text-faint);
+  font-size: 13px;
+  padding: 18px 0;
+  text-align: center;
+}
+
+.footer-note {
+  margin-top: 40px;
+  text-align: center;
+  color: var(--text-faint);
+  font-size: 12px;
+}
