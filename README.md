@@ -68,6 +68,8 @@ Human review surfaced failure modes outside the taxonomy ("gap" labels): agents 
 
 ## Architecture
 
+![ARIA Diagnostic Pipeline](docs/architecture.png)
+
 ```
 Input: agent trace (any framework) or live task
           │
