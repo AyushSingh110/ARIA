@@ -1,8 +1,0 @@
-{
-  "task_id": "8ad5ff72",
-  "task_description": "Add 2 + 2",
-  "failure_class": null,
-  "confidence": 1.0,
-  "requirement_satisfaction": 1.0,
-  "source": "diagnose_endpoint"
-}
