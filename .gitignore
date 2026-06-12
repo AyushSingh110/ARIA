@@ -66,3 +66,4 @@ htmlcov/
 *.bin
 *.safetensors
 sentence_transformers_cache/
+/EXECUTION_STATUS.md
