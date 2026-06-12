@@ -205,6 +205,9 @@ def _run_one(task: dict) -> dict:
         "trace_summary":      _summarise(trace),
         "critic_scores":      scores,
 
+        # Critic v3 — factual grounding (None if grounding didn't trigger)
+        "grounding": dict(final_state["grounding"]) if final_state.get("grounding") else None,
+
         # GAIA answer check
         "gaia_correct": gaia_correct,
 
@@ -290,18 +293,21 @@ def _run_batch(tasks: list[dict], batch_num: int, delay: float, force: bool) -> 
 # ── CLI ───────────────────────────────────────────────────────────────────────
 
 @click.command()
-@click.option("--batch",      default=None, type=int,  help="Batch number to run (0-based)")
-@click.option("--batch-size", default=5,   type=int,  show_default=True, help="Tasks per batch")
-@click.option("--all",        "run_all",   is_flag=True, help="Run all batches automatically")
-@click.option("--status",     is_flag=True, help="Show progress without running anything")
-@click.option("--delay",      default=10,  type=float, show_default=True,
+@click.option("--batch",       default=None, type=int,  help="Single batch number to run (0-based)")
+@click.option("--batch-size",  default=5,    type=int,  show_default=True, help="Tasks per batch")
+@click.option("--all",         "run_all",    is_flag=True, help="Run all batches automatically")
+@click.option("--from-batch",  default=None, type=int,  help="Start of batch range (inclusive, 0-based)")
+@click.option("--to-batch",    default=None, type=int,  help="End of batch range (inclusive, 0-based)")
+@click.option("--status",      is_flag=True, help="Show progress without running anything")
+@click.option("--delay",       default=10,   type=float, show_default=True,
               help="Seconds between tasks within a batch (rate limit buffer)")
-@click.option("--batch-delay", default=60, type=float, show_default=True,
-              help="Seconds between batches when using --all (allows API key swap)")
-@click.option("--level",      default=1,   type=int,  show_default=True,
+@click.option("--batch-delay", default=60,   type=float, show_default=True,
+              help="Seconds between batches (allows API key swap)")
+@click.option("--level",       default=1,    type=int,  show_default=True,
               help="Filter by GAIA level (1, 2, or 0 for all)")
-@click.option("--force",      is_flag=True, help="Re-run tasks already completed")
-def main(batch, batch_size, run_all, status, delay, batch_delay, level, force):
+@click.option("--force",       is_flag=True, help="Re-run tasks already completed")
+@click.option("--retry-failed", is_flag=True, help="Re-run only tasks whose result file has a run_error")
+def main(batch, batch_size, run_all, from_batch, to_batch, status, delay, batch_delay, level, force, retry_failed):
     """Run GAIA benchmark tasks through the full ARIA pipeline."""
     tasks = _load_tasks()
 
@@ -317,24 +323,63 @@ def main(batch, batch_size, run_all, status, delay, batch_delay, level, force):
         print(f"Failed:     {len(progress['failed'])}")
         remaining = len(tasks) - len(set(progress["completed"]) & {t["gaia_task_id"] for t in tasks})
         print(f"Remaining:  {remaining}")
-        print(f"Batches:    {total_batches} × {batch_size}")
+        print(f"Batches:    {total_batches} × {batch_size}  (0 to {total_batches - 1})")
         return
 
     print("\nARIA-GAIA Benchmark Runner")
     print("=" * 40)
     _preflight()
 
-    if run_all:
-        print(f"\nRunning all {total_batches} batches ({len(tasks)} tasks)")
+    if retry_failed:
+        # Find tasks whose saved result contains a run_error and rerun only those
+        failed_ids = []
+        for t in tasks:
+            rf = RESULTS_DIR / f"{t['gaia_task_id']}.json"
+            if rf.exists():
+                try:
+                    if json.loads(rf.read_text(encoding="utf-8")).get("run_error"):
+                        failed_ids.append(t["gaia_task_id"])
+                except Exception:
+                    failed_ids.append(t["gaia_task_id"])
+        retry_tasks = [t for t in tasks if t["gaia_task_id"] in failed_ids]
+        if not retry_tasks:
+            print("\nNo failed runs found — nothing to retry.")
+            return
+        print(f"\nRetrying {len(retry_tasks)} failed runs: {[t['gaia_task_id'][:8] for t in retry_tasks]}")
+        # Remove from completed so _run_batch doesn't skip them
+        progress = _load_progress()
+        progress["completed"] = [c for c in progress["completed"] if c not in failed_ids]
+        _save_progress(progress)
+        _run_batch(retry_tasks, 0, delay, force=True)
+        print(f"\nRetry done. Next: python scripts/gaia_agreement.py --save")
+        return
+
+    def _run_range(start: int, end: int) -> None:
+        """Run batches from start to end inclusive."""
+        count = end - start + 1
+        print(f"\nRunning batches {start}–{end} ({count} batches, ~{count * batch_size} tasks)")
         print(f"Batch delay: {batch_delay}s  (swap GROQ_API_KEY in .env between batches if needed)\n")
-        for b in range(total_batches):
+        for b in range(start, end + 1):
+            if b >= total_batches:
+                print(f"Batch {b} out of range (max {total_batches - 1}), stopping.")
+                break
             batch_tasks = tasks[b * batch_size: (b + 1) * batch_size]
             _run_batch(batch_tasks, b, delay, force)
-            if b < total_batches - 1:
+            if b < end and b < total_batches - 1:
                 print(f"\n[Waiting {batch_delay}s before batch {b+1}...]")
                 print("[You can now swap GROQ_API_KEY in .env if needed]")
                 time.sleep(batch_delay)
-        print(f"\nAll done. Next: python scripts/gaia_agreement.py")
+        print(f"\nRange done. Next: python scripts/gaia_agreement.py --save")
+
+    if run_all:
+        _run_range(0, total_batches - 1)
+
+    elif from_batch is not None:
+        end = to_batch if to_batch is not None else total_batches - 1
+        if from_batch > end or from_batch >= total_batches:
+            print(f"ERROR: --from-batch {from_batch} is out of range (0–{total_batches - 1})")
+            sys.exit(1)
+        _run_range(from_batch, min(end, total_batches - 1))
 
     elif batch is not None:
         if batch >= total_batches:
@@ -350,9 +395,11 @@ def main(batch, batch_size, run_all, status, delay, batch_delay, level, force):
             print(f"\nAll batches complete. Next: python scripts/gaia_agreement.py")
 
     else:
-        print("Specify --batch N, --all, or --status")
+        print("Specify --batch N, --from-batch N [--to-batch M], --all, or --status")
         print(f"Available batches: 0 to {total_batches - 1}")
-        print(f"Example: python scripts/gaia_run_batch.py --batch 0")
+        print(f"Examples:")
+        print(f"  python scripts/gaia_run_batch.py --batch 3")
+        print(f"  python scripts/gaia_run_batch.py --from-batch 3 --to-batch 8 --force")
 
 
 if __name__ == "__main__":

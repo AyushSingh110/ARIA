@@ -3,19 +3,38 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "aria-agent-diagnostics"
+name = "ariadx"
 version = "0.1.0"
-description = "ARIA — diagnose why AI agents fail: failure taxonomy, requirement-aware evaluation, and trace diagnosis for LLM agents."
-readme = "../README.md"
+description = "ARIA — diagnose why AI agents fail. Failure taxonomy, requirement-aware evaluation, factual grounding, and trace diagnosis for LLM agents."
+readme = "PYPI_README.md"
 requires-python = ">=3.10"
-license = { text = "Proprietary — research preview" }
-authors = [{ name = "Ayush Singh" }]
-keywords = ["llm-agents", "agent-evaluation", "failure-detection", "observability", "langgraph"]
+license = { text = "Apache-2.0" }
+authors = [{ name = "Ayush Singh", email = "k2aserendipity@gmail.com" }]
+keywords = [
+    "llm-agents",
+    "agent-evaluation",
+    "agent-reliability",
+    "failure-detection",
+    "failure-diagnosis",
+    "hallucination-detection",
+    "observability",
+    "langgraph",
+    "dspy",
+    "ai-safety",
+]
 classifiers = [
     "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
     "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Software Development :: Testing",
 ]
 
 dependencies = [
@@ -40,10 +59,16 @@ dependencies = [
 
 [project.optional-dependencies]
 api = ["fastapi>=0.110", "uvicorn[standard]>=0.29", "requests>=2.31"]
-dev = ["pytest>=8.2.0", "pytest-asyncio>=0.23.0", "ruff>=0.4.0"]
+dev = ["pytest>=8.2.0", "pytest-asyncio>=0.23.0", "ruff>=0.4.0", "build>=1.2", "twine>=5.0"]
+
+[project.urls]
+Homepage = "https://github.com/AyushSingh110/ARIA"
+Documentation = "https://github.com/AyushSingh110/ARIA/tree/main/docs"
+Repository = "https://github.com/AyushSingh110/ARIA"
+Issues = "https://github.com/AyushSingh110/ARIA/issues"
 
 [project.scripts]
-aria = "main:run"
+aria = "aria.cli:run"
 
 [tool.setuptools.packages.find]
 include = ["aria*", "api*", "adapters*"]

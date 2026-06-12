@@ -1,176 +1,136 @@
 # ARIA — Execution Status
 
-> Last updated: 2026-06-11 · Internal document — do not publish.
+> Last updated: 2026-06-12 · Internal document — do not publish.
 
 ---
 
-## 1. What has been executed (this build-out)
+## 1. Current verified numbers (after your reruns)
 
-### Pipeline fixes (research-driven)
-| Item | File | Status |
+| Metric | Value | Change |
 |---|---|---|
-| tool_misuse over-prediction fix — requires actual error evidence (`tool_error_loop` flag or "Error" in trace) before assigning tool_misuse | `backend/aria/agents/diagnostician.py`, `backend/api/main.py` | ✅ done + verified |
-| req_sat=0 labeled "none" bug — deterministic overrides after DSPy call | `backend/aria/agents/diagnostician.py` | ✅ done + verified on GAIA rerun |
-| Legacy 4-field compiled DSPy program no longer loaded (was overriding disambiguation) — only v2 program or zero-shot | `backend/aria/agents/diagnostician.py` | ✅ done |
-| Agreement metric bug — `None` vs `"none"` mismatch undercounted agreement (reported 38%, actual **68%**) | `backend/scripts/analyze_realbench.py` | ✅ fixed |
+| Human–ARIA agreement (RealBench, 50 labeled) | **78%** (39/50) | ↑ from 68% — tool_misuse fix + v2 recompile worked |
+| GAIA failure-flag precision | **91.2%** | stable |
+| GAIA tool_misuse over-prediction | **eliminated** (28% → 0%) | fix verified on rerun |
+| Diagnostician v2 held-out accuracy | 50% (5/10) | small val set — see §4 |
+| GAIA runs OK / errored | 36 / 6 | 6 failed on Groq 429 — retry below |
+| Critic evolution | 8% → 42% → **78%** | updated |
 
-### Critic v3 — factual grounding (new research contribution)
-| Item | File | Status |
-|---|---|---|
-| Grounding module: extract central claim → independent DuckDuckGo search → verify supported/contradicted/unverifiable | `backend/aria/agents/grounding.py` | ✅ done |
-| Wired into Diagnostician: clean-looking runs (req_sat ≥ 0.75, no flags) with contradicted claims → `hallucination_loop` | `backend/aria/agents/diagnostician.py` | ✅ done |
-| Config flag `GROUNDING_ENABLED` (on in `.env`) | `backend/aria/config/settings.py` | ✅ done |
-| `grounding` field added to `ARIAState` | `backend/aria/state/schema.py` | ✅ done |
-
-### DSPy Diagnostician v2 recompile
-| Item | File | Status |
-|---|---|---|
-| Recompile script using human-labeled real data (48 usable examples: 38 train / 10 val), BootstrapFewShot, saves `diagnostician_v2.json`, runs held-out validation | `backend/scripts/recompile_diagnostician_v2.py` | ✅ script done + dry-run verified — **you must run the compile (Groq API calls)** |
-
-### Frontend dashboard (React + Vite + Recharts)
-| Item | Status |
-|---|---|
-| Stat cards: total runs, avg req satisfaction, pass rate, most common failure, human agreement | ✅ |
-| Failure-distribution donut chart (light research palette) | ✅ |
-| Recent failures table | ✅ |
-| Diagnose panel: paste task + tool calls + output → live diagnosis with requirement checklist, evidence, suggested action | ✅ |
-| Feedback buttons (correct / wrong + correction) wired to `/feedback` | ✅ |
-| API proxy `/api → localhost:8000`, auto-refresh every 15 s, production build verified | ✅ |
-
-### Research figures notebook
-| Item | Status |
-|---|---|
-| `research/figures.ipynb` — executed end-to-end, 6 figures at 300 DPI in `research/figures/` | ✅ |
-| Fig 1: ARIA vs Human distribution (RealBench) · Fig 2: GAIA distribution + diagnostic correlation · Fig 3: Critic evolution 8→42→68% · Fig 4: req-sat histograms · Fig 5: confusion matrix · Fig 6: hallucination blind spot | ✅ |
-| `research/figures/public_numbers.json` — the only numbers safe to publish | ✅ |
-
-### Packaging / SDK
-| Item | Status |
-|---|---|
-| `backend/pyproject.toml` — installable as `aria-agent-diagnostics`, `aria` CLI entry point, `[api]` and `[dev]` extras | ✅ |
-| `aria/sdk.py` — `diagnose()` (in-process), `diagnose_remote()` (HTTP), `run_task()` (full pipeline) | ✅ imports verified |
-| `ddgs` + fastapi/uvicorn added to env; `ddgs` added to requirements.txt | ✅ |
-
-### IP protection (repo can go public)
-| Item | Status |
-|---|---|
-| `.gitignore`: `backend/data/realbench/`, `backend/data/gaia/`, `backend/data/api_runs/`, `backend/data/synthetic/`, `research/`, `node_modules/`, experience store | ✅ |
-| 126 already-tracked private files untracked via `git rm --cached` (files stay on disk) | ✅ |
-| `.env` (API keys) confirmed never tracked; `.env.example` created | ✅ |
-| README shows aggregate numbers only — no raw JSON, no labeled traces, no full analyses | ✅ |
-
-> ⚠️ **CRITICAL before making the repo public:** the private data still exists in **git history** (commits `43129bb`, `5aebeb7`, `ca2e64d`, …). Untracking only affects future commits. Two options:
-> 1. **Fresh public repo (recommended, simple):** create a new repo, copy the working tree, single initial commit. History stays private.
-> 2. `git filter-repo` to rewrite history — error-prone, do only if you must keep history.
-> Also: your **GROQ API key and HF token are in `.env`** — rotate them if there is any chance they were ever committed or shared.
+Remaining RealBench disagreements (11) are mostly ARIA over-flagging (`ARIA=failure, human=none` ×6) and the 2 taxonomy-gap cases — see `research/RESEARCH_ROADMAP.md` for how these feed taxonomy v2.
 
 ---
 
-## 2. Updated headline numbers (after fixes)
+## 2. What was executed in this build-out (2026-06-12)
 
-| Metric | Value |
+### Package → PyPI-ready as **`ariadx`**
+| Item | Status |
 |---|---|
-| Human–ARIA agreement (RealBench, 50 labeled) | **68%** (was misreported as 38% due to metric bug) |
-| GAIA failure-detection precision | **91.7%** |
-| GAIA false-clean cases | 4/41, of which 3 had req_sat = 1.0 (hallucination blind spot → Critic v3) |
-| Critic evolution | 8% (v1) → 42% (v2) → 68% (v2 + disambiguation) |
-| Labeled training examples ready for DSPy v2 | 48 (38 train / 10 val) |
+| Name `ariadx` confirmed available on PyPI ("ARIA + dx (diagnosis)") | ✅ |
+| `pyproject.toml` — full metadata: Apache-2.0, classifiers, URLs, keywords, email | ✅ |
+| `backend/PYPI_README.md` — PyPI landing page (product-focused, short) | ✅ |
+| CLI entry-point bug fixed — `main:run` wasn't packaged; CLI moved to `aria/cli.py`, entry = `aria.cli:run` | ✅ verified |
+| Wheel built + contents audited — **only source modules, zero data files** | ✅ `dist/ariadx-0.1.0-py3-none-any.whl` |
+| `backend/PUBLISHING.md` — complete step-by-step publish guide (TestPyPI rehearsal → real) | ✅ |
+
+### Open-source documentation (complete set)
+| File | Status |
+|---|---|
+| `LICENSE` — official Apache 2.0 text | ✅ |
+| `CONTRIBUTING.md` — setup, PR rules, adapter guide, taxonomy context | ✅ |
+| `CODE_OF_CONDUCT.md` — Contributor Covenant 2.1 | ✅ |
+| `SECURITY.md` — reporting, scope (file sandbox, no-auth API warning) | ✅ |
+| `docs/README.md` — docs index | ✅ |
+| `docs/getting-started.md` — install → first diagnosis in 5 min | ✅ |
+| `docs/sdk-reference.md` — all 3 SDK functions + CLI, full schemas | ✅ |
+| `docs/api-reference.md` — all 6 endpoints with request/response JSON | ✅ |
+| `docs/failure-taxonomy.md` — 5 classes, detection, gaps, v2 motivation | ✅ |
+| `docs/architecture.md` — pipeline deep-dive + stack table | ✅ |
+| `docs/adapters.md` — LangGraph/OpenAI usage + write-your-own guide | ✅ |
+| `README.md` — full professional rewrite: badges, new 78% numbers, doc links | ✅ |
+
+### Pipeline weak points fixed
+| Item | Status |
+|---|---|
+| `grounding` field was **never persisted** in GAIA results (Critic v3 unverifiable) — now saved by `gaia_run_batch.py` | ✅ |
+| `--retry-failed` flag added to `gaia_run_batch.py` — reruns only 429-errored tasks | ✅ |
+| `--from-batch/--to-batch` range support (from previous session) | ✅ |
+| Resumable `--validate-all` with checkpoint in recompile script (from previous session) | ✅ |
+
+### Research planning
+| Item | Status |
+|---|---|
+| `research/RESEARCH_ROADMAP.md` — detailed prioritized research plan (private) | ✅ |
 
 ---
 
-## 3. Commands — run these in order
+## 3. Commands — what to run next, in order
 
-All backend commands from `C:\Users\ASUS\Desktop\ARIA\backend` with the aria env:
-`C:\Users\ASUS\anaconda3\envs\aria\python.exe` (alias as `$py` below).
+`$py = C:\Users\ASUS\anaconda3\envs\aria\python.exe`, run from `backend/`.
 
-### A. Recompile Diagnostician v2 on your labeled data (DO THIS FIRST — uses Groq API)
+### A. Retry the 6 rate-limited GAIA runs (~20 min)
 ```powershell
 cd C:\Users\ASUS\Desktop\ARIA\backend
-C:\Users\ASUS\anaconda3\envs\aria\python.exe scripts/recompile_diagnostician_v2.py --dry-run   # preview
-C:\Users\ASUS\anaconda3\envs\aria\python.exe scripts/recompile_diagnostician_v2.py             # compile + held-out validation
-```
-The pipeline auto-loads `data/compiled/diagnostician_v2.json` afterwards.
-
-### B. Re-validate after recompile (research before/after numbers)
-```powershell
-# Rerun GAIA with v2 program + Critic v3 grounding active
-C:\Users\ASUS\anaconda3\envs\aria\python.exe scripts/gaia_run_batch.py --all --force --delay 10 --batch-delay 30
+C:\Users\ASUS\anaconda3\envs\aria\python.exe scripts/gaia_run_batch.py --retry-failed --delay 15
 C:\Users\ASUS\anaconda3\envs\aria\python.exe scripts/gaia_agreement.py --save
-
-# Recompute RealBench agreement (fixed metric)
-C:\Users\ASUS\anaconda3\envs\aria\python.exe scripts/analyze_realbench.py
 ```
 
-### C. Manual review / labeling (when new runs accumulate)
+### B. Publish to PyPI (follow `backend/PUBLISHING.md` for full detail)
 ```powershell
-C:\Users\ASUS\anaconda3\envs\aria\python.exe scripts/review_realbench.py     # label RealBench runs
-C:\Users\ASUS\anaconda3\envs\aria\python.exe scripts/gaia_run_batch.py --status
+cd C:\Users\ASUS\Desktop\ARIA\backend
+Remove-Item -Recurse -Force dist -ErrorAction SilentlyContinue
+C:\Users\ASUS\anaconda3\envs\aria\python.exe -m build
+C:\Users\ASUS\anaconda3\envs\aria\python.exe -m twine check dist/*
+# rehearsal: twine upload --repository testpypi dist/*
+C:\Users\ASUS\anaconda3\envs\aria\python.exe -m twine upload dist/*
 ```
 
-### D. Regenerate research figures (after any data change)
+### C. Label the 36 GAIA runs (research priority 1.1, ~2–3 h)
+Edit `human_label` + `reviewed: true` in `data/gaia/results/*.json`, or adapt `scripts/review_realbench.py`.
+
+### D. Recompile Diagnostician on combined data (after C)
+```powershell
+C:\Users\ASUS\anaconda3\envs\aria\python.exe scripts/recompile_diagnostician_v2.py --dry-run
+C:\Users\ASUS\anaconda3\envs\aria\python.exe scripts/recompile_diagnostician_v2.py
+C:\Users\ASUS\anaconda3\envs\aria\python.exe scripts/recompile_diagnostician_v2.py --validate-all   # resumable
+```
+
+### E. Regenerate figures with new numbers (78%)
 ```powershell
 cd C:\Users\ASUS\Desktop\ARIA\research
 C:\Users\ASUS\anaconda3\envs\aria\python.exe -m jupyter nbconvert --to notebook --execute --inplace figures.ipynb
-# figures land in research/figures/*.png (300 DPI) + public_numbers.json
-# or open interactively:
-C:\Users\ASUS\anaconda3\envs\aria\python.exe -m jupyter notebook figures.ipynb
 ```
 
-### E. Run the full product (API + dashboard)
+### F. Run the product
 ```powershell
-# Terminal 1 — API
-cd C:\Users\ASUS\Desktop\ARIA\backend
-C:\Users\ASUS\anaconda3\envs\aria\python.exe -m uvicorn api.main:app --port 8000
-
-# Terminal 2 — dashboard
-cd C:\Users\ASUS\Desktop\ARIA\frontend
-npm run dev
-# open http://localhost:5173
-```
-
-### F. Install as a package (SDK)
-```powershell
-cd C:\Users\ASUS\Desktop\ARIA\backend
-C:\Users\ASUS\anaconda3\envs\aria\python.exe -m pip install -e ".[api]"
+# API:        cd backend;  python -m uvicorn api.main:app --port 8000
+# Dashboard:  cd frontend; npm run dev
 ```
 
 ---
 
-## 4. What is still left
+## 4. Known weak points still open
 
-| Item | Effort | Notes |
+| Item | Why it matters | Plan |
 |---|---|---|
-| **Run the DSPy v2 recompile** (command A) | 10–20 min | Script ready; needs your Groq quota |
-| **Rerun GAIA with v2 + grounding** (command B) | ~1–2 h | Produces the paper's before/after table |
-| Validate Critic v3 on the 6 known hallucination cases | 30 min | Check the 3 GAIA + 3 RealBench false-cleans now get `hallucination_loop` |
-| GAIA Level 2 batch (10–15 tasks) | ~2 h | `gaia_download.py --level 2` then batch runner |
-| Manual labeling of the 41 GAIA runs | 2–3 h | Adds ~40 training examples for the next recompile |
-| Taxonomy v2 (mechanism/outcome layers) | research | Design doc + schema change |
-| Ablation study (ARIA vs no-ARIA decision support) | research | Paper section |
-| Paper draft | writing | Figures + numbers are ready |
-| Fresh public repo (history clean) | 30 min | See warning in section 1 |
-| PyPI publish of `aria-agent-diagnostics` | 1 h | After repo is public; reserve the name early |
+| Held-out accuracy 50% on 10 examples | Too noisy to publish; small val set | Recompile after GAIA labeling (~85 examples, stratified split) — roadmap 1.2 |
+| Critic v3 grounding never validated end-to-end | Core paper claim unverified | Roadmap 1.3 — re-diagnose the 6 known hallucination cases with grounding on |
+| 6 GAIA runs errored (429) | N=36 instead of 42 | Command A above |
+| ARIA over-flags clean runs (6/11 disagreements) | Precision on "none" class | Analyze after GAIA labels; candidate disambiguation rule |
+| `figures.ipynb` shows old numbers (68%) | Stale figures | Command E |
+| Git history contains private data | **Blocker for public repo** | Fresh repo with single initial commit (see §5) |
+| GROQ key + HF token in `.env` | Leak risk | **Rotate both before going public** |
 
 ---
 
-## 5. Database recommendation (MongoDB question)
+## 5. Before making the repo public — checklist
 
-**Not yet — stay file-based for now.** Reasons:
-
-- Current volume (~150 JSON files) is trivially handled by the filesystem; MongoDB adds setup, hosting, and auth complexity with zero research benefit at this scale.
-- Your dashboard, analysis scripts, and labeling tools all read JSON directly — migrating now means rewriting them all mid-research-cycle.
-
-**Add a DB when one of these happens:**
-1. ARIA runs as a hosted service where multiple users submit traces concurrently (file writes will race),
-2. you exceed ~5,000 stored runs, or
-3. you need queries like "all hallucination cases with req_sat > 0.8 across benchmarks" frequently.
-
-When that day comes: **MongoDB Atlas free tier** fits the JSON-document shape of your records perfectly, and the migration is one script (insert every JSON file as a document). The `experience_store.json` would become a collection too. SQLite is the lighter alternative if you stay single-user.
+1. **Rotate** GROQ_API_KEY and HUGGING_FACE_TOKEN (console.groq.com / hf.co settings)
+2. **Fresh repo**: create new GitHub repo → copy working tree (without `.git`, `backend/data/`, `research/`, `.env`) → single initial commit. Old history stays private.
+3. Verify `.gitignore` excludes: `backend/data/realbench|gaia|api_runs|synthetic`, `research/`, `.env`, `node_modules/`, `dist/`
+4. `pip install ariadx` works (after B)
+5. Add repo topics on GitHub: `llm-agents`, `agent-evaluation`, `ai-reliability`, `failure-detection`
 
 ---
 
-## 6. Files created/changed in this build-out
+## 6. Database (MongoDB) — unchanged recommendation
 
-**New:** `aria/agents/grounding.py` · `aria/sdk.py` · `scripts/recompile_diagnostician_v2.py` · `backend/pyproject.toml` · `backend/.env.example` · `research/figures.ipynb` (+6 PNGs + public_numbers.json) · `frontend/` (full React app: package.json, vite.config.js, index.html, src/App.jsx, src/api.js, src/constants.js, src/styles.css, 4 components) · `EXECUTION_STATUS.md`
-
-**Modified:** `aria/agents/diagnostician.py` (tool_misuse fix, grounding hook, v2-only program loading) · `api/main.py` (tool_misuse fix in post-processing) · `aria/config/settings.py` (GROUNDING_ENABLED) · `aria/state/schema.py` (grounding field) · `scripts/analyze_realbench.py` (agreement metric fix) · `scripts/gaia_run_batch.py` (abbreviation matching) · `requirements.txt` (ddgs) · `.gitignore` (private data) · `README.md` (full rewrite) · `.env` (GROUNDING_ENABLED=true)
+Stay file-based. Add MongoDB Atlas (free tier) only when: concurrent users, >5,000 runs, or frequent cross-benchmark queries. Migration is one script.
