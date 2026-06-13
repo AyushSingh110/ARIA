@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 import time
 from typing import Any
 
@@ -46,18 +47,27 @@ def _get_llm() -> Any:
     if settings.executor_provider == "groq":
         return ChatGroq(
             api_key=settings.groq_api_key,
-            model=settings.groq_model,
+            model=settings.executor_model or settings.groq_model,
             temperature=0,
         )
     return ChatOllama(
         base_url=settings.ollama_base_url,
-        model=settings.ollama_model,
+        model=settings.executor_model or settings.ollama_model,
         temperature=0,
     )
 
 
 def _args_hash(args: dict) -> str:
     return hashlib.md5(json.dumps(args, sort_keys=True).encode()).hexdigest()
+
+
+def _extract_failed_generation(error_msg: str) -> str:
+    """Pull the model's malformed output out of a Groq tool_use_failed error."""
+    m = re.search(r"'failed_generation':\s*'(.*?)'\}\}", error_msg, re.DOTALL)
+    if m:
+        return m.group(1)
+    m = re.search(r'"failed_generation":\s*"(.*?)"\}\}', error_msg, re.DOTALL)
+    return m.group(1) if m else ""
 
 
 def executor_node(state: ARIAState) -> dict:
@@ -92,19 +102,51 @@ def executor_node(state: ARIAState) -> dict:
     turn = 0
     final_output: str = "Executor reached max turns without a final answer."
     total_tokens = 0
+    groq_delta = 1 if settings.executor_provider == "groq" else 0
+    ollama_delta = 1 if settings.executor_provider == "ollama" else 0
 
     while turn < settings.executor_max_turns:
         t0 = time.monotonic()
-        response = llm_with_tools.invoke(messages)
+        try:
+            response = llm_with_tools.invoke(messages)
+        except Exception as exc:
+            # Weak models frequently emit malformed tool calls; Groq rejects
+            # them with a 400 `tool_use_failed`. That is itself a real failure
+            # mode worth capturing as a diagnosable trace rather than aborting
+            # the whole run. Genuine rate limits (429) must still propagate so
+            # the runner's backoff/resume can handle them.
+            msg = str(exc)
+            is_rate_limit = "429" in msg or "rate limit" in msg.lower() or "rate_limit" in msg.lower()
+            is_tool_use_failed = "tool_use_failed" in msg or "Failed to call a function" in msg
+            if is_rate_limit or not is_tool_use_failed:
+                raise
+            latency_ms = int((time.monotonic() - t0) * 1000)
+            bad_gen = _extract_failed_generation(msg)
+            console.print(f"  [yellow]turn {turn} | malformed tool call rejected by provider[/yellow]")
+            trace.append(
+                ExecutorTraceEntry(
+                    turn=turn,
+                    tool_name="__tool_use_failed__",
+                    tool_args={},
+                    tool_result=msg[:300],
+                    llm_output=bad_gen,
+                    latency_ms=latency_ms,
+                    token_count=0,
+                )
+            )
+            goal_embeddings.append(engine.embed(bad_gen[:512] or "malformed tool call"))
+            final_output = (
+                "Executor produced a malformed tool call the provider rejected: "
+                f"{bad_gen[:200]}"
+            )
+            turn += 1
+            break
         latency_ms = int((time.monotonic() - t0) * 1000)
 
         # Token counting (best-effort — not all providers expose this)
         usage = getattr(response, "usage_metadata", None) or {}
         tokens = usage.get("total_tokens", 0) if isinstance(usage, dict) else 0
         total_tokens += tokens
-
-        groq_delta = 1 if settings.executor_provider == "groq" else 0
-        ollama_delta = 1 if settings.executor_provider == "ollama" else 0
 
         content_str = response.content if isinstance(response.content, str) else str(response.content)
 

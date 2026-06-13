@@ -21,6 +21,13 @@ class Settings(BaseSettings):
     ollama_base_url: str = Field(default="http://localhost:11434", alias="OLLAMA_BASE_URL")
     ollama_model: str = Field(default="llama3.1:8b", alias="OLLAMA_MODEL")
 
+    # ── Per-agent model overrides ────────────────────────────────
+    # Lets the trace-generation runner vary ONLY the executor model
+    # (e.g. weak llama-3.1-8b-instant vs strong llama-3.3-70b-versatile)
+    # without disturbing the orchestrator/critic models. Empty = fall
+    # back to the provider's default model (groq_model / ollama_model).
+    executor_model: str = Field(default="", alias="EXECUTOR_MODEL")
+
     # ── Agent LLM routing ────────────────────────────────────────
     orchestrator_provider: Literal["groq", "ollama"] = Field(
         default="groq", alias="ORCHESTRATOR_PROVIDER"

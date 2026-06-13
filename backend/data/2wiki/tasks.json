@@ -1,0 +1,1450 @@
+{
+  "tasks": [
+    {
+      "id": "2wiki_00000",
+      "benchmark": "2wiki",
+      "task": "Who is the mother of the director of film Polish-Russian War (Film)?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Who is the mother of the director of film Polish-Russian War (Film)?",
+      "task_class": "web_research",
+      "expected_answer": "Małgorzata Braunek",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00001",
+      "benchmark": "2wiki",
+      "task": "Which film came out first, Blind Shaft or The Mask Of Fu Manchu?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which film came out first, Blind Shaft or The Mask Of Fu Manchu?",
+      "task_class": "web_research",
+      "expected_answer": "The Mask Of Fu Manchu",
+      "level": null,
+      "meta": {
+        "type": "comparison"
+      }
+    },
+    {
+      "id": "2wiki_00002",
+      "benchmark": "2wiki",
+      "task": "When did John V, Prince Of Anhalt-Zerbst's father die?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: When did John V, Prince Of Anhalt-Zerbst's father die?",
+      "task_class": "web_research",
+      "expected_answer": "12 June 1516",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00003",
+      "benchmark": "2wiki",
+      "task": "What is the award that the director of film Wearing Velvet Slippers Under A Golden Umbrella won?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What is the award that the director of film Wearing Velvet Slippers Under A Golden Umbrella won?",
+      "task_class": "web_research",
+      "expected_answer": "Myanmar Motion Picture Academy Awards",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00004",
+      "benchmark": "2wiki",
+      "task": "Where was the director of film Ronnie Rocket born?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Where was the director of film Ronnie Rocket born?",
+      "task_class": "web_research",
+      "expected_answer": "Missoula, Montana",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00005",
+      "benchmark": "2wiki",
+      "task": "Who is Charles Bretagne Marie De La Trémoille's paternal grandfather?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Who is Charles Bretagne Marie De La Trémoille's paternal grandfather?",
+      "task_class": "web_research",
+      "expected_answer": "Charles Armand René de La Trémoille",
+      "level": null,
+      "meta": {
+        "type": "inference"
+      }
+    },
+    {
+      "id": "2wiki_00006",
+      "benchmark": "2wiki",
+      "task": "Where was the father of Ștefan I. Nenițescu born?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Where was the father of Ștefan I. Nenițescu born?",
+      "task_class": "web_research",
+      "expected_answer": "Galați",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00007",
+      "benchmark": "2wiki",
+      "task": "Are North Marion High School (Oregon) and Seoul High School both located in the same country?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Are North Marion High School (Oregon) and Seoul High School both located in the same country?",
+      "task_class": "web_research",
+      "expected_answer": "no",
+      "level": null,
+      "meta": {
+        "type": "comparison"
+      }
+    },
+    {
+      "id": "2wiki_00008",
+      "benchmark": "2wiki",
+      "task": "Which film has the director who was born later, El Extraño Viaje or Love In Pawn?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which film has the director who was born later, El Extraño Viaje or Love In Pawn?",
+      "task_class": "web_research",
+      "expected_answer": "El Extraño Viaje",
+      "level": null,
+      "meta": {
+        "type": "bridge_comparison"
+      }
+    },
+    {
+      "id": "2wiki_00009",
+      "benchmark": "2wiki",
+      "task": "Who is the maternal grandfather of Antiochus X Eusebes?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Who is the maternal grandfather of Antiochus X Eusebes?",
+      "task_class": "web_research",
+      "expected_answer": "Ptolemy IX Lathyros",
+      "level": null,
+      "meta": {
+        "type": "inference"
+      }
+    },
+    {
+      "id": "2wiki_00010",
+      "benchmark": "2wiki",
+      "task": "Which film has the director died first, Crimen A Las Tres or The Working Class Goes To Heaven?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which film has the director died first, Crimen A Las Tres or The Working Class Goes To Heaven?",
+      "task_class": "web_research",
+      "expected_answer": "The Working Class Goes To Heaven",
+      "level": null,
+      "meta": {
+        "type": "bridge_comparison"
+      }
+    },
+    {
+      "id": "2wiki_00011",
+      "benchmark": "2wiki",
+      "task": "Which film has the director born first, Once A Gentleman or The Girl In White?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which film has the director born first, Once A Gentleman or The Girl In White?",
+      "task_class": "web_research",
+      "expected_answer": "Once A Gentleman",
+      "level": null,
+      "meta": {
+        "type": "bridge_comparison"
+      }
+    },
+    {
+      "id": "2wiki_00012",
+      "benchmark": "2wiki",
+      "task": "Which film has the director who died earlier, Il Seduttore or The Trial Of Joan Of Arc?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which film has the director who died earlier, Il Seduttore or The Trial Of Joan Of Arc?",
+      "task_class": "web_research",
+      "expected_answer": "The Trial Of Joan Of Arc",
+      "level": null,
+      "meta": {
+        "type": "bridge_comparison"
+      }
+    },
+    {
+      "id": "2wiki_00013",
+      "benchmark": "2wiki",
+      "task": "Where was the director of film Thomas Jefferson (Film) born?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Where was the director of film Thomas Jefferson (Film) born?",
+      "task_class": "web_research",
+      "expected_answer": "Brooklyn",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00014",
+      "benchmark": "2wiki",
+      "task": "Why did Grand Duke Kirill Vladimirovich Of Russia's wife die?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Why did Grand Duke Kirill Vladimirovich Of Russia's wife die?",
+      "task_class": "web_research",
+      "expected_answer": "stroke",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00015",
+      "benchmark": "2wiki",
+      "task": "Where was the place of death of the director of film Beat Girl?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Where was the place of death of the director of film Beat Girl?",
+      "task_class": "web_research",
+      "expected_answer": "Nice",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00016",
+      "benchmark": "2wiki",
+      "task": "Who died first, Fleetwood Sheppard or George William Whitaker?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Who died first, Fleetwood Sheppard or George William Whitaker?",
+      "task_class": "web_research",
+      "expected_answer": "Fleetwood Sheppard",
+      "level": null,
+      "meta": {
+        "type": "comparison"
+      }
+    },
+    {
+      "id": "2wiki_00017",
+      "benchmark": "2wiki",
+      "task": "Which film has the director born first, The Raven'S Dance or Keïta! L'Héritage Du Griot?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which film has the director born first, The Raven'S Dance or Keïta! L'Héritage Du Griot?",
+      "task_class": "web_research",
+      "expected_answer": "The Raven'S Dance",
+      "level": null,
+      "meta": {
+        "type": "bridge_comparison"
+      }
+    },
+    {
+      "id": "2wiki_00018",
+      "benchmark": "2wiki",
+      "task": "When did Jean Martin (Singer)'s husband die?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: When did Jean Martin (Singer)'s husband die?",
+      "task_class": "web_research",
+      "expected_answer": "1983",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00019",
+      "benchmark": "2wiki",
+      "task": "Which film has the director who died earlier, Tangled Destinies or The Daltons' Women?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which film has the director who died earlier, Tangled Destinies or The Daltons' Women?",
+      "task_class": "web_research",
+      "expected_answer": "Tangled Destinies",
+      "level": null,
+      "meta": {
+        "type": "bridge_comparison"
+      }
+    },
+    {
+      "id": "2wiki_00020",
+      "benchmark": "2wiki",
+      "task": "Which film was released earlier, Moment Of Danger or The Ballad Of Josie?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which film was released earlier, Moment Of Danger or The Ballad Of Josie?",
+      "task_class": "web_research",
+      "expected_answer": "Moment Of Danger",
+      "level": null,
+      "meta": {
+        "type": "comparison"
+      }
+    },
+    {
+      "id": "2wiki_00021",
+      "benchmark": "2wiki",
+      "task": "What nationality is the director of film World And Time Enough?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What nationality is the director of film World And Time Enough?",
+      "task_class": "web_research",
+      "expected_answer": "United States",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00022",
+      "benchmark": "2wiki",
+      "task": "Which film has the director died earlier, Poker In Bed or The Machine To Kill Bad People?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which film has the director died earlier, Poker In Bed or The Machine To Kill Bad People?",
+      "task_class": "web_research",
+      "expected_answer": "The Machine To Kill Bad People",
+      "level": null,
+      "meta": {
+        "type": "bridge_comparison"
+      }
+    },
+    {
+      "id": "2wiki_00023",
+      "benchmark": "2wiki",
+      "task": "Which film whose director is younger, Heads I Win, Tails You Lose or The Incredible Sarah?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which film whose director is younger, Heads I Win, Tails You Lose or The Incredible Sarah?",
+      "task_class": "web_research",
+      "expected_answer": "Heads I Win, Tails You Lose",
+      "level": null,
+      "meta": {
+        "type": "bridge_comparison"
+      }
+    },
+    {
+      "id": "2wiki_00024",
+      "benchmark": "2wiki",
+      "task": "Who is Catherine Of Pomerania, Countess Palatine Of Neumarkt's father-in-law?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Who is Catherine Of Pomerania, Countess Palatine Of Neumarkt's father-in-law?",
+      "task_class": "web_research",
+      "expected_answer": "Rupert",
+      "level": null,
+      "meta": {
+        "type": "inference"
+      }
+    },
+    {
+      "id": "2wiki_00025",
+      "benchmark": "2wiki",
+      "task": "Who is Marie Zéphyrine Of France's paternal grandmother?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Who is Marie Zéphyrine Of France's paternal grandmother?",
+      "task_class": "web_research",
+      "expected_answer": "Marie Leszczyńska",
+      "level": null,
+      "meta": {
+        "type": "inference"
+      }
+    },
+    {
+      "id": "2wiki_00026",
+      "benchmark": "2wiki",
+      "task": "Which film has the director died earlier, Condemned Women or Faces In The Dark?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which film has the director died earlier, Condemned Women or Faces In The Dark?",
+      "task_class": "web_research",
+      "expected_answer": "Condemned Women",
+      "level": null,
+      "meta": {
+        "type": "bridge_comparison"
+      }
+    },
+    {
+      "id": "2wiki_00027",
+      "benchmark": "2wiki",
+      "task": "Who is the spouse of the director of film Eden And After?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Who is the spouse of the director of film Eden And After?",
+      "task_class": "web_research",
+      "expected_answer": "Catherine Robbe-Grillet",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00028",
+      "benchmark": "2wiki",
+      "task": "Where was the place of death of Anastasia Of Serbia's husband?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Where was the place of death of Anastasia Of Serbia's husband?",
+      "task_class": "web_research",
+      "expected_answer": "Hilandar",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00029",
+      "benchmark": "2wiki",
+      "task": "Are Fire In Hell and The Tiger: An Old Hunter'S Tale from the same country?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Are Fire In Hell and The Tiger: An Old Hunter'S Tale from the same country?",
+      "task_class": "web_research",
+      "expected_answer": "yes",
+      "level": null,
+      "meta": {
+        "type": "comparison"
+      }
+    },
+    {
+      "id": "2wiki_00030",
+      "benchmark": "2wiki",
+      "task": "Which film was released more recently, Lo Zappatore or Placer Sangriento?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which film was released more recently, Lo Zappatore or Placer Sangriento?",
+      "task_class": "web_research",
+      "expected_answer": "Placer Sangriento",
+      "level": null,
+      "meta": {
+        "type": "comparison"
+      }
+    },
+    {
+      "id": "2wiki_00031",
+      "benchmark": "2wiki",
+      "task": "Was Şemsettin Baş or Gwenc'Hlan Le Scouëzec born first?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Was Şemsettin Baş or Gwenc'Hlan Le Scouëzec born first?",
+      "task_class": "web_research",
+      "expected_answer": "Gwenc'Hlan Le Scouëzec",
+      "level": null,
+      "meta": {
+        "type": "comparison"
+      }
+    },
+    {
+      "id": "2wiki_00032",
+      "benchmark": "2wiki",
+      "task": "Which film has the director born later, Bhoomiyude Avakashikal or The Majesty Of The Law?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which film has the director born later, Bhoomiyude Avakashikal or The Majesty Of The Law?",
+      "task_class": "web_research",
+      "expected_answer": "Bhoomiyude Avakashikal",
+      "level": null,
+      "meta": {
+        "type": "bridge_comparison"
+      }
+    },
+    {
+      "id": "2wiki_00033",
+      "benchmark": "2wiki",
+      "task": "Who is Cornelia (Wife Of Caesar)'s child-in-law?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Who is Cornelia (Wife Of Caesar)'s child-in-law?",
+      "task_class": "web_research",
+      "expected_answer": "Pompey",
+      "level": null,
+      "meta": {
+        "type": "inference"
+      }
+    },
+    {
+      "id": "2wiki_00034",
+      "benchmark": "2wiki",
+      "task": "Why did John Middleton Murry's wife die?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Why did John Middleton Murry's wife die?",
+      "task_class": "web_research",
+      "expected_answer": "tuberculosis",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00035",
+      "benchmark": "2wiki",
+      "task": "Who is the paternal grandfather of Taj Al-Dawla?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Who is the paternal grandfather of Taj Al-Dawla?",
+      "task_class": "web_research",
+      "expected_answer": "Rukn al-Dawla",
+      "level": null,
+      "meta": {
+        "type": "inference"
+      }
+    },
+    {
+      "id": "2wiki_00036",
+      "benchmark": "2wiki",
+      "task": "Do both films Payment On Demand and My Cousin From Warsaw have the directors from the same country?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Do both films Payment On Demand and My Cousin From Warsaw have the directors from the same country?",
+      "task_class": "web_research",
+      "expected_answer": "yes",
+      "level": null,
+      "meta": {
+        "type": "bridge_comparison"
+      }
+    },
+    {
+      "id": "2wiki_00037",
+      "benchmark": "2wiki",
+      "task": "What is the place of birth of the director of film And The Spring Comes?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What is the place of birth of the director of film And The Spring Comes?",
+      "task_class": "web_research",
+      "expected_answer": "Xi'an",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00038",
+      "benchmark": "2wiki",
+      "task": "Who died first, Madame Pasca or James A. Donohoe?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Who died first, Madame Pasca or James A. Donohoe?",
+      "task_class": "web_research",
+      "expected_answer": "Madame Pasca",
+      "level": null,
+      "meta": {
+        "type": "comparison"
+      }
+    },
+    {
+      "id": "2wiki_00039",
+      "benchmark": "2wiki",
+      "task": "Who was born later, D'Arcy Coulson or Thomas William Adams?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Who was born later, D'Arcy Coulson or Thomas William Adams?",
+      "task_class": "web_research",
+      "expected_answer": "D'Arcy Coulson",
+      "level": null,
+      "meta": {
+        "type": "comparison"
+      }
+    },
+    {
+      "id": "2wiki_00040",
+      "benchmark": "2wiki",
+      "task": "Are Simonds Catholic College and Saginaw High School (Texas) both located in the same country?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Are Simonds Catholic College and Saginaw High School (Texas) both located in the same country?",
+      "task_class": "web_research",
+      "expected_answer": "no",
+      "level": null,
+      "meta": {
+        "type": "comparison"
+      }
+    },
+    {
+      "id": "2wiki_00041",
+      "benchmark": "2wiki",
+      "task": "Which country Prince Nikolaus Wilhelm Of Nassau's mother is from?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which country Prince Nikolaus Wilhelm Of Nassau's mother is from?",
+      "task_class": "web_research",
+      "expected_answer": "German",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00042",
+      "benchmark": "2wiki",
+      "task": "Which film whose director was born first, 45 Fathers or The Intended?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which film whose director was born first, 45 Fathers or The Intended?",
+      "task_class": "web_research",
+      "expected_answer": "45 Fathers",
+      "level": null,
+      "meta": {
+        "type": "bridge_comparison"
+      }
+    },
+    {
+      "id": "2wiki_00043",
+      "benchmark": "2wiki",
+      "task": "Who is the paternal grandfather of Alexandre Berthier, 3Rd Prince Of Wagram?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Who is the paternal grandfather of Alexandre Berthier, 3Rd Prince Of Wagram?",
+      "task_class": "web_research",
+      "expected_answer": "Louis-Alexandre Berthier",
+      "level": null,
+      "meta": {
+        "type": "inference"
+      }
+    },
+    {
+      "id": "2wiki_00044",
+      "benchmark": "2wiki",
+      "task": "Where was the husband of Caterina Visconti born?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Where was the husband of Caterina Visconti born?",
+      "task_class": "web_research",
+      "expected_answer": "Pavia",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00045",
+      "benchmark": "2wiki",
+      "task": "Which film has the director who was born later, A Quiet Place In The Country or When Were You Born?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which film has the director who was born later, A Quiet Place In The Country or When Were You Born?",
+      "task_class": "web_research",
+      "expected_answer": "A Quiet Place In The Country",
+      "level": null,
+      "meta": {
+        "type": "bridge_comparison"
+      }
+    },
+    {
+      "id": "2wiki_00046",
+      "benchmark": "2wiki",
+      "task": "Who was born first, John Beach or Gordon Persons?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Who was born first, John Beach or Gordon Persons?",
+      "task_class": "web_research",
+      "expected_answer": "John Beach",
+      "level": null,
+      "meta": {
+        "type": "comparison"
+      }
+    },
+    {
+      "id": "2wiki_00047",
+      "benchmark": "2wiki",
+      "task": "Which film has the director born earlier, The House By The Cemetery or Charlie Chan In Honolulu?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which film has the director born earlier, The House By The Cemetery or Charlie Chan In Honolulu?",
+      "task_class": "web_research",
+      "expected_answer": "Charlie Chan In Honolulu",
+      "level": null,
+      "meta": {
+        "type": "bridge_comparison"
+      }
+    },
+    {
+      "id": "2wiki_00048",
+      "benchmark": "2wiki",
+      "task": "Who is the child of the director of film La Leona (Film)?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Who is the child of the director of film La Leona (Film)?",
+      "task_class": "web_research",
+      "expected_answer": "Víctor Bó",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00049",
+      "benchmark": "2wiki",
+      "task": "Who is Blanche Of Portugal (1259–1321)'s paternal grandmother?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Who is Blanche Of Portugal (1259–1321)'s paternal grandmother?",
+      "task_class": "web_research",
+      "expected_answer": "Urraca of Castile",
+      "level": null,
+      "meta": {
+        "type": "inference"
+      }
+    },
+    {
+      "id": "2wiki_00050",
+      "benchmark": "2wiki",
+      "task": "Who lived longer, Giuseppe Cesari or Nicos Poulantzas?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Who lived longer, Giuseppe Cesari or Nicos Poulantzas?",
+      "task_class": "web_research",
+      "expected_answer": "Giuseppe Cesari",
+      "level": null,
+      "meta": {
+        "type": "comparison"
+      }
+    },
+    {
+      "id": "2wiki_00051",
+      "benchmark": "2wiki",
+      "task": "Are director of film Nights On The Road and director of film Swann In Love (Film) from the same country?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Are director of film Nights On The Road and director of film Swann In Love (Film) from the same country?",
+      "task_class": "web_research",
+      "expected_answer": "yes",
+      "level": null,
+      "meta": {
+        "type": "bridge_comparison"
+      }
+    },
+    {
+      "id": "2wiki_00052",
+      "benchmark": "2wiki",
+      "task": "Who is older, Aryeh Ben-Eliezer or Jason Pociask?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Who is older, Aryeh Ben-Eliezer or Jason Pociask?",
+      "task_class": "web_research",
+      "expected_answer": "Aryeh Ben-Eliezer",
+      "level": null,
+      "meta": {
+        "type": "comparison"
+      }
+    },
+    {
+      "id": "2wiki_00053",
+      "benchmark": "2wiki",
+      "task": "Where does the director of film Man At Bath work at?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Where does the director of film Man At Bath work at?",
+      "task_class": "web_research",
+      "expected_answer": "Cahiers du cinéma",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00054",
+      "benchmark": "2wiki",
+      "task": "Who is Arthur Gore, 2Nd Earl Of Arran's paternal grandfather?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Who is Arthur Gore, 2Nd Earl Of Arran's paternal grandfather?",
+      "task_class": "web_research",
+      "expected_answer": "Sir Arthur Gore, 2nd Baronet",
+      "level": null,
+      "meta": {
+        "type": "inference"
+      }
+    },
+    {
+      "id": "2wiki_00055",
+      "benchmark": "2wiki",
+      "task": "Are both Kaufland and Otrag located in the same country?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Are both Kaufland and Otrag located in the same country?",
+      "task_class": "web_research",
+      "expected_answer": "yes",
+      "level": null,
+      "meta": {
+        "type": "comparison"
+      }
+    },
+    {
+      "id": "2wiki_00056",
+      "benchmark": "2wiki",
+      "task": "Which film came out earlier, Aanaval Mothiram or Heroes Of The Street?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which film came out earlier, Aanaval Mothiram or Heroes Of The Street?",
+      "task_class": "web_research",
+      "expected_answer": "Heroes Of The Street",
+      "level": null,
+      "meta": {
+        "type": "comparison"
+      }
+    },
+    {
+      "id": "2wiki_00057",
+      "benchmark": "2wiki",
+      "task": "Where was the father of Lord Patrick Crichton-Stuart born?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Where was the father of Lord Patrick Crichton-Stuart born?",
+      "task_class": "web_research",
+      "expected_answer": "London",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00058",
+      "benchmark": "2wiki",
+      "task": "Which country the director of film Daadagiri is from?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which country the director of film Daadagiri is from?",
+      "task_class": "web_research",
+      "expected_answer": "Pakistan",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00059",
+      "benchmark": "2wiki",
+      "task": "Where was the wife of Douglas Leiterman born?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Where was the wife of Douglas Leiterman born?",
+      "task_class": "web_research",
+      "expected_answer": "Winnipeg, Manitoba",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00060",
+      "benchmark": "2wiki",
+      "task": "What is the place of birth of the performer of song Who...?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What is the place of birth of the performer of song Who...?",
+      "task_class": "web_research",
+      "expected_answer": "Fukuoka",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00061",
+      "benchmark": "2wiki",
+      "task": "Where was the place of death of the director of film Mole Men Against The Son Of Hercules?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Where was the place of death of the director of film Mole Men Against The Son Of Hercules?",
+      "task_class": "web_research",
+      "expected_answer": "Roma",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00062",
+      "benchmark": "2wiki",
+      "task": "Where was the father of Alexandre Gaydamak born?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Where was the father of Alexandre Gaydamak born?",
+      "task_class": "web_research",
+      "expected_answer": "Moscow, USSR",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00063",
+      "benchmark": "2wiki",
+      "task": "Which film has the director who died earlier, Toen 'T Licht Verdween or Boum Sur Paris?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which film has the director who died earlier, Toen 'T Licht Verdween or Boum Sur Paris?",
+      "task_class": "web_research",
+      "expected_answer": "Toen 'T Licht Verdween",
+      "level": null,
+      "meta": {
+        "type": "bridge_comparison"
+      }
+    },
+    {
+      "id": "2wiki_00064",
+      "benchmark": "2wiki",
+      "task": "Who is Gaston, Duke Of Orléans's paternal grandmother?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Who is Gaston, Duke Of Orléans's paternal grandmother?",
+      "task_class": "web_research",
+      "expected_answer": "Jeanne d'Albret",
+      "level": null,
+      "meta": {
+        "type": "inference"
+      }
+    },
+    {
+      "id": "2wiki_00065",
+      "benchmark": "2wiki",
+      "task": "Where was the director of film The Half-Way Girl born?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Where was the director of film The Half-Way Girl born?",
+      "task_class": "web_research",
+      "expected_answer": "New York",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00066",
+      "benchmark": "2wiki",
+      "task": "Who is the father-in-law of Sophia Of Wittelsbach?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Who is the father-in-law of Sophia Of Wittelsbach?",
+      "task_class": "web_research",
+      "expected_answer": "Louis II",
+      "level": null,
+      "meta": {
+        "type": "inference"
+      }
+    },
+    {
+      "id": "2wiki_00067",
+      "benchmark": "2wiki",
+      "task": "Where was the place of death of Lambert I, Count Of Louvain's father?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Where was the place of death of Lambert I, Count Of Louvain's father?",
+      "task_class": "web_research",
+      "expected_answer": "Bohemia",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00068",
+      "benchmark": "2wiki",
+      "task": "Where was the director of film Highway Dragnet born?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Where was the director of film Highway Dragnet born?",
+      "task_class": "web_research",
+      "expected_answer": "Gura Humorului",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00069",
+      "benchmark": "2wiki",
+      "task": "Where did Prince Gustav Of Thurn And Taxis (1848–1914)'s mother die?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Where did Prince Gustav Of Thurn And Taxis (1848–1914)'s mother die?",
+      "task_class": "web_research",
+      "expected_answer": "Meran",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00070",
+      "benchmark": "2wiki",
+      "task": "What is the award that the performer of song Sunday Papers earned?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What is the award that the performer of song Sunday Papers earned?",
+      "task_class": "web_research",
+      "expected_answer": "Grammy",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00071",
+      "benchmark": "2wiki",
+      "task": "Which film has the director born first, Antonieta or Dodging The Dole?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which film has the director born first, Antonieta or Dodging The Dole?",
+      "task_class": "web_research",
+      "expected_answer": "Dodging The Dole",
+      "level": null,
+      "meta": {
+        "type": "bridge_comparison"
+      }
+    },
+    {
+      "id": "2wiki_00072",
+      "benchmark": "2wiki",
+      "task": "Are both Nikolsk Airport and Svobodny Airport located in the same country?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Are both Nikolsk Airport and Svobodny Airport located in the same country?",
+      "task_class": "web_research",
+      "expected_answer": "yes",
+      "level": null,
+      "meta": {
+        "type": "comparison"
+      }
+    },
+    {
+      "id": "2wiki_00073",
+      "benchmark": "2wiki",
+      "task": "Who is the maternal grandfather of Amadeus Vii, Count Of Savoy?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Who is the maternal grandfather of Amadeus Vii, Count Of Savoy?",
+      "task_class": "web_research",
+      "expected_answer": "Peter I",
+      "level": null,
+      "meta": {
+        "type": "inference"
+      }
+    },
+    {
+      "id": "2wiki_00074",
+      "benchmark": "2wiki",
+      "task": "Are both businesses, Telus and Ztr Control Systems, located in the same country?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Are both businesses, Telus and Ztr Control Systems, located in the same country?",
+      "task_class": "web_research",
+      "expected_answer": "yes",
+      "level": null,
+      "meta": {
+        "type": "comparison"
+      }
+    },
+    {
+      "id": "2wiki_00075",
+      "benchmark": "2wiki",
+      "task": "Do both films, Dial M For Murder and Marius (1931 Film), have the directors who are from the same country?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Do both films, Dial M For Murder and Marius (1931 Film), have the directors who are from the same country?",
+      "task_class": "web_research",
+      "expected_answer": "yes",
+      "level": null,
+      "meta": {
+        "type": "bridge_comparison"
+      }
+    },
+    {
+      "id": "2wiki_00076",
+      "benchmark": "2wiki",
+      "task": "Who is older, Dyson Parody or Gene Watson?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Who is older, Dyson Parody or Gene Watson?",
+      "task_class": "web_research",
+      "expected_answer": "Gene Watson",
+      "level": null,
+      "meta": {
+        "type": "comparison"
+      }
+    },
+    {
+      "id": "2wiki_00077",
+      "benchmark": "2wiki",
+      "task": "Are both directors of films The Princess Bride (Film) and I Never Sang For My Father from the same country?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Are both directors of films The Princess Bride (Film) and I Never Sang For My Father from the same country?",
+      "task_class": "web_research",
+      "expected_answer": "yes",
+      "level": null,
+      "meta": {
+        "type": "bridge_comparison"
+      }
+    },
+    {
+      "id": "2wiki_00078",
+      "benchmark": "2wiki",
+      "task": "When did Prince John Konstantinovich Of Russia's mother die?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: When did Prince John Konstantinovich Of Russia's mother die?",
+      "task_class": "web_research",
+      "expected_answer": "24 March 1927",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00079",
+      "benchmark": "2wiki",
+      "task": "Which country Audofleda's husband is from?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which country Audofleda's husband is from?",
+      "task_class": "web_research",
+      "expected_answer": "Ostrogothic Kingdom",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00080",
+      "benchmark": "2wiki",
+      "task": "What is the place of birth of the director of film Letter To The King?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What is the place of birth of the director of film Letter To The King?",
+      "task_class": "web_research",
+      "expected_answer": "Kurdish",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00081",
+      "benchmark": "2wiki",
+      "task": "Are both bands, Snowman (Band) and Jessamine (Band), from the same country?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Are both bands, Snowman (Band) and Jessamine (Band), from the same country?",
+      "task_class": "web_research",
+      "expected_answer": "no",
+      "level": null,
+      "meta": {
+        "type": "comparison"
+      }
+    },
+    {
+      "id": "2wiki_00082",
+      "benchmark": "2wiki",
+      "task": "Where was the performer of song God (John Lennon Song) born?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Where was the performer of song God (John Lennon Song) born?",
+      "task_class": "web_research",
+      "expected_answer": "Liverpool",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00083",
+      "benchmark": "2wiki",
+      "task": "Which film has the director who died earlier, Captain Kidd And The Slave Girl or Relax Freddie?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which film has the director who died earlier, Captain Kidd And The Slave Girl or Relax Freddie?",
+      "task_class": "web_research",
+      "expected_answer": "Captain Kidd And The Slave Girl",
+      "level": null,
+      "meta": {
+        "type": "bridge_comparison"
+      }
+    },
+    {
+      "id": "2wiki_00084",
+      "benchmark": "2wiki",
+      "task": "Which song was released more recently, Go Ahead And Break My Heart or Knee Deep In My Heart?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which song was released more recently, Go Ahead And Break My Heart or Knee Deep In My Heart?",
+      "task_class": "web_research",
+      "expected_answer": "Go Ahead And Break My Heart",
+      "level": null,
+      "meta": {
+        "type": "comparison"
+      }
+    },
+    {
+      "id": "2wiki_00085",
+      "benchmark": "2wiki",
+      "task": "Which film has the director who died later, The Fatal Mistake or The Devil'S Hairpin?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which film has the director who died later, The Fatal Mistake or The Devil'S Hairpin?",
+      "task_class": "web_research",
+      "expected_answer": "The Devil'S Hairpin",
+      "level": null,
+      "meta": {
+        "type": "bridge_comparison"
+      }
+    },
+    {
+      "id": "2wiki_00086",
+      "benchmark": "2wiki",
+      "task": "Who is Maria Luisa Of Savoy's father-in-law?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Who is Maria Luisa Of Savoy's father-in-law?",
+      "task_class": "web_research",
+      "expected_answer": "Louis, Grand Dauphin",
+      "level": null,
+      "meta": {
+        "type": "inference"
+      }
+    },
+    {
+      "id": "2wiki_00087",
+      "benchmark": "2wiki",
+      "task": "Who is the paternal grandfather of Kujō Yoritsugu?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Who is the paternal grandfather of Kujō Yoritsugu?",
+      "task_class": "web_research",
+      "expected_answer": "Kujō Michiie",
+      "level": null,
+      "meta": {
+        "type": "inference"
+      }
+    },
+    {
+      "id": "2wiki_00088",
+      "benchmark": "2wiki",
+      "task": "What is the place of birth of the director of film Marianela (1940 Film)?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What is the place of birth of the director of film Marianela (1940 Film)?",
+      "task_class": "web_research",
+      "expected_answer": "Madrid",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00089",
+      "benchmark": "2wiki",
+      "task": "Which film came out first, Repeated Absences or She Wore A Yellow Ribbon?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which film came out first, Repeated Absences or She Wore A Yellow Ribbon?",
+      "task_class": "web_research",
+      "expected_answer": "She Wore A Yellow Ribbon",
+      "level": null,
+      "meta": {
+        "type": "comparison"
+      }
+    },
+    {
+      "id": "2wiki_00090",
+      "benchmark": "2wiki",
+      "task": "Who lived longer, Edward Dearle or Michael Doeberl?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Who lived longer, Edward Dearle or Michael Doeberl?",
+      "task_class": "web_research",
+      "expected_answer": "Edward Dearle",
+      "level": null,
+      "meta": {
+        "type": "comparison"
+      }
+    },
+    {
+      "id": "2wiki_00091",
+      "benchmark": "2wiki",
+      "task": "Where does Karin Stoltenberg's husband work at?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Where does Karin Stoltenberg's husband work at?",
+      "task_class": "web_research",
+      "expected_answer": "United Nations",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00092",
+      "benchmark": "2wiki",
+      "task": "Where was the director of film Lettre Ouverte born?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Where was the director of film Lettre Ouverte born?",
+      "task_class": "web_research",
+      "expected_answer": "Paris",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00093",
+      "benchmark": "2wiki",
+      "task": "Who is William Ii, Count Of Flanders's paternal grandmother?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Who is William Ii, Count Of Flanders's paternal grandmother?",
+      "task_class": "web_research",
+      "expected_answer": "Mathilde of Bourbon",
+      "level": null,
+      "meta": {
+        "type": "inference"
+      }
+    },
+    {
+      "id": "2wiki_00094",
+      "benchmark": "2wiki",
+      "task": "What is the place of birth of Clara Novello's father?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What is the place of birth of Clara Novello's father?",
+      "task_class": "web_research",
+      "expected_answer": "London",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00095",
+      "benchmark": "2wiki",
+      "task": "Which film came out earlier, Emmy Of Stork'S Nest or Indira Vizha?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which film came out earlier, Emmy Of Stork'S Nest or Indira Vizha?",
+      "task_class": "web_research",
+      "expected_answer": "Emmy Of Stork'S Nest",
+      "level": null,
+      "meta": {
+        "type": "comparison"
+      }
+    },
+    {
+      "id": "2wiki_00096",
+      "benchmark": "2wiki",
+      "task": "Which film came out first, Celine: Through The Eyes Of The World or Dilan 1991?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which film came out first, Celine: Through The Eyes Of The World or Dilan 1991?",
+      "task_class": "web_research",
+      "expected_answer": "Celine: Through The Eyes Of The World",
+      "level": null,
+      "meta": {
+        "type": "comparison"
+      }
+    },
+    {
+      "id": "2wiki_00097",
+      "benchmark": "2wiki",
+      "task": "Who was born earlier, Silas Hardy or Lee Mantle?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Who was born earlier, Silas Hardy or Lee Mantle?",
+      "task_class": "web_research",
+      "expected_answer": "Lee Mantle",
+      "level": null,
+      "meta": {
+        "type": "comparison"
+      }
+    },
+    {
+      "id": "2wiki_00098",
+      "benchmark": "2wiki",
+      "task": "Where was the place of burial of Albert Frederick, Duke Of Prussia's mother?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Where was the place of burial of Albert Frederick, Duke Of Prussia's mother?",
+      "task_class": "web_research",
+      "expected_answer": "Königsberg",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00099",
+      "benchmark": "2wiki",
+      "task": "Where was the place of death of Juan Carlos Gumucio's wife?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Where was the place of death of Juan Carlos Gumucio's wife?",
+      "task_class": "web_research",
+      "expected_answer": "Homs",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00100",
+      "benchmark": "2wiki",
+      "task": "Who is the father of the director of film Gramps Is In The Resistance?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Who is the father of the director of film Gramps Is In The Resistance?",
+      "task_class": "web_research",
+      "expected_answer": "Alain Poiré",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00101",
+      "benchmark": "2wiki",
+      "task": "What is the place of birth of the performer of song Heaven (Namie Amuro Song)?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What is the place of birth of the performer of song Heaven (Namie Amuro Song)?",
+      "task_class": "web_research",
+      "expected_answer": "Naha, Okinawa",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00102",
+      "benchmark": "2wiki",
+      "task": "What nationality is Philip Of Ibelin (1180–1227)'s mother?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What nationality is Philip Of Ibelin (1180–1227)'s mother?",
+      "task_class": "web_research",
+      "expected_answer": "Byzantine",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00103",
+      "benchmark": "2wiki",
+      "task": "Who was born later, Joseph J. Magliocco or Viktoriya Zeynep Güneş?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Who was born later, Joseph J. Magliocco or Viktoriya Zeynep Güneş?",
+      "task_class": "web_research",
+      "expected_answer": "Viktoriya Zeynep Güneş",
+      "level": null,
+      "meta": {
+        "type": "comparison"
+      }
+    },
+    {
+      "id": "2wiki_00104",
+      "benchmark": "2wiki",
+      "task": "When is the lead guitarist of List Of The Dillinger Escape Plan Band Members's birthday?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: When is the lead guitarist of List Of The Dillinger Escape Plan Band Members's birthday?",
+      "task_class": "web_research",
+      "expected_answer": "August 8, 1975",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00105",
+      "benchmark": "2wiki",
+      "task": "Where does Huma Abedin's husband work at?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Where does Huma Abedin's husband work at?",
+      "task_class": "web_research",
+      "expected_answer": "Chuck Schumer",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00106",
+      "benchmark": "2wiki",
+      "task": "Are the movies About A Wife, A Dream And Another... and The Doolins Of Oklahoma, from the same country?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Are the movies About A Wife, A Dream And Another... and The Doolins Of Oklahoma, from the same country?",
+      "task_class": "web_research",
+      "expected_answer": "no",
+      "level": null,
+      "meta": {
+        "type": "comparison"
+      }
+    },
+    {
+      "id": "2wiki_00107",
+      "benchmark": "2wiki",
+      "task": "Which film came out earlier, Out Of The Rain or Les Résultats Du Féminisme?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which film came out earlier, Out Of The Rain or Les Résultats Du Féminisme?",
+      "task_class": "web_research",
+      "expected_answer": "Les Résultats Du Féminisme",
+      "level": null,
+      "meta": {
+        "type": "comparison"
+      }
+    },
+    {
+      "id": "2wiki_00108",
+      "benchmark": "2wiki",
+      "task": "Where did Giacomo Feo's wife die?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Where did Giacomo Feo's wife die?",
+      "task_class": "web_research",
+      "expected_answer": "Florence",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00109",
+      "benchmark": "2wiki",
+      "task": "What is the place of birth of the director of film Swedenhielms?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What is the place of birth of the director of film Swedenhielms?",
+      "task_class": "web_research",
+      "expected_answer": "Helsingfors",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00110",
+      "benchmark": "2wiki",
+      "task": "Which country Jan Baptist Van Rensselaer's father is from?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which country Jan Baptist Van Rensselaer's father is from?",
+      "task_class": "web_research",
+      "expected_answer": "Dutch",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00111",
+      "benchmark": "2wiki",
+      "task": "Which film was released earlier, Sathyavan Savithri or Kids Of The Round Table?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which film was released earlier, Sathyavan Savithri or Kids Of The Round Table?",
+      "task_class": "web_research",
+      "expected_answer": "Kids Of The Round Table",
+      "level": null,
+      "meta": {
+        "type": "comparison"
+      }
+    },
+    {
+      "id": "2wiki_00112",
+      "benchmark": "2wiki",
+      "task": "Where did Gigi Causey's husband graduate from?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Where did Gigi Causey's husband graduate from?",
+      "task_class": "web_research",
+      "expected_answer": "Tisch",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00113",
+      "benchmark": "2wiki",
+      "task": "What nationality is Geodeung Of Geumgwan Gaya's mother?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What nationality is Geodeung Of Geumgwan Gaya's mother?",
+      "task_class": "web_research",
+      "expected_answer": "India",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00114",
+      "benchmark": "2wiki",
+      "task": "Which film was released earlier, Xenoa or Divorce Invitation?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which film was released earlier, Xenoa or Divorce Invitation?",
+      "task_class": "web_research",
+      "expected_answer": "Xenoa",
+      "level": null,
+      "meta": {
+        "type": "comparison"
+      }
+    },
+    {
+      "id": "2wiki_00115",
+      "benchmark": "2wiki",
+      "task": "What is the cause of death of Alex Matthiessen's father?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What is the cause of death of Alex Matthiessen's father?",
+      "task_class": "web_research",
+      "expected_answer": "leukemia",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00116",
+      "benchmark": "2wiki",
+      "task": "What is the place of birth of Remigius Of Rouen's father?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What is the place of birth of Remigius Of Rouen's father?",
+      "task_class": "web_research",
+      "expected_answer": "Herstal",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00117",
+      "benchmark": "2wiki",
+      "task": "When did Lord Patrick Crichton-Stuart's father die?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: When did Lord Patrick Crichton-Stuart's father die?",
+      "task_class": "web_research",
+      "expected_answer": "22 January 1794",
+      "level": null,
+      "meta": {
+        "type": "compositional"
+      }
+    },
+    {
+      "id": "2wiki_00118",
+      "benchmark": "2wiki",
+      "task": "Which film has the director who was born earlier, It'S A Joke, Son! or The Thirty Nine Steps (1978 Film)?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which film has the director who was born earlier, It'S A Joke, Son! or The Thirty Nine Steps (1978 Film)?",
+      "task_class": "web_research",
+      "expected_answer": "It'S A Joke, Son!",
+      "level": null,
+      "meta": {
+        "type": "bridge_comparison"
+      }
+    },
+    {
+      "id": "2wiki_00119",
+      "benchmark": "2wiki",
+      "task": "Are both directors of films The Slayer (Film) and Moscow Heat from the same country?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Are both directors of films The Slayer (Film) and Moscow Heat from the same country?",
+      "task_class": "web_research",
+      "expected_answer": "yes",
+      "level": null,
+      "meta": {
+        "type": "bridge_comparison"
+      }
+    }
+  ],
+  "meta": {
+    "benchmark": "2wiki",
+    "split": "validation",
+    "hf_id": "voidful/2WikiMultihopQA",
+    "count": 120
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "task_id": "gsm8k_00001",
+  "benchmark": "gsm8k",
+  "task": "A robe takes 2 bolts of blue fiber and half that much white fiber.  How many bolts in total does it take?",
+  "task_class": "reasoning",
+  "level": null,
+  "expected_answer": "3",
+  "run_config": {
+    "executor_provider": "groq",
+    "executor_model": "llama-3.1-8b-instant",
+    "max_turns": 8,
+    "config_id": "groq-llama-3-1-8b-instant__t8"
+  },
+  "aria_label": "tool_misuse",
+  "aria_confidence": 0.9,
+  "aria_reasoning": "The agent was unable to calculate the amount of white fiber needed and the total number of bolts required, as indicated by the 'MISS' status in the requirement summary. The critic scores also show a low correctness score of 1.0 and a requirement satisfaction score of 0.0, further supporting the conclusion that the agent failed to achieve its goal. The error message in the trace summary suggests th",
+  "aria_manifestation": "tool_misuse",
+  "requirement_satisfaction": 0.0,
+  "observer_flags": [],
+  "anomaly_detected": false,
+  "anomaly_severity": 0.0,
+  "drift_scores": [
+    0.33510643243789673
+  ],
+  "executor_output": "Executor produced a malformed tool call the provider rejected: <function=calculator>{\"expression\": \"blue_fiber * 0.5\"}",
+  "executor_turn_count": 1,
+  "trace": [
+    {
+      "turn": 0,
+      "tool_name": "__tool_use_failed__",
+      "tool_args": {},
+      "tool_result": "Error code: 400 - {'error': {'message': \"Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.\", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=calculator>{\"expression\": \"blue_fiber * 0.5\"}'}}",
+      "llm_output": "<function=calculator>{\"expression\": \"blue_fiber * 0.5\"}",
+      "latency_ms": 1183,
+      "token_count": 0
+    }
+  ],
+  "trace_summary": "turn 0: __tool_use_failed__({}) -> Error code: 400 - {'error': {'message': \"Failed to call a fu",
+  "critic_scores": {
+    "correctness": 1.0,
+    "completeness": 0.0,
+    "efficiency": 5.0,
+    "safety": 5.0,
+    "overall": 1.9,
+    "pass_fail": false,
+    "requirement_checklist": [
+      "Calculate the amount of white fiber needed",
+      "Calculate the total number of bolts required"
+    ],
+    "requirements_satisfied": [
+      false,
+      false
+    ],
+    "requirement_satisfaction": 0.0
+  },
+  "grounding": null,
+  "answer_correct": false,
+  "human_label": null,
+  "human_notes": null,
+  "reviewed": false,
+  "run_error": null,
+  "run_timestamp": "2026-06-13T04:07:26.843717+00:00"
+}

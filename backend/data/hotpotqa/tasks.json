@@ -1,0 +1,1450 @@
+{
+  "tasks": [
+    {
+      "id": "hotpotqa_00000",
+      "benchmark": "hotpotqa",
+      "task": "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?",
+      "task_class": "web_research",
+      "expected_answer": "Chief of Protocol",
+      "level": null,
+      "meta": {
+        "key": "21ddc0d82e464a99ab2872009521dcf8"
+      }
+    },
+    {
+      "id": "hotpotqa_00001",
+      "benchmark": "hotpotqa",
+      "task": "The director of the romantic comedy \"Big Stone Gap\" is based in what New York city?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: The director of the romantic comedy \"Big Stone Gap\" is based in what New York city?",
+      "task_class": "web_research",
+      "expected_answer": "Greenwich Village, New York City",
+      "level": null,
+      "meta": {
+        "key": "177c7fca323d45c992c1a2bdc69303cc"
+      }
+    },
+    {
+      "id": "hotpotqa_00002",
+      "benchmark": "hotpotqa",
+      "task": "2014 S/S is the debut album of a South Korean boy group that was formed by who?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: 2014 S/S is the debut album of a South Korean boy group that was formed by who?",
+      "task_class": "web_research",
+      "expected_answer": "YG Entertainment",
+      "level": null,
+      "meta": {
+        "key": "cbd9531cec724c819281ee7f3c36028c"
+      }
+    },
+    {
+      "id": "hotpotqa_00003",
+      "benchmark": "hotpotqa",
+      "task": "What science fantasy young adult series, told in first person, has a set of companion books narrating the stories of enslaved worlds and alien species?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What science fantasy young adult series, told in first person, has a set of companion books narrating the stories of enslaved worlds and alien species?",
+      "task_class": "web_research",
+      "expected_answer": "Animorphs",
+      "level": null,
+      "meta": {
+        "key": "ef5d020bb39a49e1b446613da0905de1"
+      }
+    },
+    {
+      "id": "hotpotqa_00004",
+      "benchmark": "hotpotqa",
+      "task": "Who was known by his stage name Aladin and helped organizations improve their performance as a consultant?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Who was known by his stage name Aladin and helped organizations improve their performance as a consultant?",
+      "task_class": "web_research",
+      "expected_answer": "Eenasul Fateh",
+      "level": null,
+      "meta": {
+        "key": "78ddf1df652e498d96e43c921d637fb6"
+      }
+    },
+    {
+      "id": "hotpotqa_00005",
+      "benchmark": "hotpotqa",
+      "task": "The arena where the Lewiston Maineiacs played their home games can seat how many people?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: The arena where the Lewiston Maineiacs played their home games can seat how many people?",
+      "task_class": "web_research",
+      "expected_answer": "3,677 seated",
+      "level": null,
+      "meta": {
+        "key": "d995e9e3f53d4194af3f91fdb91aadc0"
+      }
+    },
+    {
+      "id": "hotpotqa_00006",
+      "benchmark": "hotpotqa",
+      "task": "Who is older, Annie Morton or Terry Richardson?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Who is older, Annie Morton or Terry Richardson?",
+      "task_class": "web_research",
+      "expected_answer": "Terry Richardson",
+      "level": null,
+      "meta": {
+        "key": "4dd02d03224346df84f4b369939190c4"
+      }
+    },
+    {
+      "id": "hotpotqa_00007",
+      "benchmark": "hotpotqa",
+      "task": "What screenwriter with credits for \"Evolution\" co-wrote a film starring Nicolas Cage and Téa Leoni?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What screenwriter with credits for \"Evolution\" co-wrote a film starring Nicolas Cage and Téa Leoni?",
+      "task_class": "web_research",
+      "expected_answer": "David Weissman",
+      "level": null,
+      "meta": {
+        "key": "17d0b4a716204a188f37eb6970d2ad8a"
+      }
+    },
+    {
+      "id": "hotpotqa_00008",
+      "benchmark": "hotpotqa",
+      "task": "What is the name of the fight song of the university whose main campus is in Lawrence, Kansas and whose branch campuses are in the Kansas City metropolitan area?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What is the name of the fight song of the university whose main campus is in Lawrence, Kansas and whose branch campuses are in the Kansas City metropolitan area?",
+      "task_class": "web_research",
+      "expected_answer": "Kansas Song",
+      "level": null,
+      "meta": {
+        "key": "f3d8ada7cf0f406bb3dbabb6b358c8ec"
+      }
+    },
+    {
+      "id": "hotpotqa_00009",
+      "benchmark": "hotpotqa",
+      "task": "Brown State Fishing Lake is in a country that has a population of how many inhabitants ?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Brown State Fishing Lake is in a country that has a population of how many inhabitants ?",
+      "task_class": "web_research",
+      "expected_answer": "9,984",
+      "level": null,
+      "meta": {
+        "key": "6bf1668026534f3aab6ac211d25a79f6"
+      }
+    },
+    {
+      "id": "hotpotqa_00010",
+      "benchmark": "hotpotqa",
+      "task": "The football manager who recruited David Beckham managed Manchester United during what timeframe?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: The football manager who recruited David Beckham managed Manchester United during what timeframe?",
+      "task_class": "web_research",
+      "expected_answer": "from 1986 to 2013",
+      "level": null,
+      "meta": {
+        "key": "7fc532af010b49a98ed7f3fd506757d0"
+      }
+    },
+    {
+      "id": "hotpotqa_00011",
+      "benchmark": "hotpotqa",
+      "task": "What year did Guns N Roses perform a promo for a movie starring Arnold Schwarzenegger as a former New York Police detective?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What year did Guns N Roses perform a promo for a movie starring Arnold Schwarzenegger as a former New York Police detective?",
+      "task_class": "web_research",
+      "expected_answer": "1999",
+      "level": null,
+      "meta": {
+        "key": "7a2a8d7bcc9e46b3b9c8526ee0c4392f"
+      }
+    },
+    {
+      "id": "hotpotqa_00012",
+      "benchmark": "hotpotqa",
+      "task": "The Vermont Catamounts men's soccer team currently competes in a conference that was formerly known as what from 1988 to 1996?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: The Vermont Catamounts men's soccer team currently competes in a conference that was formerly known as what from 1988 to 1996?",
+      "task_class": "web_research",
+      "expected_answer": "the North Atlantic Conference",
+      "level": null,
+      "meta": {
+        "key": "5f1aac0195774d499fbf6281104029aa"
+      }
+    },
+    {
+      "id": "hotpotqa_00013",
+      "benchmark": "hotpotqa",
+      "task": "Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration of a president that served during what years?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration of a president that served during what years?",
+      "task_class": "web_research",
+      "expected_answer": "1969 until 1974",
+      "level": null,
+      "meta": {
+        "key": "8d65327984b24acfbf387be35b4b8927"
+      }
+    },
+    {
+      "id": "hotpotqa_00014",
+      "benchmark": "hotpotqa",
+      "task": "Which other Mexican Formula One race car driver has held the podium besides the Force India driver born in 1990?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which other Mexican Formula One race car driver has held the podium besides the Force India driver born in 1990?",
+      "task_class": "web_research",
+      "expected_answer": "Pedro Rodríguez",
+      "level": null,
+      "meta": {
+        "key": "3b7be4fd78bb48d9895e5ce77bd0142e"
+      }
+    },
+    {
+      "id": "hotpotqa_00015",
+      "benchmark": "hotpotqa",
+      "task": "What was the father of Kasper Schmeichel voted to be by the IFFHS in 1992?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What was the father of Kasper Schmeichel voted to be by the IFFHS in 1992?",
+      "task_class": "web_research",
+      "expected_answer": "World's Best Goalkeeper",
+      "level": null,
+      "meta": {
+        "key": "32e701c62a8543bfb64512a5b6045484"
+      }
+    },
+    {
+      "id": "hotpotqa_00016",
+      "benchmark": "hotpotqa",
+      "task": "Aside from the Apple Remote, what other device can control the program Apple Remote was originally designed to interact with?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Aside from the Apple Remote, what other device can control the program Apple Remote was originally designed to interact with?",
+      "task_class": "web_research",
+      "expected_answer": "keyboard function keys",
+      "level": null,
+      "meta": {
+        "key": "98d7ae77051f442bb6d46f0425e161fa"
+      }
+    },
+    {
+      "id": "hotpotqa_00017",
+      "benchmark": "hotpotqa",
+      "task": "This singer of A Rather Blustery Day also voiced what hedgehog?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: This singer of A Rather Blustery Day also voiced what hedgehog?",
+      "task_class": "web_research",
+      "expected_answer": "Sonic",
+      "level": null,
+      "meta": {
+        "key": "0208ae17012d476ea9c49f82629cd934"
+      }
+    },
+    {
+      "id": "hotpotqa_00018",
+      "benchmark": "hotpotqa",
+      "task": "Who was the writer of These Boots Are Made for Walkin' and who died in 2007?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Who was the writer of These Boots Are Made for Walkin' and who died in 2007?",
+      "task_class": "web_research",
+      "expected_answer": "Barton Lee Hazlewood",
+      "level": null,
+      "meta": {
+        "key": "265eed117828427c8412fc230b5a4661"
+      }
+    },
+    {
+      "id": "hotpotqa_00019",
+      "benchmark": "hotpotqa",
+      "task": "What is the name for the adventure in \"Tunnels and Trolls\", a game designed by Ken St. Andre?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What is the name for the adventure in \"Tunnels and Trolls\", a game designed by Ken St. Andre?",
+      "task_class": "web_research",
+      "expected_answer": "Arena of Khazan",
+      "level": null,
+      "meta": {
+        "key": "5d73aab269ce4f4fb15b37f21f2437e3"
+      }
+    },
+    {
+      "id": "hotpotqa_00020",
+      "benchmark": "hotpotqa",
+      "task": "Which  French ace pilot and adventurer fly L'Oiseau Blanc",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which  French ace pilot and adventurer fly L'Oiseau Blanc",
+      "task_class": "web_research",
+      "expected_answer": "Charles Eugène",
+      "level": null,
+      "meta": {
+        "key": "380b5091aef948439b44847d869f9d3a"
+      }
+    },
+    {
+      "id": "hotpotqa_00021",
+      "benchmark": "hotpotqa",
+      "task": "When was Poison's album \"Shut Up, Make Love\" released?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: When was Poison's album \"Shut Up, Make Love\" released?",
+      "task_class": "web_research",
+      "expected_answer": "2000",
+      "level": null,
+      "meta": {
+        "key": "959be88b4a4a4783bc55536acbcce496"
+      }
+    },
+    {
+      "id": "hotpotqa_00022",
+      "benchmark": "hotpotqa",
+      "task": "The 2011–12 VCU Rams men's basketball team, led by third year head coach Shaka Smart, represented Virginia Commonwealth University which was founded in what year?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: The 2011–12 VCU Rams men's basketball team, led by third year head coach Shaka Smart, represented Virginia Commonwealth University which was founded in what year?",
+      "task_class": "web_research",
+      "expected_answer": "1838",
+      "level": null,
+      "meta": {
+        "key": "c10fd3557ad245e9a0c0d46cdae70022"
+      }
+    },
+    {
+      "id": "hotpotqa_00023",
+      "benchmark": "hotpotqa",
+      "task": "Kaiser Ventures corporation was founded by an American industrialist who became known as the father of modern American shipbuilding?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Kaiser Ventures corporation was founded by an American industrialist who became known as the father of modern American shipbuilding?",
+      "task_class": "web_research",
+      "expected_answer": "Henry J. Kaiser",
+      "level": null,
+      "meta": {
+        "key": "582b024a19a446d5a013d4598096e313"
+      }
+    },
+    {
+      "id": "hotpotqa_00024",
+      "benchmark": "hotpotqa",
+      "task": "Ralph Hefferline was a psychology professor at a university that is located in what city?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Ralph Hefferline was a psychology professor at a university that is located in what city?",
+      "task_class": "web_research",
+      "expected_answer": "New York City",
+      "level": null,
+      "meta": {
+        "key": "15233499182346f2835bfb77b0e3c1b7"
+      }
+    },
+    {
+      "id": "hotpotqa_00025",
+      "benchmark": "hotpotqa",
+      "task": "Seven Brief Lessons on Physics was written by an Italian physicist that has worked in France since what year?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Seven Brief Lessons on Physics was written by an Italian physicist that has worked in France since what year?",
+      "task_class": "web_research",
+      "expected_answer": "2000",
+      "level": null,
+      "meta": {
+        "key": "36b9ebd2ee1f453fbaf935cf7248a6eb"
+      }
+    },
+    {
+      "id": "hotpotqa_00026",
+      "benchmark": "hotpotqa",
+      "task": "Where is the company that Sachin Warrier worked for as a software engineer headquartered?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Where is the company that Sachin Warrier worked for as a software engineer headquartered?",
+      "task_class": "web_research",
+      "expected_answer": "Mumbai",
+      "level": null,
+      "meta": {
+        "key": "7cf83f12af0d47ccb413245a5506be7e"
+      }
+    },
+    {
+      "id": "hotpotqa_00027",
+      "benchmark": "hotpotqa",
+      "task": "The Livesey Hal War Memorial commemorates the fallen of which war, that had over 60 million casualties?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: The Livesey Hal War Memorial commemorates the fallen of which war, that had over 60 million casualties?",
+      "task_class": "web_research",
+      "expected_answer": "World War II",
+      "level": null,
+      "meta": {
+        "key": "5d2b9a8f25f64cbeb8af5bd69394aa2e"
+      }
+    },
+    {
+      "id": "hotpotqa_00028",
+      "benchmark": "hotpotqa",
+      "task": "A Japanese manga series based on a 16 year old high school student Ichitaka Seto, is written and illustrated by someone born in what year?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: A Japanese manga series based on a 16 year old high school student Ichitaka Seto, is written and illustrated by someone born in what year?",
+      "task_class": "web_research",
+      "expected_answer": "1962",
+      "level": null,
+      "meta": {
+        "key": "179f624b2c01426b8a6a59b0885be2a8"
+      }
+    },
+    {
+      "id": "hotpotqa_00029",
+      "benchmark": "hotpotqa",
+      "task": "The battle in which Giuseppe Arimondi lost his life secured what for Ethiopia?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: The battle in which Giuseppe Arimondi lost his life secured what for Ethiopia?",
+      "task_class": "web_research",
+      "expected_answer": "sovereignty",
+      "level": null,
+      "meta": {
+        "key": "14014ba1b1df42da9039848ba550f192"
+      }
+    },
+    {
+      "id": "hotpotqa_00030",
+      "benchmark": "hotpotqa",
+      "task": "Alexander Kerensky was defeated and destroyed by the Bolsheviks in the course of a civil war that ended when ?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Alexander Kerensky was defeated and destroyed by the Bolsheviks in the course of a civil war that ended when ?",
+      "task_class": "web_research",
+      "expected_answer": "October 1922",
+      "level": null,
+      "meta": {
+        "key": "6d47b634a707470eab68083307f4ff5c"
+      }
+    },
+    {
+      "id": "hotpotqa_00031",
+      "benchmark": "hotpotqa",
+      "task": "A medieval fortress in Dirleton, East Lothian, Scotland borders on the south side of what coastal area?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: A medieval fortress in Dirleton, East Lothian, Scotland borders on the south side of what coastal area?",
+      "task_class": "web_research",
+      "expected_answer": "Yellowcraig",
+      "level": null,
+      "meta": {
+        "key": "a67e5e66ddca4e4490e6c60325e908fe"
+      }
+    },
+    {
+      "id": "hotpotqa_00032",
+      "benchmark": "hotpotqa",
+      "task": "Which year and which conference was the 14th season for this conference as part of the NCAA Division that the Colorado Buffaloes played in with a record of 2-6 in conference play?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which year and which conference was the 14th season for this conference as part of the NCAA Division that the Colorado Buffaloes played in with a record of 2-6 in conference play?",
+      "task_class": "web_research",
+      "expected_answer": "2009 Big 12 Conference",
+      "level": null,
+      "meta": {
+        "key": "6e138622e4e149d3998a7f501ce40357"
+      }
+    },
+    {
+      "id": "hotpotqa_00033",
+      "benchmark": "hotpotqa",
+      "task": "Alfred Balk served as the secretary of the Committee on the Employment of Minority Groups in the News Media under which United States Vice President?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Alfred Balk served as the secretary of the Committee on the Employment of Minority Groups in the News Media under which United States Vice President?",
+      "task_class": "web_research",
+      "expected_answer": "Nelson Rockefeller",
+      "level": null,
+      "meta": {
+        "key": "be34c19fb61943c79af6762488cab41c"
+      }
+    },
+    {
+      "id": "hotpotqa_00034",
+      "benchmark": "hotpotqa",
+      "task": "Who is the writer of this song that was inspired by words on a tombstone and was the first track on the box set Back to Mono?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Who is the writer of this song that was inspired by words on a tombstone and was the first track on the box set Back to Mono?",
+      "task_class": "web_research",
+      "expected_answer": "Phil Spector",
+      "level": null,
+      "meta": {
+        "key": "14bda4c0d26a43bd89756a69502f9e8c"
+      }
+    },
+    {
+      "id": "hotpotqa_00035",
+      "benchmark": "hotpotqa",
+      "task": "What type of forum did a former Soviet statesman initiate?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What type of forum did a former Soviet statesman initiate?",
+      "task_class": "web_research",
+      "expected_answer": "Organizations could come together to address global issues",
+      "level": null,
+      "meta": {
+        "key": "96e8ace9e99549be82171f1aa774e446"
+      }
+    },
+    {
+      "id": "hotpotqa_00036",
+      "benchmark": "hotpotqa",
+      "task": "What race track in the midwest hosts a 500 mile race eavery May?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What race track in the midwest hosts a 500 mile race eavery May?",
+      "task_class": "web_research",
+      "expected_answer": "Indianapolis Motor Speedway",
+      "level": null,
+      "meta": {
+        "key": "7d6823a8c99940bf8a6116d9d68a3076"
+      }
+    },
+    {
+      "id": "hotpotqa_00037",
+      "benchmark": "hotpotqa",
+      "task": "In 1991 Euromarché was bought by a chain that operated how any hypermarkets at the end of 2016?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: In 1991 Euromarché was bought by a chain that operated how any hypermarkets at the end of 2016?",
+      "task_class": "web_research",
+      "expected_answer": "1,462",
+      "level": null,
+      "meta": {
+        "key": "8d1f0f9ffd8a41479c1896e69a5e43d6"
+      }
+    },
+    {
+      "id": "hotpotqa_00038",
+      "benchmark": "hotpotqa",
+      "task": "According to the 2001 census, what was the population of the city in which Kirton End is located?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: According to the 2001 census, what was the population of the city in which Kirton End is located?",
+      "task_class": "web_research",
+      "expected_answer": "35,124",
+      "level": null,
+      "meta": {
+        "key": "524da6d906d54f7a8b696a396af59d95"
+      }
+    },
+    {
+      "id": "hotpotqa_00039",
+      "benchmark": "hotpotqa",
+      "task": "Which British first-generation jet-powered medium bomber was used in the South West Pacific theatre of World War II?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which British first-generation jet-powered medium bomber was used in the South West Pacific theatre of World War II?",
+      "task_class": "web_research",
+      "expected_answer": "English Electric Canberra",
+      "level": null,
+      "meta": {
+        "key": "38176368a9634387823799251c8b437c"
+      }
+    },
+    {
+      "id": "hotpotqa_00040",
+      "benchmark": "hotpotqa",
+      "task": "In what city did the \"Prince of tenors\" star in a film based on an opera by Giacomo Puccini?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: In what city did the \"Prince of tenors\" star in a film based on an opera by Giacomo Puccini?",
+      "task_class": "web_research",
+      "expected_answer": "Rome",
+      "level": null,
+      "meta": {
+        "key": "b6a9d3bc14c7473bad03fa8b564086a0"
+      }
+    },
+    {
+      "id": "hotpotqa_00041",
+      "benchmark": "hotpotqa",
+      "task": "Which Australian city founded in 1838 contains a boarding school opened by a Prime Minister of Australia and named after a school in London of the same name.",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which Australian city founded in 1838 contains a boarding school opened by a Prime Minister of Australia and named after a school in London of the same name.",
+      "task_class": "web_research",
+      "expected_answer": "Marion, South Australia",
+      "level": null,
+      "meta": {
+        "key": "5c1d641f498846528f860c8728115210"
+      }
+    },
+    {
+      "id": "hotpotqa_00042",
+      "benchmark": "hotpotqa",
+      "task": "Ellie Goulding worked with what other writers on her third studio album, Delirium?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Ellie Goulding worked with what other writers on her third studio album, Delirium?",
+      "task_class": "web_research",
+      "expected_answer": "Max Martin, Savan Kotecha and Ilya Salmanzadeh",
+      "level": null,
+      "meta": {
+        "key": "8efbbfc6c9c448418391ede15567e819"
+      }
+    },
+    {
+      "id": "hotpotqa_00043",
+      "benchmark": "hotpotqa",
+      "task": "who is younger Keith Bostic or Jerry Glanville ?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: who is younger Keith Bostic or Jerry Glanville ?",
+      "task_class": "web_research",
+      "expected_answer": "Keith Bostic",
+      "level": null,
+      "meta": {
+        "key": "16b4193f0a5b414d886708264782306c"
+      }
+    },
+    {
+      "id": "hotpotqa_00044",
+      "benchmark": "hotpotqa",
+      "task": "What was the Roud Folk Song Index of the nursery rhyme inspiring What Are Little Girls Made Of?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What was the Roud Folk Song Index of the nursery rhyme inspiring What Are Little Girls Made Of?",
+      "task_class": "web_research",
+      "expected_answer": "821",
+      "level": null,
+      "meta": {
+        "key": "ab52d2df6b1543309e42bfbfcc2c10ce"
+      }
+    },
+    {
+      "id": "hotpotqa_00045",
+      "benchmark": "hotpotqa",
+      "task": "What distinction is held by the former NBA player who was a member of the Charlotte Hornets during their 1992-93 season and was head coach for the WNBA team Charlotte Sting?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What distinction is held by the former NBA player who was a member of the Charlotte Hornets during their 1992-93 season and was head coach for the WNBA team Charlotte Sting?",
+      "task_class": "web_research",
+      "expected_answer": "shortest player ever to play in the National Basketball Association",
+      "level": null,
+      "meta": {
+        "key": "27857534e87d46ef8eb51e118639d890"
+      }
+    },
+    {
+      "id": "hotpotqa_00046",
+      "benchmark": "hotpotqa",
+      "task": "D1NZ is a series based on what oversteering technique?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: D1NZ is a series based on what oversteering technique?",
+      "task_class": "web_research",
+      "expected_answer": "Drifting",
+      "level": null,
+      "meta": {
+        "key": "48ac640abe0542a3a96045864e773a21"
+      }
+    },
+    {
+      "id": "hotpotqa_00047",
+      "benchmark": "hotpotqa",
+      "task": "Vince Phillips held a junior welterweight title by an organization recognized by what larger Hall of Fame?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Vince Phillips held a junior welterweight title by an organization recognized by what larger Hall of Fame?",
+      "task_class": "web_research",
+      "expected_answer": "International Boxing Hall of Fame",
+      "level": null,
+      "meta": {
+        "key": "f65c5e6c107c4a87b92fddaf33a28bfd"
+      }
+    },
+    {
+      "id": "hotpotqa_00048",
+      "benchmark": "hotpotqa",
+      "task": "What is the name of the executive producer of the film that has a score composed by Jerry Goldsmith?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What is the name of the executive producer of the film that has a score composed by Jerry Goldsmith?",
+      "task_class": "web_research",
+      "expected_answer": "Ronald Shusett",
+      "level": null,
+      "meta": {
+        "key": "fe447d22b7144fb5a6fdcc70fcfde153"
+      }
+    },
+    {
+      "id": "hotpotqa_00049",
+      "benchmark": "hotpotqa",
+      "task": "What WB supernatrual drama series was Jawbreaker star Rose Mcgowan best known for being in?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What WB supernatrual drama series was Jawbreaker star Rose Mcgowan best known for being in?",
+      "task_class": "web_research",
+      "expected_answer": "Charmed",
+      "level": null,
+      "meta": {
+        "key": "1144115124b14758837f763a510f8676"
+      }
+    },
+    {
+      "id": "hotpotqa_00050",
+      "benchmark": "hotpotqa",
+      "task": "What was the name of the 1996 loose adaptation of William Shakespeare's \"Romeo & Juliet\" written by James Gunn?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What was the name of the 1996 loose adaptation of William Shakespeare's \"Romeo & Juliet\" written by James Gunn?",
+      "task_class": "web_research",
+      "expected_answer": "Tromeo and Juliet",
+      "level": null,
+      "meta": {
+        "key": "c9f1f20ffacf4632a9c238fed4681886"
+      }
+    },
+    {
+      "id": "hotpotqa_00051",
+      "benchmark": "hotpotqa",
+      "task": "Scott Parkin has been a vocal critic of Exxonmobil and another corporation that has operations in how many countries ?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Scott Parkin has been a vocal critic of Exxonmobil and another corporation that has operations in how many countries ?",
+      "task_class": "web_research",
+      "expected_answer": "more than 70 countries",
+      "level": null,
+      "meta": {
+        "key": "40f4a5bdf7dc4e1cacd0f7e5f8ecf3d4"
+      }
+    },
+    {
+      "id": "hotpotqa_00052",
+      "benchmark": "hotpotqa",
+      "task": "The 2017–18 Wigan Athletic F.C. season will be a year in which the team competes in the league cup known as what for sponsorship reasons?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: The 2017–18 Wigan Athletic F.C. season will be a year in which the team competes in the league cup known as what for sponsorship reasons?",
+      "task_class": "web_research",
+      "expected_answer": "Carabao Cup",
+      "level": null,
+      "meta": {
+        "key": "e5b6b816a66f4d7c86e8d14a1ed8c9ad"
+      }
+    },
+    {
+      "id": "hotpotqa_00053",
+      "benchmark": "hotpotqa",
+      "task": "What is the name of the singer who's song was released as the lead single from the album \"Confessions\", and that had popular song stuck behind for eight consecutive weeks?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What is the name of the singer who's song was released as the lead single from the album \"Confessions\", and that had popular song stuck behind for eight consecutive weeks?",
+      "task_class": "web_research",
+      "expected_answer": "Usher",
+      "level": null,
+      "meta": {
+        "key": "8b0da2b132c44af6b46c118c0f6a4bd5"
+      }
+    },
+    {
+      "id": "hotpotqa_00054",
+      "benchmark": "hotpotqa",
+      "task": "What color clothing do people of the Netherlands wear during Oranjegekte or to celebrate the national holiday Koningsdag?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What color clothing do people of the Netherlands wear during Oranjegekte or to celebrate the national holiday Koningsdag?",
+      "task_class": "web_research",
+      "expected_answer": "orange",
+      "level": null,
+      "meta": {
+        "key": "4d97a567473e47d587c0ae0377e93489"
+      }
+    },
+    {
+      "id": "hotpotqa_00055",
+      "benchmark": "hotpotqa",
+      "task": "What is the inhabitant of the city where  122nd SS-Standarte was formed in2014",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What is the inhabitant of the city where  122nd SS-Standarte was formed in2014",
+      "task_class": "web_research",
+      "expected_answer": "276,170 inhabitants",
+      "level": null,
+      "meta": {
+        "key": "7bf3c93f2278423da7a1e3ee6ed2c13e"
+      }
+    },
+    {
+      "id": "hotpotqa_00056",
+      "benchmark": "hotpotqa",
+      "task": "What is the county seat of the county where East Lempster, New Hampshire is located?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What is the county seat of the county where East Lempster, New Hampshire is located?",
+      "task_class": "web_research",
+      "expected_answer": "Newport",
+      "level": null,
+      "meta": {
+        "key": "aa9941c320f54eb9bb506125f38849d8"
+      }
+    },
+    {
+      "id": "hotpotqa_00057",
+      "benchmark": "hotpotqa",
+      "task": "Which of Tara Strong major voice role in animated series is an American animated television series based on the DC Comics fictional superhero team, the \"Teen Titans\"?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which of Tara Strong major voice role in animated series is an American animated television series based on the DC Comics fictional superhero team, the \"Teen Titans\"?",
+      "task_class": "web_research",
+      "expected_answer": "Teen Titans Go!",
+      "level": null,
+      "meta": {
+        "key": "5efcd528b90246069087748d7ed572c3"
+      }
+    },
+    {
+      "id": "hotpotqa_00058",
+      "benchmark": "hotpotqa",
+      "task": "What nationality were social anthropologists Alfred Gell and Edmund Leach?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What nationality were social anthropologists Alfred Gell and Edmund Leach?",
+      "task_class": "web_research",
+      "expected_answer": "British",
+      "level": null,
+      "meta": {
+        "key": "5bf2f2bae3514653a5efab4ae9ef0cee"
+      }
+    },
+    {
+      "id": "hotpotqa_00059",
+      "benchmark": "hotpotqa",
+      "task": "Alvaro Mexia had a diplomatic mission with which tribe of indigenous people?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Alvaro Mexia had a diplomatic mission with which tribe of indigenous people?",
+      "task_class": "web_research",
+      "expected_answer": "Apalachees",
+      "level": null,
+      "meta": {
+        "key": "7b1bac15440f45b1b84f37b7c0c31676"
+      }
+    },
+    {
+      "id": "hotpotqa_00060",
+      "benchmark": "hotpotqa",
+      "task": "In which year was the King who made the 1925 Birthday Honours born?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: In which year was the King who made the 1925 Birthday Honours born?",
+      "task_class": "web_research",
+      "expected_answer": "1865",
+      "level": null,
+      "meta": {
+        "key": "d54a03ac0db94700821be4549016ab59"
+      }
+    },
+    {
+      "id": "hotpotqa_00061",
+      "benchmark": "hotpotqa",
+      "task": "Robert Suettinger was the national intelligence officer under which former Governor of Arkansas?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Robert Suettinger was the national intelligence officer under which former Governor of Arkansas?",
+      "task_class": "web_research",
+      "expected_answer": "William Jefferson Clinton",
+      "level": null,
+      "meta": {
+        "key": "ed5dea2c98824dbab14cf417bd0d441a"
+      }
+    },
+    {
+      "id": "hotpotqa_00062",
+      "benchmark": "hotpotqa",
+      "task": "What is the middle name of the actress who plays Bobbi Bacha in Suburban Madness?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What is the middle name of the actress who plays Bobbi Bacha in Suburban Madness?",
+      "task_class": "web_research",
+      "expected_answer": "Ann",
+      "level": null,
+      "meta": {
+        "key": "288a5bd3cfa245fda6be8d8d3f682cd3"
+      }
+    },
+    {
+      "id": "hotpotqa_00063",
+      "benchmark": "hotpotqa",
+      "task": "What American professional Hawaiian surfer born 18 October 1992 won the Rip Curl Pro Portugal?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What American professional Hawaiian surfer born 18 October 1992 won the Rip Curl Pro Portugal?",
+      "task_class": "web_research",
+      "expected_answer": "John John Florence",
+      "level": null,
+      "meta": {
+        "key": "37b89177cbab471e87db93f3cff60e0a"
+      }
+    },
+    {
+      "id": "hotpotqa_00064",
+      "benchmark": "hotpotqa",
+      "task": "who is the younger brother of The episode guest stars of The Hard Easy",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: who is the younger brother of The episode guest stars of The Hard Easy",
+      "task_class": "web_research",
+      "expected_answer": "Bill Murray",
+      "level": null,
+      "meta": {
+        "key": "67556734c3d5474394036584234301cd"
+      }
+    },
+    {
+      "id": "hotpotqa_00065",
+      "benchmark": "hotpotqa",
+      "task": "In what month is the annual documentary film festival, that is presented by the fortnightly published British journal of literary essays, held?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: In what month is the annual documentary film festival, that is presented by the fortnightly published British journal of literary essays, held?",
+      "task_class": "web_research",
+      "expected_answer": "March and April",
+      "level": null,
+      "meta": {
+        "key": "76949a1027c64bfa9450e6621dd074de"
+      }
+    },
+    {
+      "id": "hotpotqa_00066",
+      "benchmark": "hotpotqa",
+      "task": "Which American film director hosted the 18th Independent Spirit Awards in 2002?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which American film director hosted the 18th Independent Spirit Awards in 2002?",
+      "task_class": "web_research",
+      "expected_answer": "John Waters",
+      "level": null,
+      "meta": {
+        "key": "9118745582044e7eb7b1c8f90101436e"
+      }
+    },
+    {
+      "id": "hotpotqa_00067",
+      "benchmark": "hotpotqa",
+      "task": "In what year was the novel that Lourenço Mutarelli based \"Nina\" on based first published?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: In what year was the novel that Lourenço Mutarelli based \"Nina\" on based first published?",
+      "task_class": "web_research",
+      "expected_answer": "1866",
+      "level": null,
+      "meta": {
+        "key": "e2e2cc73d7d444cdab83ea11ba98c2ee"
+      }
+    },
+    {
+      "id": "hotpotqa_00068",
+      "benchmark": "hotpotqa",
+      "task": "Bordan Tkachuk was the CEO of a company that provides what sort of products?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Bordan Tkachuk was the CEO of a company that provides what sort of products?",
+      "task_class": "web_research",
+      "expected_answer": "IT products and services",
+      "level": null,
+      "meta": {
+        "key": "d4f811c00c9b4524b88c42393aa706c1"
+      }
+    },
+    {
+      "id": "hotpotqa_00069",
+      "benchmark": "hotpotqa",
+      "task": "Handi-Snacks are a snack food product line sold by what American multinational confectionery, food, and beverage company that is based in Illinois?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Handi-Snacks are a snack food product line sold by what American multinational confectionery, food, and beverage company that is based in Illinois?",
+      "task_class": "web_research",
+      "expected_answer": "Mondelez International, Inc.",
+      "level": null,
+      "meta": {
+        "key": "d2e621a7b524447ca77809795db0dc56"
+      }
+    },
+    {
+      "id": "hotpotqa_00070",
+      "benchmark": "hotpotqa",
+      "task": "In which city is the ambassador of the Rabat-Salé-Kénitra administrative region to China based?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: In which city is the ambassador of the Rabat-Salé-Kénitra administrative region to China based?",
+      "task_class": "web_research",
+      "expected_answer": "Beijing",
+      "level": null,
+      "meta": {
+        "key": "2477cdeadbce4e8aad8afed0999dce70"
+      }
+    },
+    {
+      "id": "hotpotqa_00071",
+      "benchmark": "hotpotqa",
+      "task": "Where does the hotel and casino located in which Bill Cosby's third album was recorded?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Where does the hotel and casino located in which Bill Cosby's third album was recorded?",
+      "task_class": "web_research",
+      "expected_answer": "Las Vegas Strip in Paradise",
+      "level": null,
+      "meta": {
+        "key": "a7dc0dadba5f400ba729cdb18612db02"
+      }
+    },
+    {
+      "id": "hotpotqa_00072",
+      "benchmark": "hotpotqa",
+      "task": "What was the name of a woman from the book titled \"Their Lives: The Women Targeted by the Clinton Machine \" and was also a former white house intern?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What was the name of a woman from the book titled \"Their Lives: The Women Targeted by the Clinton Machine \" and was also a former white house intern?",
+      "task_class": "web_research",
+      "expected_answer": "Monica Lewinsky",
+      "level": null,
+      "meta": {
+        "key": "a8cf0b0169064fb9a0441365e67c8ed2"
+      }
+    },
+    {
+      "id": "hotpotqa_00073",
+      "benchmark": "hotpotqa",
+      "task": "What year was the brother of this first round draft pick by the Washington Redskins drafted?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What year was the brother of this first round draft pick by the Washington Redskins drafted?",
+      "task_class": "web_research",
+      "expected_answer": "2003",
+      "level": null,
+      "meta": {
+        "key": "9f2a735dab59406f98ec7cf98001bdcf"
+      }
+    },
+    {
+      "id": "hotpotqa_00074",
+      "benchmark": "hotpotqa",
+      "task": "How many copies of Roald Dahl's variation on a popular anecdote sold?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: How many copies of Roald Dahl's variation on a popular anecdote sold?",
+      "task_class": "web_research",
+      "expected_answer": "250 million",
+      "level": null,
+      "meta": {
+        "key": "877d081d965c4d80aec1521e834c1188"
+      }
+    },
+    {
+      "id": "hotpotqa_00075",
+      "benchmark": "hotpotqa",
+      "task": "Andrew Jaspan was the co-founder of what not-for-profit media outlet?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Andrew Jaspan was the co-founder of what not-for-profit media outlet?",
+      "task_class": "web_research",
+      "expected_answer": "The Conversation",
+      "level": null,
+      "meta": {
+        "key": "90fca7abf31b4a53a8572b41283fa081"
+      }
+    },
+    {
+      "id": "hotpotqa_00076",
+      "benchmark": "hotpotqa",
+      "task": "Where did the descendants of the group of black Indians associated with the Seminole people settle?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Where did the descendants of the group of black Indians associated with the Seminole people settle?",
+      "task_class": "web_research",
+      "expected_answer": "Coahuila, Mexico",
+      "level": null,
+      "meta": {
+        "key": "2444e8e05cb948cfb5973da04a5b5f36"
+      }
+    },
+    {
+      "id": "hotpotqa_00077",
+      "benchmark": "hotpotqa",
+      "task": "The Album Against the Wind was the 11th Album of a Rock singer Robert C Seger born may 6 1945. What was the Rock singers stage name ?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: The Album Against the Wind was the 11th Album of a Rock singer Robert C Seger born may 6 1945. What was the Rock singers stage name ?",
+      "task_class": "web_research",
+      "expected_answer": "Bob Seger",
+      "level": null,
+      "meta": {
+        "key": "cd327a3d292247abb98552f4d2049ff9"
+      }
+    },
+    {
+      "id": "hotpotqa_00078",
+      "benchmark": "hotpotqa",
+      "task": "Rostker v. Goldberg held that the practice of what way of filling armed forces vacancies was consitutional?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Rostker v. Goldberg held that the practice of what way of filling armed forces vacancies was consitutional?",
+      "task_class": "web_research",
+      "expected_answer": "Conscription",
+      "level": null,
+      "meta": {
+        "key": "8063a52923154ad6ad6a4cec81bf906f"
+      }
+    },
+    {
+      "id": "hotpotqa_00079",
+      "benchmark": "hotpotqa",
+      "task": "When was the American lawyer, lobbyist and political consultant who was a senior member of the presidential campaign of Donald Trump born?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: When was the American lawyer, lobbyist and political consultant who was a senior member of the presidential campaign of Donald Trump born?",
+      "task_class": "web_research",
+      "expected_answer": "April 1, 1949",
+      "level": null,
+      "meta": {
+        "key": "d37852b5ba464d4f8235c6bbe433aa1f"
+      }
+    },
+    {
+      "id": "hotpotqa_00080",
+      "benchmark": "hotpotqa",
+      "task": "Where is the stadium at which 1964 Georgia Tech Yellow Jackets football team played their home game located?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Where is the stadium at which 1964 Georgia Tech Yellow Jackets football team played their home game located?",
+      "task_class": "web_research",
+      "expected_answer": "North Avenue at Techwood Drive",
+      "level": null,
+      "meta": {
+        "key": "a96ade04716546ee815ad3903be5db7d"
+      }
+    },
+    {
+      "id": "hotpotqa_00081",
+      "benchmark": "hotpotqa",
+      "task": "Since 2 June 2017, The Leader of Fine Gael had been held by which Irish Fine Gael politician who has served as Taoiseach and Minister for Defence?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Since 2 June 2017, The Leader of Fine Gael had been held by which Irish Fine Gael politician who has served as Taoiseach and Minister for Defence?",
+      "task_class": "web_research",
+      "expected_answer": "Leo Varadkar",
+      "level": null,
+      "meta": {
+        "key": "1edf2e9fb6de4303ae625108be7640a8"
+      }
+    },
+    {
+      "id": "hotpotqa_00082",
+      "benchmark": "hotpotqa",
+      "task": "Tysons Galleria is located in what county?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Tysons Galleria is located in what county?",
+      "task_class": "web_research",
+      "expected_answer": "Fairfax County",
+      "level": null,
+      "meta": {
+        "key": "a6ca2d2d973a49f0b071991f8a7f04df"
+      }
+    },
+    {
+      "id": "hotpotqa_00083",
+      "benchmark": "hotpotqa",
+      "task": "What type of activity does Owner earnings and Warren Buffett have in common?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What type of activity does Owner earnings and Warren Buffett have in common?",
+      "task_class": "web_research",
+      "expected_answer": "business",
+      "level": null,
+      "meta": {
+        "key": "29bcd3c8c43f413f925bf3bb4eb11281"
+      }
+    },
+    {
+      "id": "hotpotqa_00084",
+      "benchmark": "hotpotqa",
+      "task": "hree Men on a Horse is a play by a playwright born in which year ?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: hree Men on a Horse is a play by a playwright born in which year ?",
+      "task_class": "web_research",
+      "expected_answer": "1887",
+      "level": null,
+      "meta": {
+        "key": "0ecd3613257f4858aacb71528d61e40c"
+      }
+    },
+    {
+      "id": "hotpotqa_00085",
+      "benchmark": "hotpotqa",
+      "task": "When was the British author who wrote the novel on which \"Here We Go Round the Mulberry Bush\" was based born?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: When was the British author who wrote the novel on which \"Here We Go Round the Mulberry Bush\" was based born?",
+      "task_class": "web_research",
+      "expected_answer": "7 January 1936",
+      "level": null,
+      "meta": {
+        "key": "143c427bb1664af3a181506621c7e629"
+      }
+    },
+    {
+      "id": "hotpotqa_00086",
+      "benchmark": "hotpotqa",
+      "task": "When was the  former Indian cricketer who made his ODI debuts during the 2000 ICC KnockOut Trophy born?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: When was the  former Indian cricketer who made his ODI debuts during the 2000 ICC KnockOut Trophy born?",
+      "task_class": "web_research",
+      "expected_answer": "7 October 1978",
+      "level": null,
+      "meta": {
+        "key": "5eacf136480e42708d672f5c0cb6a471"
+      }
+    },
+    {
+      "id": "hotpotqa_00087",
+      "benchmark": "hotpotqa",
+      "task": "The Argentine PGA Championship record holder has won how many tournaments worldwide?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: The Argentine PGA Championship record holder has won how many tournaments worldwide?",
+      "task_class": "web_research",
+      "expected_answer": "230",
+      "level": null,
+      "meta": {
+        "key": "2909028e64fa42b885126199f7fdb86d"
+      }
+    },
+    {
+      "id": "hotpotqa_00088",
+      "benchmark": "hotpotqa",
+      "task": "Which American film actor and dancer starred in the 1945 film Johnny Angel?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which American film actor and dancer starred in the 1945 film Johnny Angel?",
+      "task_class": "web_research",
+      "expected_answer": "George Raft",
+      "level": null,
+      "meta": {
+        "key": "61a2d3c2b9ac4cc0937523dab0de749c"
+      }
+    },
+    {
+      "id": "hotpotqa_00089",
+      "benchmark": "hotpotqa",
+      "task": "Suicide's 1977 released album features a song based on what brand's comic character?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Suicide's 1977 released album features a song based on what brand's comic character?",
+      "task_class": "web_research",
+      "expected_answer": "Marvel",
+      "level": null,
+      "meta": {
+        "key": "02bd182ebd4e4cdebd4dd58f20a9be4a"
+      }
+    },
+    {
+      "id": "hotpotqa_00090",
+      "benchmark": "hotpotqa",
+      "task": "Based on a True Story... is an album by which country music star, with the single My Eyes?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Based on a True Story... is an album by which country music star, with the single My Eyes?",
+      "task_class": "web_research",
+      "expected_answer": "Blake Shelton",
+      "level": null,
+      "meta": {
+        "key": "55ac97dd7db8456b92909903f9287399"
+      }
+    },
+    {
+      "id": "hotpotqa_00091",
+      "benchmark": "hotpotqa",
+      "task": "Which airplane was this Major test-flying after whom the base, that 514th Flight Test Squadron is stated at, is named?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which airplane was this Major test-flying after whom the base, that 514th Flight Test Squadron is stated at, is named?",
+      "task_class": "web_research",
+      "expected_answer": "B-17 Flying Fortress bomber",
+      "level": null,
+      "meta": {
+        "key": "f501527031f14678877919e6a517e330"
+      }
+    },
+    {
+      "id": "hotpotqa_00092",
+      "benchmark": "hotpotqa",
+      "task": "Which component of shellite has the formula (ON)CHOH?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which component of shellite has the formula (ON)CHOH?",
+      "task_class": "web_research",
+      "expected_answer": "picric acid",
+      "level": null,
+      "meta": {
+        "key": "cdc2c4b224d8429093bba8991984a35b"
+      }
+    },
+    {
+      "id": "hotpotqa_00093",
+      "benchmark": "hotpotqa",
+      "task": "Mummulgum is a stop on the Bruxner Highway before reaching the town on the banks of which river?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Mummulgum is a stop on the Bruxner Highway before reaching the town on the banks of which river?",
+      "task_class": "web_research",
+      "expected_answer": "Richmond",
+      "level": null,
+      "meta": {
+        "key": "d4cf394fcc6b44a0b3344cff82365d99"
+      }
+    },
+    {
+      "id": "hotpotqa_00094",
+      "benchmark": "hotpotqa",
+      "task": "What other political position did the person who introduced the DISCLOSE Act hold?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What other political position did the person who introduced the DISCLOSE Act hold?",
+      "task_class": "web_research",
+      "expected_answer": "United States Senator",
+      "level": null,
+      "meta": {
+        "key": "b0d78ca31af54976a974990fda0acf39"
+      }
+    },
+    {
+      "id": "hotpotqa_00095",
+      "benchmark": "hotpotqa",
+      "task": "When was the palace founded at which Columba de Dunbar died in 1435?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: When was the palace founded at which Columba de Dunbar died in 1435?",
+      "task_class": "web_research",
+      "expected_answer": "the late 12th Century",
+      "level": null,
+      "meta": {
+        "key": "f1d868a3a2f44814b5304832ae938fcb"
+      }
+    },
+    {
+      "id": "hotpotqa_00096",
+      "benchmark": "hotpotqa",
+      "task": "David Huntsinger has worked with this gospel singer born in the month of July?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: David Huntsinger has worked with this gospel singer born in the month of July?",
+      "task_class": "web_research",
+      "expected_answer": "Larnelle Harris",
+      "level": null,
+      "meta": {
+        "key": "ce4a80f812654eeb9ace5bf4ae500db7"
+      }
+    },
+    {
+      "id": "hotpotqa_00097",
+      "benchmark": "hotpotqa",
+      "task": "Maxeda has been owned since 2004 by which American multinational equity firm?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Maxeda has been owned since 2004 by which American multinational equity firm?",
+      "task_class": "web_research",
+      "expected_answer": "KKR & Co",
+      "level": null,
+      "meta": {
+        "key": "7ede4cf2854842f28f2c5055b9cb2fd5"
+      }
+    },
+    {
+      "id": "hotpotqa_00098",
+      "benchmark": "hotpotqa",
+      "task": "Over how many centuries were the \"dwelling place of the dead\" built?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Over how many centuries were the \"dwelling place of the dead\" built?",
+      "task_class": "web_research",
+      "expected_answer": "three centuries",
+      "level": null,
+      "meta": {
+        "key": "a7567d493e8c45cbac267212a411f7af"
+      }
+    },
+    {
+      "id": "hotpotqa_00099",
+      "benchmark": "hotpotqa",
+      "task": "What major truck road is located in Backford Cross?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What major truck road is located in Backford Cross?",
+      "task_class": "web_research",
+      "expected_answer": "The A41",
+      "level": null,
+      "meta": {
+        "key": "2d10caba8aae460b96616f9afefbe1d1"
+      }
+    },
+    {
+      "id": "hotpotqa_00100",
+      "benchmark": "hotpotqa",
+      "task": "In which role did Caroline Carver played in a 1999 Hallmark Entertainment made-for-TV fantasy movie?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: In which role did Caroline Carver played in a 1999 Hallmark Entertainment made-for-TV fantasy movie?",
+      "task_class": "web_research",
+      "expected_answer": "Princess Jessica",
+      "level": null,
+      "meta": {
+        "key": "203b542ddff84798ae6d3e33cb5b7952"
+      }
+    },
+    {
+      "id": "hotpotqa_00101",
+      "benchmark": "hotpotqa",
+      "task": "The youngest daughter of Lady Mary-Gaye Curzon stars with Douglas Smith and Lucien Laviscount  in what 2017 film?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: The youngest daughter of Lady Mary-Gaye Curzon stars with Douglas Smith and Lucien Laviscount  in what 2017 film?",
+      "task_class": "web_research",
+      "expected_answer": "The Bye Bye Man",
+      "level": null,
+      "meta": {
+        "key": "f819394c8a044ac0b7028c5651541fbc"
+      }
+    },
+    {
+      "id": "hotpotqa_00102",
+      "benchmark": "hotpotqa",
+      "task": "Alice David is the voice of Lara Croft in a video game developed by which company ?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Alice David is the voice of Lara Croft in a video game developed by which company ?",
+      "task_class": "web_research",
+      "expected_answer": "Crystal Dynamics",
+      "level": null,
+      "meta": {
+        "key": "b246986957a546c3b10f69eeeb505de8"
+      }
+    },
+    {
+      "id": "hotpotqa_00103",
+      "benchmark": "hotpotqa",
+      "task": "What's the name of the fantasy film starring Sarah Bolger, featuring a New England family who discover magical creatures around their estate?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What's the name of the fantasy film starring Sarah Bolger, featuring a New England family who discover magical creatures around their estate?",
+      "task_class": "web_research",
+      "expected_answer": "The Spiderwick Chronicles",
+      "level": null,
+      "meta": {
+        "key": "82071b2b1d3941eaaf7cf4863cc8c339"
+      }
+    },
+    {
+      "id": "hotpotqa_00104",
+      "benchmark": "hotpotqa",
+      "task": "Where is the Bubblegum Alley, that is similar to Gum Wall, located in California?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Where is the Bubblegum Alley, that is similar to Gum Wall, located in California?",
+      "task_class": "web_research",
+      "expected_answer": "San Luis Obispo, California",
+      "level": null,
+      "meta": {
+        "key": "57296c5a3fab48cbbc18b219d1c7fda4"
+      }
+    },
+    {
+      "id": "hotpotqa_00105",
+      "benchmark": "hotpotqa",
+      "task": "SuperMansion starred the actress who had a recurring role as whom on Workaholics?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: SuperMansion starred the actress who had a recurring role as whom on Workaholics?",
+      "task_class": "web_research",
+      "expected_answer": "Jillian Belk",
+      "level": null,
+      "meta": {
+        "key": "059d73534cb1414cabb9e71af3b3b86d"
+      }
+    },
+    {
+      "id": "hotpotqa_00106",
+      "benchmark": "hotpotqa",
+      "task": "Which Eminem album included vocals from a singer who had an album titled \"Unapologetic\"?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which Eminem album included vocals from a singer who had an album titled \"Unapologetic\"?",
+      "task_class": "web_research",
+      "expected_answer": "\"The Marshall Mathers LP 2\"",
+      "level": null,
+      "meta": {
+        "key": "b209299fb15c4f2ebe650f7bd15ec6a2"
+      }
+    },
+    {
+      "id": "hotpotqa_00107",
+      "benchmark": "hotpotqa",
+      "task": "At what venue was the January 2, 2012 game featured the University of Louisville team?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: At what venue was the January 2, 2012 game featured the University of Louisville team?",
+      "task_class": "web_research",
+      "expected_answer": "Mercedes-Benz Superdome",
+      "level": null,
+      "meta": {
+        "key": "b96ad447d990452abaa8d17fe36437f1"
+      }
+    },
+    {
+      "id": "hotpotqa_00108",
+      "benchmark": "hotpotqa",
+      "task": "This American crime film set in South Los Angeles was written and directed by the same director and writer of screenwriter of \"Street Kings\", \"End of Watch\", \"Sabotage\", \"Fury\" and what other film?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: This American crime film set in South Los Angeles was written and directed by the same director and writer of screenwriter of \"Street Kings\", \"End of Watch\", \"Sabotage\", \"Fury\" and what other film?",
+      "task_class": "web_research",
+      "expected_answer": "Suicide Squad",
+      "level": null,
+      "meta": {
+        "key": "b6bef5913fe742f29c23aa636a9d30a1"
+      }
+    },
+    {
+      "id": "hotpotqa_00109",
+      "benchmark": "hotpotqa",
+      "task": "Which American audio engineer and clandestine chemist, who was a key figure in the San Francisco Bay Area hippie movement during the 1960s recorded the album \"Old and in the Way?\"",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which American audio engineer and clandestine chemist, who was a key figure in the San Francisco Bay Area hippie movement during the 1960s recorded the album \"Old and in the Way?\"",
+      "task_class": "web_research",
+      "expected_answer": "Owsley Stanley",
+      "level": null,
+      "meta": {
+        "key": "c794714af0f14bbabccc8c6c8d28b4ae"
+      }
+    },
+    {
+      "id": "hotpotqa_00110",
+      "benchmark": "hotpotqa",
+      "task": "The author of Sexual Politics attended which British University?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: The author of Sexual Politics attended which British University?",
+      "task_class": "web_research",
+      "expected_answer": "Oxford",
+      "level": null,
+      "meta": {
+        "key": "9e711dce2ec544778bb3fb718fddad17"
+      }
+    },
+    {
+      "id": "hotpotqa_00111",
+      "benchmark": "hotpotqa",
+      "task": "During Siege of Bharatpur, which Commander-in-Chief of Ireland and Commander-in-Chief of India contributed to the storming of the castle?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: During Siege of Bharatpur, which Commander-in-Chief of Ireland and Commander-in-Chief of India contributed to the storming of the castle?",
+      "task_class": "web_research",
+      "expected_answer": "Lord Combermere",
+      "level": null,
+      "meta": {
+        "key": "166aacaf630247c7ae9abe1df85303d9"
+      }
+    },
+    {
+      "id": "hotpotqa_00112",
+      "benchmark": "hotpotqa",
+      "task": "When did the English local newspaper, featuring the sculpture and war memorial in the Forbury gardens, change names?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: When did the English local newspaper, featuring the sculpture and war memorial in the Forbury gardens, change names?",
+      "task_class": "web_research",
+      "expected_answer": "2009",
+      "level": null,
+      "meta": {
+        "key": "b738d8acdb3f43048b8f5dc511155b4e"
+      }
+    },
+    {
+      "id": "hotpotqa_00113",
+      "benchmark": "hotpotqa",
+      "task": "Both Truth in Science and Discovery embrace what campaign?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Both Truth in Science and Discovery embrace what campaign?",
+      "task_class": "web_research",
+      "expected_answer": "\"Teach the Controversy\" campaign",
+      "level": null,
+      "meta": {
+        "key": "7255f921cfef4ebc8655d32591a7bb9c"
+      }
+    },
+    {
+      "id": "hotpotqa_00114",
+      "benchmark": "hotpotqa",
+      "task": "Which song was behind the third single on the album  \"A Lot About Livin' (And a Little 'bout Love)\" for two weeks on the country charts?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: Which song was behind the third single on the album  \"A Lot About Livin' (And a Little 'bout Love)\" for two weeks on the country charts?",
+      "task_class": "web_research",
+      "expected_answer": "\"We'll Burn That Bridge\"",
+      "level": null,
+      "meta": {
+        "key": "e24476135a7f4ada8d4de9a6d56b1b0f"
+      }
+    },
+    {
+      "id": "hotpotqa_00115",
+      "benchmark": "hotpotqa",
+      "task": "The 1974 Texas Tech Raiders football team represented what public research university in Lubbock, Texas?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: The 1974 Texas Tech Raiders football team represented what public research university in Lubbock, Texas?",
+      "task_class": "web_research",
+      "expected_answer": "Texas Tech University",
+      "level": null,
+      "meta": {
+        "key": "7359e87b324749949aeecd11d64872d9"
+      }
+    },
+    {
+      "id": "hotpotqa_00116",
+      "benchmark": "hotpotqa",
+      "task": "The movies Queen of Blood and Battle Beyond the Sun both contained scenes from what 1959 Soviet feature?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: The movies Queen of Blood and Battle Beyond the Sun both contained scenes from what 1959 Soviet feature?",
+      "task_class": "web_research",
+      "expected_answer": "Nebo Zovyot",
+      "level": null,
+      "meta": {
+        "key": "8c57e725bf4e40ed81660388fe266e84"
+      }
+    },
+    {
+      "id": "hotpotqa_00117",
+      "benchmark": "hotpotqa",
+      "task": "For what type of work is the production company for The Year Without a Santa Claus best known?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: For what type of work is the production company for The Year Without a Santa Claus best known?",
+      "task_class": "web_research",
+      "expected_answer": "seasonal television specials, particularly its work in stop motion animation",
+      "level": null,
+      "meta": {
+        "key": "78e70fdac1984e8c8633ad05fe9871b4"
+      }
+    },
+    {
+      "id": "hotpotqa_00118",
+      "benchmark": "hotpotqa",
+      "task": "What year was the film that starred the composer for \"The Naked Brothers Band\"?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: What year was the film that starred the composer for \"The Naked Brothers Band\"?",
+      "task_class": "web_research",
+      "expected_answer": "2014",
+      "level": null,
+      "meta": {
+        "key": "cb2f345d41524e428697065784efa20d"
+      }
+    },
+    {
+      "id": "hotpotqa_00119",
+      "benchmark": "hotpotqa",
+      "task": "The lamp used in many lighthouses is similiar to this type of lamp patented in 1780 by Aimé Argand?",
+      "task_description": "Solve the following task step by step. Use available tools as needed.\nWhen you have the final answer, state it clearly starting with \"FINAL ANSWER:\" on its own line.\n\nTask: The lamp used in many lighthouses is similiar to this type of lamp patented in 1780 by Aimé Argand?",
+      "task_class": "web_research",
+      "expected_answer": "Argand lamp",
+      "level": null,
+      "meta": {
+        "key": "f219a7f20d2645868909356a1aeccbd6"
+      }
+    }
+  ],
+  "meta": {
+    "benchmark": "hotpotqa",
+    "split": "validation",
+    "hf_id": "lucadiliello/hotpotqa",
+    "count": 120
+  }
+}
