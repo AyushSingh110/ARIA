@@ -7,6 +7,7 @@ import dspy
 
 from aria.classifiers.failure_classifier import XGBoostFailureClassifier
 from aria.config import get_settings
+from aria.config.ablation import get_ablation
 from aria.dspy_programs.diagnostician import DiagnosticProgram, build_lm
 from aria.state.schema import ARIAState
 from aria.utils.display import console, print_agent_output, print_phase
@@ -29,6 +30,13 @@ def _get_dspy_program() -> DiagnosticProgram:
     dspy.configure(lm=lm)
 
     program = DiagnosticProgram()
+    # Ablation: configs A–C run the DSPy program ZERO-SHOT (uncompiled) so we can
+    # measure what the compiled v2 demos add. Only config D / full system loads
+    # the compiled program.
+    if not get_ablation().dspy_compiled:
+        console.print("[dim]Diagnostician: ablation → zero-shot (compiled program not loaded)[/dim]")
+        _dspy_program = program
+        return _dspy_program
     # Only load the v2 compiled program (5-field signature with requirement_summary,
     # trained on human-labeled real data). The legacy diagnostician.json was compiled
     # with the old 4-field signature — loading it overrides the disambiguation rules
@@ -65,11 +73,13 @@ def diagnostician_node(state: ARIAState) -> dict:
     s = get_settings()
     print_phase("diagnose")
 
+    abl = get_ablation()
     critic_scores = state.get("critic_scores")
     observer_flags = state.get("observer_flags", [])
     trace = state.get("executor_trace", [])
 
-    xgb_prediction = _xgb.predict(dict(state))
+    # XGBoost fallback prediction — gated for the XGBoost ablation (Step 3.4).
+    xgb_prediction = _xgb.predict(dict(state)) if abl.xgboost else None
 
     # Build requirement summary for the new Diagnostician input
     req_checklist  = state.get("requirement_checklist") or []
@@ -112,44 +122,47 @@ def diagnostician_node(state: ARIAState) -> dict:
         confidence = max(confidence, 0.6)
         reasoning = f"[XGBoost signal] {reasoning}"
 
-    # Deterministic overrides — same rules as the API endpoint.
-    # The compiled DSPy program (old 4-field signature) can output "none"
-    # even when Critic v2 signals a clear failure. These rules fix that.
+    # ── Deterministic disambiguation rules ───────────────────────────────────
+    # CONTAMINATION NOTE (Step 2.1): these thresholds were originally tuned by
+    # inspecting the RealBench eval cases. They MUST be re-derived on the TRAIN
+    # split only and never tuned against the frozen test set. The ablation gate
+    # (config C adds rules) also lets us measure their isolated contribution.
     obs_flag_types = {f["flag_type"] for f in (state.get("observer_flags") or [])}
 
-    if failure_class == "none" or failure_class is None:
-        if req_sat_score < 0.5 and not obs_flag_types:
-            failure_class = "goal_misalignment"
-            confidence = max(confidence, 0.6)
-            reasoning += " [corrected: req_sat<0.5 with no observer flags -> goal_misalignment]"
-
-    if failure_class == "goal_misalignment":
-        if "tool_error_loop" in obs_flag_types:
-            failure_class = "tool_misuse"
-            reasoning += " [corrected: tool_error_loop flag -> tool_misuse]"
-        elif "tool_repetition" in obs_flag_types and "tool_error_loop" not in obs_flag_types:
-            failure_class = "context_overflow"
-            reasoning += " [corrected: tool_repetition, no errors -> context_overflow]"
-        elif not obs_flag_types and req_sat_score >= 0.75:
-            failure_class = None
-            reasoning += " [corrected: no flags + req_sat>=0.75 -> none]"
-
-    # RealBench finding: 0/14 tool_misuse predictions had error evidence —
-    # the LLM assigns tool_misuse whenever "tools present + requirement missed".
-    # Require an actual error signal before allowing tool_misuse.
-    if failure_class == "tool_misuse" and "tool_error_loop" not in obs_flag_types:
-        trace_has_error = any(
-            "error" in str(e.get("tool_result", "")).lower()
-            for e in trace
-            if e.get("tool_name") != "__llm__"
-        )
-        if not trace_has_error:
-            if req_sat_score < 0.75:
+    if abl.rules:
+        if failure_class == "none" or failure_class is None:
+            if req_sat_score < 0.5 and not obs_flag_types:
                 failure_class = "goal_misalignment"
-                reasoning += " [corrected: tool_misuse without error evidence -> goal_misalignment]"
-            else:
+                confidence = max(confidence, 0.6)
+                reasoning += " [corrected: req_sat<0.5 with no observer flags -> goal_misalignment]"
+
+        if failure_class == "goal_misalignment":
+            if "tool_error_loop" in obs_flag_types:
+                failure_class = "tool_misuse"
+                reasoning += " [corrected: tool_error_loop flag -> tool_misuse]"
+            elif "tool_repetition" in obs_flag_types and "tool_error_loop" not in obs_flag_types:
+                failure_class = "context_overflow"
+                reasoning += " [corrected: tool_repetition, no errors -> context_overflow]"
+            elif not obs_flag_types and req_sat_score >= 0.75:
                 failure_class = None
-                reasoning += " [corrected: tool_misuse without error evidence + req_sat>=0.75 -> none]"
+                reasoning += " [corrected: no flags + req_sat>=0.75 -> none]"
+
+        # RealBench finding: 0/14 tool_misuse predictions had error evidence —
+        # the LLM assigns tool_misuse whenever "tools present + requirement missed".
+        # Require an actual error signal before allowing tool_misuse.
+        if failure_class == "tool_misuse" and "tool_error_loop" not in obs_flag_types:
+            trace_has_error = any(
+                "error" in str(e.get("tool_result", "")).lower()
+                for e in trace
+                if e.get("tool_name") != "__llm__"
+            )
+            if not trace_has_error:
+                if req_sat_score < 0.75:
+                    failure_class = "goal_misalignment"
+                    reasoning += " [corrected: tool_misuse without error evidence -> goal_misalignment]"
+                else:
+                    failure_class = None
+                    reasoning += " [corrected: tool_misuse without error evidence + req_sat>=0.75 -> none]"
 
     if failure_class == "none":
         failure_class = None
@@ -161,7 +174,7 @@ def diagnostician_node(state: ARIAState) -> dict:
     # Catches the "confident wrong answer" blind spot: run looks clean
     # (no flags, req_sat high) but the answer is factually contradicted.
     grounding = None
-    if failure_class is None and req_sat_score >= 0.75:
+    if abl.grounding and failure_class is None and req_sat_score >= 0.75:
         try:
             from aria.agents.grounding import maybe_ground
             grounding = maybe_ground(

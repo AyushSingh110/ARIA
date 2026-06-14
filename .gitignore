@@ -33,6 +33,7 @@ backend/data/gaia/
 backend/data/api_runs/
 backend/data/synthetic/
 backend/data/experience_store.json
+backend/data/taubench/results/
 research/
 *.ipynb_figures/
 research_figures/

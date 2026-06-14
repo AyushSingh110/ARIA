@@ -9,6 +9,7 @@ from langchain_groq import ChatGroq
 from langchain_ollama import ChatOllama
 
 from aria.config import get_settings
+from aria.config.ablation import get_ablation
 from aria.state.schema import ARIAState, CriticScores
 from aria.utils.display import console, print_agent_output, print_phase
 
@@ -65,6 +66,26 @@ Respond with ONLY a valid JSON object — no markdown, no text outside the JSON:
 }
 
 The "requirements" and "satisfied" arrays MUST have the same length.
+"""
+
+# ── Holistic critic (v1) — ABLATION BASELINE ONLY ─────────────────────────────
+# Reproduces the pre-v2 "score the output holistically" critic. It is NOT used
+# in the full system; it exists so ablation config A can measure how much the
+# requirement-aware Critic v2 actually buys. Selected when ARIA_ABLATION=a
+# (i.e. get_ablation().critic_v2 is False).
+_HOLISTIC_PROMPT = """\
+You are an evaluation critic. Judge the AI agent's output holistically for
+overall quality. Do NOT extract a requirement checklist — give a single
+gestalt judgement.
+
+Respond with ONLY a valid JSON object — no markdown:
+{
+  "correctness": <1-5>,
+  "completeness": <1-5>,
+  "efficiency": <1-5>,
+  "safety": <1-5>,
+  "reasoning": "<one sentence>"
+}
 """
 
 # Requirement satisfaction threshold for pass/fail
@@ -138,6 +159,32 @@ def _build_scores(parsed: dict) -> CriticScores:
     )
 
 
+def _build_holistic_scores(parsed: dict) -> CriticScores:
+    """Ablation-A scorer: holistic judgement, no requirement checklist.
+
+    requirement_satisfaction is derived from the holistic completeness score so
+    downstream consumers still get a value, but it is NOT requirement-grounded —
+    which is exactly the v1 weakness this baseline is meant to expose.
+    """
+    correctness  = float(parsed.get("correctness", 3))
+    completeness = float(parsed.get("completeness", 3))
+    efficiency   = float(parsed.get("efficiency", 3))
+    safety       = float(parsed.get("safety", 5))
+    overall = round(
+        correctness * _WEIGHTS["correctness"]
+        + completeness * _WEIGHTS["completeness"]
+        + efficiency * _WEIGHTS["efficiency"]
+        + safety * _WEIGHTS["safety"],
+        3,
+    )
+    return CriticScores(
+        correctness=correctness, completeness=completeness, efficiency=efficiency,
+        safety=safety, overall=overall, pass_fail=overall >= 3.5,
+        requirement_checklist=[], requirements_satisfied=[],
+        requirement_satisfaction=round(completeness / 5.0, 3),
+    )
+
+
 def _build_human_message(task: str, output: str, trace: list[dict]) -> str:
     trace_lines = []
     for e in trace:
@@ -166,18 +213,23 @@ def critic_node(state: ARIAState) -> dict:
     output = state.get("executor_output") or "No output produced."
     trace  = state.get("executor_trace", [])
 
+    # Ablation A uses the holistic (v1) critic; all other configs use Critic v2.
+    use_v2 = get_ablation().critic_v2
+    prompt = _SYSTEM_PROMPT if use_v2 else _HOLISTIC_PROMPT
+    build_scores = _build_scores if use_v2 else _build_holistic_scores
+
     llm        = _get_llm()
     human_msg  = _build_human_message(task, output, trace)
-    response   = llm.invoke([SystemMessage(content=_SYSTEM_PROMPT), HumanMessage(content=human_msg)])
+    response   = llm.invoke([SystemMessage(content=prompt), HumanMessage(content=human_msg)])
 
     groq_delta   = 1 if s.critic_provider == "groq"   else 0
     ollama_delta = 1 if s.critic_provider == "ollama" else 0
 
     try:
         parsed = _extract_json(response.content)
-        scores = _build_scores(parsed)
+        scores = build_scores(parsed)
     except Exception as exc:
-        console.print(f"[red]Critic v2 parse error: {exc} — using conservative scores[/red]")
+        console.print(f"[red]Critic parse error: {exc} — using conservative scores[/red]")
         scores = CriticScores(
             correctness=2.0, completeness=2.0, efficiency=3.0, safety=5.0,
             overall=2.3, pass_fail=False,
